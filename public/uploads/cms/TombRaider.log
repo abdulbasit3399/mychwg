@@ -1,0 +1,80 @@
+12:05:42:890 (18036) > --- NIXXES log start ---
+12:05:42:957 (18036) > 
+12:05:42:984 (18036) > Memory statistics:
+12:05:43:006 (18036) >   Total RAM = 7.9 GB (8136 MB)
+12:05:43:032 (18036) >   Avail RAM = 1.9 GB (1995 MB)
+12:05:43:057 (18036) >   Total virtual memory = 4.0 GB (4095 MB)
+12:05:43:082 (18036) >   Avail virtual memory = 3.4 GB (3443 MB)
+12:05:43:107 (18036) > OS = Windows 8 (build 9200)
+12:05:43:151 (18036) > Starting Tomb Raider v1.01.748.0
+12:05:43:586 (18036) > [Main] Current directory: C:\Program Files (x86)\Steam\steamapps\common\Tomb Raider
+12:05:43:898 (18036) > Mounted TITLE.000
+12:05:43:971 (18036) > Mounted PATCH.000
+12:05:44:033 (18036) > Mounted PATCH2.000
+12:05:44:394 (18036) > [Render] PCDeviceManager constructor start
+12:05:45:203 (18036) > [Render] PCDeviceManager constructor end
+12:05:45:753 (18036) > [Render] PCDX11DeviceManager constructor start
+12:05:45:902 (18036) > D3D Adapter Information:
+12:05:45:933 (18036) > Adapter Description: NVIDIA GeForce GTX 1050 Ti
+12:05:45:949 (18036) > VendorID: 10de
+12:05:45:967 (18036) > DeviceID: 1c82
+12:05:45:982 (18036) > Revision: a1
+12:05:46:000 (18036) > NVidia hardware detected. Attemping to load NVAPI...
+12:05:46:016 (18036) > NVAPI loaded succesfully.
+12:05:46:034 (18036) > NvAPI_Stereo_IsEnabled() returned an error: -219
+12:05:46:124 (18036) > Reducing mouse lag by setting frame latency to 1...
+12:05:46:164 (18036) > D3D reports feature level 11 is supported.
+12:05:46:243 (18036) > NVAPI Depth Bounds Test supported.
+12:05:46:394 (18036) > D3D Adapter Information:
+12:05:46:426 (18036) > Adapter Description: Microsoft Basic Render Driver
+12:05:46:441 (18036) > VendorID: 1414
+12:05:46:459 (18036) > DeviceID: 8c
+12:05:46:474 (18036) > Revision: 0
+12:05:46:544 (18036) > Reducing mouse lag by setting frame latency to 1...
+12:05:46:558 (18036) > D3D reports feature level 11 is supported.
+12:05:46:576 (18036) > D3D reports no hardware multiple command list support.
+12:05:46:603 (18036) > [Render] Adapter M has no outputs!
+12:05:46:617 (18036) > [Render] PCDX11DeviceManager constructor end
+12:05:50:581 (18036) > CPU count: logical = 4, cores = 4, physical = 1
+12:05:50:653 (18036) > D3D Adapter Information:
+12:05:50:677 (18036) > Adapter Description: NVIDIA GeForce GTX 1050 Ti
+12:05:50:693 (18036) > VendorID: 10de
+12:05:50:727 (18036) > DeviceID: 1c82
+12:05:50:742 (18036) > Revision: a1
+12:05:50:759 (18036) > NVidia hardware detected. Attemping to load NVAPI...
+12:05:50:776 (18036) > NVAPI loaded succesfully.
+12:05:50:793 (18036) > NvAPI_Stereo_IsEnabled() returned an error: -140
+12:05:50:853 (18036) > Reducing mouse lag by setting frame latency to 1...
+12:05:50:910 (18036) > D3D reports feature level 11 is supported.
+12:05:50:934 (18036) > NVAPI Depth Bounds Test supported.
+12:05:51:021 (12368) > CreateSwapChain() = 0
+12:05:51:085 (12368) > MakeWindowAssociation() = 0
+12:05:51:318 (12368) > SetFullscreenState() = 0
+12:05:52:791 (18036) > [Render] Using DirectX 11
+12:05:53:559 (18036) > Initalizing audio...
+12:05:53:795 (18036) > Audio device found. FMOD reports 1 driver(s).
+12:05:54:005 (18036) > Audio Driver Name: Speakers (USB Audio Device)
+12:05:54:026 (18036) > Speaker Mode: 2
+12:05:59:780 (18036) > WebService is not ready yet, retry...
+12:06:00:426 (18036) > WebService is not ready yet, retry...
+12:06:00:535 (18036) > WebService is not ready yet, retry...
+12:06:00:629 (18036) > OLWebServiceClient [Status:200] [DownloadEvent:Finished] [HttpError:OK] [ServerError:OK]
+12:06:00:896 (18036) > Request (GetPlayerProfileFrom) [Id:0] failed ! [Status:0] [DownloadEvent:Server Error] [HttpError:Response Receive Failed] [ServerError:OK]
+12:06:02:484 (18036) > Request (GetPlayerProfileFrom) [Id:1] failed ! [Status:0] [DownloadEvent:Server Error] [HttpError:Response Receive Failed] [ServerError:OK]
+12:06:11:463 (18036) > Request (SEM_Login) [Id:2] failed ! [Status:404] [DownloadEvent:Resource Error] [HttpError:Response Status Code] [ServerError:OK]
+12:06:49:453 (18036) > The request (UpdatePlayer) [Id:10] hasn't been setup properly.
+12:07:14:707 (18036) > Player object AddRef laracroft: 1 => 2
+12:07:14:759 (18036) > Player object AddRef laracroft: 2 => 3
+12:07:14:874 (18036) > Player object AddRef laracroft: 3 => 4
+12:19:44:976 (18036) > Player object RemRef laracroft: 4 => 3
+12:20:10:746 (18036) > Player object AddRef laracroft: 3 => 4
+12:24:12:380 (18036) > Player object RemRef laracroft: 4 => 3
+12:24:12:400 (18036) > Player object RemRef laracroft: 3 => 2
+12:24:12:417 (18036) > Player object RemRef laracroft: 2 => 1
+12:24:14:563 (18036) > Player object AddRef laracroft: 1 => 2
+12:24:14:579 (18036) > Player object AddRef laracroft: 2 => 3
+12:24:14:603 (18036) > Player object AddRef laracroft: 3 => 4
+12:24:30:540 (18036) > Player object RemRef laracroft: 4 => 3
+12:24:30:583 (18036) > Player object RemRef laracroft: 3 => 2
+12:24:30:598 (18036) > Player object RemRef laracroft: 2 => 1
+12:24:41:347 (18036) > Exiting the game.
