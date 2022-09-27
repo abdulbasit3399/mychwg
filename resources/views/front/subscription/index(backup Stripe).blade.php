@@ -184,9 +184,9 @@
                                 <small>This package will automatically renew the following year on the date of purchase.</small>
                             </div>
                             <div class="float-right mb-1">
-                                <a class="btn btn-sm btn-info text-white p-2" href="{{ route('create.subscription',$yearly_plan) }}">Subscribe</a>
+                                <a class="btn btn-sm btn-info text-white p-2" href="{{ $yearly_plan_session['url'] }}">Subscribe</a>
                             </div>
-                            <h4 class="font-weight-bold">${{$yearly_plan_response->recurringPlan->amountRecurring}}</h4>
+                            <h4 class="font-weight-bold">${{ Auth::user()->role == 'homeopath' ? '359.99' : '39.99' }}</h4>
 
                         </div>
                         <hr>
@@ -196,9 +196,9 @@
                                 <small>This package will automatically renew the following month on the date of purchase.</small>
                             </div>
                             <div class="float-right mb-1">
-                                <a class="btn btn-sm btn-info text-white p-2" href="{{ route('create.subscription',$monthly_plan) }}">Subscribe</a>
+                                <a class="btn btn-sm btn-info text-white p-2" href="{{ $monthly_plan_session['url'] }}">Subscribe</a>
                             </div>
-                            <h4 class="font-weight-bold">${{$monthly_plan_response->recurringPlan->amountRecurring}}</h4>
+                            <h4 class="font-weight-bold">${{ Auth::user()->role == 'homeopath' ? '39.99' : '4.99' }}</h4>
 
                         </div>
 

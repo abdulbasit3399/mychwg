@@ -230,7 +230,8 @@ Route::middleware(['auth', 'status'])->group(function () {
 
 
     Route::get('/subscription/payment', 'Homeopath\SubscriptionController@subscriptionPayment')->name('subscription.payment');
-    Route::post('create-subscription','Homeopath\SubscriptionController@createSubscription')->name('create.subscription');
+    Route::get('create-subscription/{id}','Homeopath\SubscriptionController@createSubscription')->name('create.subscription');
+    // Route::post('create-subscription','Homeopath\SubscriptionController@createSubscription')->name('create.subscription');
     Route::get('subscriptions/cancel', 'Homeopath\SubscriptionController@subscriptionCancel')->name('subscription.cancel');
 
 });

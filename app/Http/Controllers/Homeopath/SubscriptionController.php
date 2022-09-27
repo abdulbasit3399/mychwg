@@ -67,11 +67,34 @@ class SubscriptionController extends Controller
 
     public function subscriptionPayment()
     {
+        $user = User::find(Auth::id());
+        // $client = new \GuzzleHttp\Client();
+        // $response = $client->request('POST', 'https://secure.myhelcim.com/api/customer/modify', [
+        //   'form_params' => [
+        //     'contactName' => $user->name,
+        //     'businessName' => $user->user_name,
+        //     'billing_email' => $user->email,
+        //     'allowEmptyFields' => 1
+        //   ],
+        //   'headers' => [
+        //     'accept' => 'application/xml',
+        //     'account-id' => env('HELCIM_ACCOUNT_ID'),
+        //     'api-token' => env('HELCIM_API_TOKEN'),
+        //     'content-type' => 'application/x-www-form-urlencoded',
+        //   ],
+        // ]);
+        // $customer = simplexml_load_string($response->getBody());
+        // if(isset($customer->response) && $customer->response == 1){
+        //     $user->helcim_connect = $customer->customer->customerCode;
+        //     $user->save();
+        // }
+            
+
         $role = Str::upper(Auth::user()->role);
 
         $monthly_plan = env($role.'_MONTHLY_PLAN_HEL');
         $yearly_plan = env($role.'_YEARLY_PLAN_HEL');
-        
+
         $old_sub = Subscription::where('user_id', auth()->user()->id)->first();
 
         $client = new \GuzzleHttp\Client();
@@ -81,13 +104,13 @@ class SubscriptionController extends Controller
         ],
         'headers' => [
             'accept' => 'application/xml',
-            'account-id' => '2500365012',
-            'api-token' => 'jZw5bx7fbMB3XYC2a9RzkBm69',
+            'account-id' => env('HELCIM_ACCOUNT_ID'),
+            'api-token' => env('HELCIM_API_TOKEN'),
             'content-type' => 'application/x-www-form-urlencoded',
         ],
         ]);
-        $monthly_plan = simplexml_load_string($response->getBody());
-        $monthly_plan = json_encode($monthly_plan);
+        $monthly_plan_response = simplexml_load_string($response->getBody());
+        // $monthly_plan_response = json_encode($monthly_plan_response);
 
 
         $client = new \GuzzleHttp\Client();
@@ -97,62 +120,57 @@ class SubscriptionController extends Controller
         ],
         'headers' => [
             'accept' => 'application/xml',
-            'account-id' => '2500365012',
-            'api-token' => 'jZw5bx7fbMB3XYC2a9RzkBm69',
+            'account-id' => env('HELCIM_ACCOUNT_ID'),
+            'api-token' => env('HELCIM_API_TOKEN'),
             'content-type' => 'application/x-www-form-urlencoded',
         ],
         ]);
-        $yearly_plan = simplexml_load_string($response->getBody());
-        $yearly_plan = json_encode($yearly_plan);
+        $yearly_plan_response = simplexml_load_string($response->getBody());
+        // $yearly_plan_response = json_encode($yearly_plan_response);
 
         return view('front.subscription.index', get_defined_vars());
     }
 
-    public function createSubscription(Request $request)
+    public function createSubscription($id)
     {
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request('POST', 'https://secure.myhelcim.com/api/recurring/recurring-plan-view', [
+        'form_params' => [
+            'recurringPlanId' => $id
+        ],
+        'headers' => [
+            'accept' => 'application/xml',
+            'account-id' => env('HELCIM_ACCOUNT_ID'),
+            'api-token' => env('HELCIM_API_TOKEN'),
+            'content-type' => 'application/x-www-form-urlencoded',
+        ],
+        ]);
+        $plan_response = simplexml_load_string($response->getBody());
+        $price = $plan_response->recurringPlan->amountRecurring;
 
+        $client = new \GuzzleHttp\Client();
 
-        try
-        {
-            $user = auth()->user();
-            $paymentMethod = $request->paymentMethod;
-            $sub=Subscription::where('user_id',auth()->user()->id)->get();
-            if($sub!==null)
-            {
-                foreach($sub as $subsc)
-                {
-                    $subsc->delete();
-                }
-            }
+        $response = $client->request('POST', 'https://secure.myhelcim.com/api/recurring/subscription-modify', [
+          'form_params' => [
+            'recurringPlanId' => $id,
+            'customerCode' => Auth::user()->helcim_connect,
+            'dateCreated' => '2022-09-27',
+            'dateStarted' => '2022-09-27',
+            'amountRecurring' => '10.00',
+            'amountInitial' => '1.00',
+            'cyclesTotal' => 0,
+            'status' => null
+          ],
+          'headers' => [
+            'accept' => 'application/xml',
+            'account-id' => env('HELCIM_ACCOUNT_ID'),
+            'api-token' => env('HELCIM_API_TOKEN'),
+            'content-type' => 'application/x-www-form-urlencoded',
+          ],
+        ]);
 
-            $user->createOrGetStripeCustomer();
-            $user->updateDefaultPaymentMethod($paymentMethod);
-
-            $subscription=$user->newSubscription('default', env('YEARLY_PLAN'))
-                ->trialDays(30)
-                ->create($paymentMethod, [
-                    'email' => $user->email,
-                ]);
-
-            $stripe = new \Stripe\StripeClient(
-                env('STRIPE_SECRET')
-            );
-
-
-
-
-
-            return redirect()->route('redirect.dashboard')->with('message', 'Welcome to Dashboard, Your subscription has been created.');
-
-        }
-        catch (\Exception $e)
-        {
-            $error = $e->getMessage();
-
-            return back()->withError($error);
-        }
-
-
+        $subscription_response = simplexml_load_string($response->getBody());
+        dd(json_encode($subscription_response));
 
     }
 

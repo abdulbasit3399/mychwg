@@ -1,6 +1,6 @@
-@extends('layouts.front')
-@section('title', 'Homeopath Subscription')
-@section('css')
+
+<?php $__env->startSection('title', 'Homeopath Subscription'); ?>
+<?php $__env->startSection('css'); ?>
     <style>
 
                 #card-button  {
@@ -129,15 +129,15 @@
 
 
     </style>
-@endsection
+<?php $__env->stopSection(); ?>
 
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <header>
     <div class="wrapper">
         <div id="header_content" style="background:#dcf2fa 50% center;background-size: cover;">
-            @include('front.components.navbar')
+            <?php echo $__env->make('front.components.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         </div>
     </div>
 </header>
@@ -147,29 +147,27 @@
 
         <div class="row">
             <div class="col-sm-12 text-right px-5">
-                <a href="{{ route('index') }}">Return to website</a>
+                <a href="<?php echo e(route('index')); ?>">Return to website</a>
             </div>
             <div class="col-lg-7 col-sm-6 mt-4 px-5">
                 <div class="clearfix">
                     <div class="float-left">
-                        <h3 class="font-weight-bold text-capitalize">{{ Auth::user()->role }} Package</h3>
+                        <h3 class="font-weight-bold text-capitalize"><?php echo e(Auth::user()->role); ?> Package</h3>
                     </div>
-                    {{-- <div class="float-right">
-                        30 Days Trial
-                    </div> --}}
+                    
                 </div>
 
-                @if(Auth::user()->role == 'homeopath')
+                <?php if(Auth::user()->role == 'homeopath'): ?>
 
                     <h4 class="font-weight-bold mt-3">myClinic (Clinic Management Platform)</h4>
                     <small>Run your clinic on the fastest growing homeopath platform that ensures your business</small>
 
-                @else
+                <?php else: ?>
 
                     <h5 class="font-weight-bold">Advocacy Program (Social Platform) - <span class="text-info">$4.99 CAD/m</span></h5>
                     <small>Social health platform dedicated to a community driven by <br> holistic health solutions and alternative healthcare.</small>
 
-                @endif
+                <?php endif; ?>
 
 
             </div>
@@ -184,9 +182,9 @@
                                 <small>This package will automatically renew the following year on the date of purchase.</small>
                             </div>
                             <div class="float-right mb-1">
-                                <a class="btn btn-sm btn-info text-white p-2" href="{{ route('create.subscription',$yearly_plan) }}">Subscribe</a>
+                                <a class="btn btn-sm btn-info text-white p-2" href="<?php echo e(route('create.subscription',$yearly_plan)); ?>">Subscribe</a>
                             </div>
-                            <h4 class="font-weight-bold">${{$yearly_plan_response->recurringPlan->amountRecurring}}</h4>
+                            <h4 class="font-weight-bold">$<?php echo e($yearly_plan_response->recurringPlan->amountRecurring); ?></h4>
 
                         </div>
                         <hr>
@@ -196,9 +194,9 @@
                                 <small>This package will automatically renew the following month on the date of purchase.</small>
                             </div>
                             <div class="float-right mb-1">
-                                <a class="btn btn-sm btn-info text-white p-2" href="{{ route('create.subscription',$monthly_plan) }}">Subscribe</a>
+                                <a class="btn btn-sm btn-info text-white p-2" href="<?php echo e(route('create.subscription',$monthly_plan)); ?>">Subscribe</a>
                             </div>
-                            <h4 class="font-weight-bold">${{$monthly_plan_response->recurringPlan->amountRecurring}}</h4>
+                            <h4 class="font-weight-bold">$<?php echo e($monthly_plan_response->recurringPlan->amountRecurring); ?></h4>
 
                         </div>
 
@@ -214,11 +212,13 @@
 
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
 
-@section('js')
+<?php $__env->startSection('js'); ?>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.front', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\mychwg\resources\views/front/subscription/index.blade.php ENDPATH**/ ?>
