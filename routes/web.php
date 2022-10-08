@@ -823,7 +823,7 @@ Route::post('admin/login', 'Admin\AdminLoginController@AdminAttemptLogin')->name
 
 
 
-Route::get('/payment/succeed', [App\Http\Controllers\HomeController::class, 'subscriptionPaymentSucceed'])->name('payment.succeed');
+Route::post('/payment/succeed', [App\Http\Controllers\HomeController::class, 'subscriptionPaymentSucceed'])->name('payment.succeed');
 Route::get('/subscription/cancel', [App\Http\Controllers\Homeopath\SubscriptionController::class, 'cancelSubscription'])->name('subscription.cancel');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/scrap/link', [App\Http\Controllers\HomeController::class, 'scrapLink'])->name('scrap.link');

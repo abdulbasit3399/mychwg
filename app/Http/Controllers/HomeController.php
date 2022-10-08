@@ -17,7 +17,7 @@ class HomeController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['auth', 'verified']);
+        // $this->middleware(['auth', 'verified']);
     }
     public function redirectDashboard()
     {
@@ -109,6 +109,7 @@ class HomeController extends Controller
 
     public function subscriptionPaymentSucceed(Request $req)
     {
+        dd($req->all());
         return view('front.payment_succeed', get_defined_vars());
     }
 

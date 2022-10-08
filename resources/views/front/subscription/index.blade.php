@@ -184,7 +184,11 @@
                                 <small>This package will automatically renew the following year on the date of purchase.</small>
                             </div>
                             <div class="float-right mb-1">
-                                <a class="btn btn-sm btn-info text-white p-2" href="{{ route('create.subscription',$yearly_plan) }}">Subscribe</a>
+                                @if(Auth::user()->role == 'homeopath')
+                                <a class="btn btn-sm btn-info text-white p-2" href="https://canadian-homeopathy-wellness-group.myhelcim.com/hosted/?token=cf24c3d8302daa874b8dc8&recurringPlan=b27af72a34d0ebeac1953b&amountHash=13a4c2269a09eccb20c4cf1c48f0ee62ec95bcd62aca59596d7f3ca44f53e883">Subscribe</a>
+                                @elseif(Auth::user()->role == 'advocate')
+                                <a class="btn btn-sm btn-info text-white p-2" href="https://canadian-homeopathy-wellness-group.myhelcim.com/hosted/?token=cf24c3d8302daa874b8dc8&recurringPlan=29c519b9cdcb626dd56db3&amountHash=13a4c2269a09eccb20c4cf1c48f0ee62ec95bcd62aca59596d7f3ca44f53e883">Subscribe</a>
+                                @endif
                             </div>
                             <h4 class="font-weight-bold">${{$yearly_plan_response->recurringPlan->amountRecurring}}</h4>
 
@@ -196,7 +200,11 @@
                                 <small>This package will automatically renew the following month on the date of purchase.</small>
                             </div>
                             <div class="float-right mb-1">
-                                <a class="btn btn-sm btn-info text-white p-2" href="{{ route('create.subscription',$monthly_plan) }}">Subscribe</a>
+                                @if(Auth::user()->role == 'homeopath')
+                                <a class="btn btn-sm btn-info text-white p-2" href="https://canadian-homeopathy-wellness-group.myhelcim.com/hosted/?token=cf24c3d8302daa874b8dc8&recurringPlan=684530c35e50de6bc9daf9&amountHash=13a4c2269a09eccb20c4cf1c48f0ee62ec95bcd62aca59596d7f3ca44f53e883">Subscribe</a>
+                                @elseif(Auth::user()->role == 'advocate')
+                                <a class="btn btn-sm btn-info text-white p-2" href="https://canadian-homeopathy-wellness-group.myhelcim.com/hosted/?token=cf24c3d8302daa874b8dc8&recurringPlan=071e6a9dea7d219bed8d96&amountHash=13a4c2269a09eccb20c4cf1c48f0ee62ec95bcd62aca59596d7f3ca44f53e883">Subscribe</a>
+                                @endif
                             </div>
                             <h4 class="font-weight-bold">${{$monthly_plan_response->recurringPlan->amountRecurring}}</h4>
 
