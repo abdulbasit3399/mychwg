@@ -164,6 +164,7 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Sarfraznawaz2005\VisitLog\VisitLogServiceProvider::class,
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -176,8 +177,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-         'Amsify42\PaypalMassPayment\PaypalMassPaymentServiceProvider',
-        Weidner\Goutte\GoutteServiceProvider::class, 
+         // 'Amsify42\PaypalMassPayment\PaypalMassPaymentServiceProvider',
+        // Weidner\Goutte\GoutteServiceProvider::class, 
 
     ],
 
@@ -233,8 +234,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'VisitLog' => Sarfraznawaz2005\VisitLog\Facades\VisitLog::class,
-        'PaypalMassPayment' => 'Amsify42\PaypalMassPayment\PaypalMassPaymentFacade',
-        'Goutte' => Weidner\Goutte\GoutteFacade::class,
+        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+        // 'PaypalMassPayment' => 'Amsify42\PaypalMassPayment\PaypalMassPaymentFacade',
+        // 'Goutte' => Weidner\Goutte\GoutteFacade::class,
 
 
     ],

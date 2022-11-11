@@ -92,85 +92,28 @@ class SubscriptionController extends Controller
 
         $role = Str::upper(Auth::user()->role);
 
-        $monthly_plan = env($role.'_MONTHLY_PLAN_HEL');
-        $yearly_plan = env($role.'_YEARLY_PLAN_HEL');
-
+        $monthly_plan = env($role.'_MONTHLY_PLAN_SQUARE');
+        $yearly_plan = env($role.'_YEARLY_PLAN_SQUARE');
         $old_sub = Subscription::where('user_id', auth()->user()->id)->first();
 
-        $client = new \GuzzleHttp\Client();
-        $response = $client->request('POST', 'https://secure.myhelcim.com/api/recurring/recurring-plan-view', [
-        'form_params' => [
-            'recurringPlanId' => $monthly_plan
-        ],
-        'headers' => [
-            'accept' => 'application/xml',
-            'account-id' => env('HELCIM_ACCOUNT_ID'),
-            'api-token' => env('HELCIM_API_TOKEN'),
-            'content-type' => 'application/x-www-form-urlencoded',
-        ],
-        ]);
-        $monthly_plan_response = simplexml_load_string($response->getBody());
-        // $monthly_plan_response = json_encode($monthly_plan_response);
-
-
-        $client = new \GuzzleHttp\Client();
-        $response = $client->request('POST', 'https://secure.myhelcim.com/api/recurring/recurring-plan-view', [
-        'form_params' => [
-            'recurringPlanId' => $yearly_plan
-        ],
-        'headers' => [
-            'accept' => 'application/xml',
-            'account-id' => env('HELCIM_ACCOUNT_ID'),
-            'api-token' => env('HELCIM_API_TOKEN'),
-            'content-type' => 'application/x-www-form-urlencoded',
-        ],
-        ]);
-        $yearly_plan_response = simplexml_load_string($response->getBody());
-        // $yearly_plan_response = json_encode($yearly_plan_response);
 
         return view('front.subscription.index', get_defined_vars());
     }
 
     public function createSubscription($id)
     {
+        $data = array(
+           'customer_id' => auth()->user()->stripe_id,
+           'plan_id' => $id,
+           'location_id' => env('LOCATION_ID')
+        );
+        $url = env('SQUARE_API_URL')."/v2/subscriptions";
         $client = new \GuzzleHttp\Client();
-        $response = $client->request('POST', 'https://secure.myhelcim.com/api/recurring/recurring-plan-view', [
-        'form_params' => [
-            'recurringPlanId' => $id
-        ],
-        'headers' => [
-            'accept' => 'application/xml',
-            'account-id' => env('HELCIM_ACCOUNT_ID'),
-            'api-token' => env('HELCIM_API_TOKEN'),
-            'content-type' => 'application/x-www-form-urlencoded',
-        ],
-        ]);
-        $plan_response = simplexml_load_string($response->getBody());
-        $price = $plan_response->recurringPlan->amountRecurring;
-
-        $client = new \GuzzleHttp\Client();
-
-        $response = $client->request('POST', 'https://secure.myhelcim.com/api/recurring/subscription-modify', [
-          'form_params' => [
-            'recurringPlanId' => $id,
-            'customerCode' => Auth::user()->helcim_connect,
-            'dateCreated' => '2022-09-27',
-            'dateStarted' => '2022-09-27',
-            'amountRecurring' => '10.00',
-            'amountInitial' => '1.00',
-            'cyclesTotal' => 0,
-            'status' => null
-          ],
-          'headers' => [
-            'accept' => 'application/xml',
-            'account-id' => env('HELCIM_ACCOUNT_ID'),
-            'api-token' => env('HELCIM_API_TOKEN'),
-            'content-type' => 'application/x-www-form-urlencoded',
-          ],
-        ]);
-
-        $subscription_response = simplexml_load_string($response->getBody());
-        dd(json_encode($subscription_response));
+        $response = $client->post($url, [
+            'headers' => ['Content-Type' => 'application/json', 'Accept' => 'application/json','Authorization' => 'Bearer '.env('SQUARE_ACCESS_TOKEN')],
+            'body'    => json_encode($data)
+        ]); 
+        return redirect()->back()->withError('Invoice sent to your registered email, please Pay invoice and refresh this page.');
 
     }
 

@@ -176,6 +176,9 @@ class User extends Authenticatable
         return $this->hasMany(UserFolder::class, 'user_id');
     }
 
-
+    public function user_subscription()
+    {
+        return $this->hasOne('App\Models\SquareSubscription');
+    }
 
 }

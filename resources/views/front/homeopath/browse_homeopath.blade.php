@@ -94,7 +94,9 @@
                   </div>
                 </div>
                 <div class="vendors-list-profile-details mt-4 pt-3">
-                  <div class="vendor-name"><h4 class="font-weight-bold mb-0 pb-0"><a href="{{ route('profile.homeopath', $item->user_name) }}">{{ $item->name }}</a></h4></div>
+                  <div class="vendor-name">
+                    <h4 class="font-weight-bold mb-0 pb-0">
+                      <a href="{{ route('profile.homeopath', $item->user_name) }}">{{ $item->name }}</a></h4></div>
                   <div class="text-center vendor-address txt14 font-weight-bold" style="color:#10E8CB;">
                     {{ $item->HomeopathProfile->designation }}
                   </div>

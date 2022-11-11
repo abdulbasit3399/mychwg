@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use DB;
 use URL;
 use Session;
 use Redirect;
@@ -12,6 +12,7 @@ use App\Models\HomeopathService;
 use App\Models\HomeopathProfile;
 use App\Models\Subscription;
 use App\Models\ServiceBooking;
+use App\Models\SquareSubscription;
 use App\Models\User;
 use Auth;
 use PayPal\Rest\ApiContext;
@@ -28,6 +29,7 @@ use PayPal\Api\ExecutePayment;
 use PayPal\Api\PaymentExecution;
 use PayPal\Api\Transaction;
 use App\Traits\PaymentMethod;
+use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
@@ -389,5 +391,39 @@ public function intent(Request $request)
 		}
 		
 		return 'success';
+    }
+    public function square_webhook(Request $request)
+    {
+        $date = date('Y-m-d');
+        $new_date = date('Y-m-d', strtotime($date. ' +7 days'));
+
+        if($request->type == 'subscription.created')
+        {
+            $user = User::where('stripe_id',$request->data['object']['subscription']['customer_id'])->first();
+            if($user)
+            {
+                $subscription = new SquareSubscription;
+                $subscription->user_id = $user->id;
+                $subscription->subscription_id = $request->data['object']['subscription']['id'];
+                $subscription->plan_id = $request->data['object']['subscription']['customer_id'];
+                $subscription->subscription_name = 'default';
+                $subscription->subscription_type = 'trial';
+                $subscription->trial_ends_at = date('Y-m-d', strtotime($date. ' +7 days'));
+                $subscription->amount = 0;
+                $subscription->save();
+
+                $date = date('Y-m-d');
+                $user->subscription_type = 'trial';
+                $user->subscription_id = $request->data['object']['subscription']['id'];
+                $user->subscription_ends = date('Y-m-d', strtotime($date. ' +7 days'));
+                $user->save();
+            }
+        }
+        elseif($request->type == 'subscription.updated')
+        {
+            
+        }
+        DB::table('test')->insert(['data' => json_encode($request->all())]);
+        return $request->all();
     }
 }

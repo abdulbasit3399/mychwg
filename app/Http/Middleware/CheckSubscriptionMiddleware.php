@@ -21,12 +21,16 @@ class CheckSubscriptionMiddleware
         $user = Auth::user();
         if($user->role == "homeopath" || $user->role == 'advocate')
         {
-            if($user->subscribed('default') || $user->onTrial())
+            // if($user->subscribed('default') || $user->onTrial())
+            // {
+            //     return $next($request);
+            // }
+            if($user->subscription_ends && strtotime($user->subscription_ends) >= strtotime(date('Y-m-d')))
             {
                 return $next($request);
             }
 
-            return redirect()->route('subscription.payment')->withError('Your Subscribtion is not available now. Subscribe to continue services');
+            return redirect()->route('subscription.payment')->withError('Your Subscribtion is not available now. Please pay invoice which is sent to your registered email.');
         }
 
         return $next($request);

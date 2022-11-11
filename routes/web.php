@@ -47,6 +47,7 @@ Route::post('/newsletter/email/save','NewsLetterEmailController@save')->name('ne
 Route::get('/newsletter/email/list','NewsLetterEmailController@index')->name('newsletter.email.list')->middleware('admin');
 Route::post('/newsletter/email/send','NewsLetterEmailController@email_send')->name('newsletter.email.send')->middleware('admin');
 Route::get('/newsletter/unsubscribe/{mail}','NewsLetterEmailController@email_unsubscribe')->name('newsletter.unsubscribe');
+Route::post('/square/webhook','PaymentController@square_webhook')->name('square_webhook');
 
 Route::namespace('Front')->middleware('visitlog')->group(function () {
     Route::get('/', 'FrontEndController@index')->name('index');

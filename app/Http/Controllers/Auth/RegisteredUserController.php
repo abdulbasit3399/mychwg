@@ -37,7 +37,6 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $req)
     {
-
         $req->validate([
             'name' => 'required|string|max:255',
             //'last_name' => 'required|string|max:255',
@@ -60,6 +59,8 @@ class RegisteredUserController extends Controller
             $req['name']  = $req->name.' '.$req->last_name;
         }
 
+
+
         $user = User::create([
             'name'       => $req->name,
             'slug'       => Str::slug($req->name),
@@ -67,6 +68,7 @@ class RegisteredUserController extends Controller
             'email'      => $req->email,
             'password'   => Hash::make($req->password),
             'phone'      => $req->phone ?? '',
+            'stripe_id'  => $customer_id
         ]);
 
 
@@ -120,7 +122,6 @@ class RegisteredUserController extends Controller
     public function userRegister(Request $req)
     {
 
-
         $req->validate([
             
             'name' => 'required',
@@ -134,7 +135,20 @@ class RegisteredUserController extends Controller
             $req['name']  = $req->name.' '.$req->last_name;
         }
 
-      
+        $data = array(
+           'given_name' => $req->name,
+           'email_address' => $req->email
+        );
+        $url = env('SQUARE_API_URL')."/v2/customers";
+        $client = new \GuzzleHttp\Client();
+        $response = $client->post($url, [
+            'headers' => ['Content-Type' => 'application/json', 'Accept' => 'application/json','Authorization' => 'Bearer '.env('SQUARE_ACCESS_TOKEN')],
+            'body'    => json_encode($data)
+        ]); 
+        
+        
+        $customer_result = json_decode($response->getBody(), true);
+        $customer_id = $customer_result['customer']['id'];
 
         $user = User::create([
             'name'       => $req->name,
@@ -146,7 +160,8 @@ class RegisteredUserController extends Controller
             'zip_code'   => $req->zip_code??'',
             'password'   => Hash::make($req->password),
             'country'    => $req->country ?? '',
-            'state'      => $req->state ?? ''
+            'state'      => $req->state ?? '',
+            'stripe_id'  => $customer_id
         ]);
 
         $user->sendEmailVerificationNotification();

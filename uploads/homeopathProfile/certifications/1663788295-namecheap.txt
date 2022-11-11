@@ -1,0 +1,4 @@
+1) Preventing the cPanel account from being hacked: https://www.namecheap.com/support/knowledgebase/article.aspx/9242/2194/how-to-prevent-your-hosting-account-from-being-hacked
+2) Preventing the Namecheap account from being hacked: https://www.namecheap.com/support/knowledgebase/article.aspx/488/45/how-do-i-prevent-my-account-from-being-hacked
+3) Improving the security of the website based on WordPress: https://www.namecheap.com/support/knowledgebase/article.aspx/9156/2187/how-to-improve-wordpress-website-security
+4) To deal with an already hacked WordPress website: https://www.namecheap.com/support/knowledgebase/article.aspx/10185/2187/how-to-deal-with-the-hacked-wordpress-website/
