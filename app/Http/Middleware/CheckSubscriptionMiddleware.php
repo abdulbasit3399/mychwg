@@ -18,6 +18,7 @@ class CheckSubscriptionMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        return $next($request);
         $user = Auth::user();
         if($user->role == "homeopath" || $user->role == 'advocate')
         {

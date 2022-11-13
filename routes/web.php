@@ -617,6 +617,7 @@ Route::post('admin/login', 'Admin\AdminLoginController@AdminAttemptLogin')->name
     Route::get('/dashboard', 'AdminLoginController@dashboard')->name('dashboard');
     Route::get('profile', 'AdminProfileController@profile')->name('profile');
     Route::post('update-profile', 'AdminProfileController@updateProfile')->name('update.profile');
+    Route::post('crop', 'AdminProfileController@crop')->name('crop');
 
     Route::get('refund/index', 'PaymentRefundController@index')->name('refund.index');
     Route::post('refund/amount', 'PaymentRefundController@refund')->name('refund.amount');

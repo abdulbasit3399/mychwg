@@ -26,7 +26,7 @@ class SubscriptionController extends Controller
 
         $monthly_plan = env($role.'_MONTHLY_PLAN');
         $yearly_plan = env($role.'_YEARLY_PLAN');
-        
+
         $old_sub = Subscription::where('user_id', auth()->user()->id)->first();
 
         $monthly_plan_session = $this->stripe->checkout->sessions->create([
@@ -88,7 +88,7 @@ class SubscriptionController extends Controller
         //     $user->helcim_connect = $customer->customer->customerCode;
         //     $user->save();
         // }
-            
+
 
         $role = Str::upper(Auth::user()->role);
 
@@ -112,7 +112,7 @@ class SubscriptionController extends Controller
         $response = $client->post($url, [
             'headers' => ['Content-Type' => 'application/json', 'Accept' => 'application/json','Authorization' => 'Bearer '.env('SQUARE_ACCESS_TOKEN')],
             'body'    => json_encode($data)
-        ]); 
+        ]);
         return redirect()->back()->withError('Invoice sent to your registered email, please Pay invoice and refresh this page.');
 
     }
@@ -137,7 +137,7 @@ class SubscriptionController extends Controller
                         $sub->save();
                         $user->trial_ends_at = null;
                         $user->save();
-                        
+
                         return response()->json(['success' => 1, 'msg' => 'Subscription successfully cancelled']);
                     } else {
                         return response()->json(['success' => 0, 'msg' => 'Subscription not cancelled. Please contact to support']);

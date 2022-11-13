@@ -178,7 +178,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
          // 'Amsify42\PaypalMassPayment\PaypalMassPaymentServiceProvider',
-        // Weidner\Goutte\GoutteServiceProvider::class, 
+        // Weidner\Goutte\GoutteServiceProvider::class,
+        'Intervention\Image\ImageServiceProvider',
 
     ],
 
@@ -237,6 +238,7 @@ return [
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         // 'PaypalMassPayment' => 'Amsify42\PaypalMassPayment\PaypalMassPaymentFacade',
         // 'Goutte' => Weidner\Goutte\GoutteFacade::class,
+        'Image' => 'Intervention\Image\Facades\Image',
 
 
     ],
