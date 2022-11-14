@@ -82,7 +82,7 @@
 
         withCSRF:['_token','{{ csrf_token() }}'],
 
-        onSuccess:function(message){
+        onSuccess:function(message, element, status){
 
             location.reload();
         },
