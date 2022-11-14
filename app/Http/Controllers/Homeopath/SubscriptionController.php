@@ -7,8 +7,12 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Models\User;
 use App\Models\Subscription;
+use App\Models\SquareSubscription;
 use Carbon\Carbon;
 use Str;
+use Square\SquareClient;
+use Square\Environment;
+use Square\Exceptions\ApiException;
 
 class SubscriptionController extends Controller
 {
@@ -102,6 +106,7 @@ class SubscriptionController extends Controller
 
     public function createSubscription($id)
     {
+
         $data = array(
            'customer_id' => auth()->user()->stripe_id,
            'plan_id' => $id,
@@ -112,7 +117,51 @@ class SubscriptionController extends Controller
         $response = $client->post($url, [
             'headers' => ['Content-Type' => 'application/json', 'Accept' => 'application/json','Authorization' => 'Bearer '.env('SQUARE_ACCESS_TOKEN')],
             'body'    => json_encode($data)
+<<<<<<< Updated upstream
         ]);
+=======
+        ]); 
+
+        $client = new SquareClient([
+            'accessToken' => env('SQUARE_ACCESS_TOKEN'),
+            'environment' => Environment::SANDBOX,
+        ]);
+        $api_response = $client->getCatalogApi()->retrieveCatalogObject('SKCA6LL2VNOSPAEB3JYARJ5A');
+
+        if ($api_response->isSuccess()) {
+            $result = $api_response->getResult()->getObject()->getSubscriptionPlanData()->getPhases();
+        } else {
+            $result = $api_response->getErrors();
+        }
+        $days = 0;
+        foreach ($result as $key => $rslt) {
+            if($rslt->getOrdinal() == 0)
+            {
+                $date = date('Y-m-d');
+                $user = User::find(auth()->user()->id);
+                $days = $rslt->getPeriods();
+
+                $subscription = new SquareSubscription;
+                $subscription->user_id = $user->id;
+                $subscription->subscription_type = 'trial';
+                $subscription->plan_id = $id;
+                $subscription->trial_ends_at = date('Y-m-d', strtotime($date. ' '.$days.' days'));
+                $subscription->plan_interval = 'MONTHLY';
+                $subscription->amount = 0;
+                $subscription->save();
+
+                $date = date('Y-m-d');
+                $user->subscription_type = 'trial';
+                $user->subscription_id = '0123';
+                $user->subscription_ends = date('Y-m-d', strtotime($date. ' +'.$days.' days'));
+                $user->save();
+
+                return redirect()->route('redirect.dashboard');
+            }
+        }
+
+
+>>>>>>> Stashed changes
         return redirect()->back()->withError('Invoice sent to your registered email, please Pay invoice and refresh this page.');
 
     }

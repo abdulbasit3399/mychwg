@@ -9,13 +9,7 @@ use Illuminate\Http\Request;
 
 class CheckSubscriptionMiddleware
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
+
     public function handle(Request $request, Closure $next)
     {
         return $next($request);
@@ -26,7 +20,11 @@ class CheckSubscriptionMiddleware
             // {
             //     return $next($request);
             // }
-            if($user->subscription_ends && strtotime($user->subscription_ends) >= strtotime(date('Y-m-d')))
+            if($user->subscription_type == 'new')
+            {
+                return redirect()->route('subscription.payment')->withError('Please start your subscription.');
+            }
+            elseif($user->subscription_ends && strtotime($user->subscription_ends) >= strtotime(date('Y-m-d')))
             {
                 return $next($request);
             }

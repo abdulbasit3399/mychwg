@@ -1,3 +1,7 @@
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 <?php $__env->startSection('title', $homeopath->name??''); ?>
 <?php $__env->startSection('css'); ?>
  <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/jquery-ui.css')); ?>">
@@ -29,6 +33,10 @@
     <div class="container mt-5">
 
         <div class="row">
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
             <!--=====================================================-->
                        <!-- INCLUDE SOCIAL SIDEBAR CARD -->
             <!--=====================================================-->
@@ -237,7 +245,11 @@
             $('#resource-author').text($(this).data('author'));
             $('#resource-description').html($(this).data('description'));
             $('#resource-link').attr('src', $(this).data('link'));
+<<<<<<< Updated upstream
 
+=======
+            
+>>>>>>> Stashed changes
             if($(this).data('pdf').length == 0)
             {
             $('#pdf').addClass('d-none');

@@ -395,27 +395,23 @@ public function intent(Request $request)
     public function square_webhook(Request $request)
     {
         $date = date('Y-m-d');
-        $new_date = date('Y-m-d', strtotime($date. ' +7 days'));
 
         if($request->type == 'subscription.created')
         {
             $user = User::where('stripe_id',$request->data['object']['subscription']['customer_id'])->first();
             if($user)
             {
-                $subscription = new SquareSubscription;
-                $subscription->user_id = $user->id;
+                $subscription = SquareSubscription::where('user_id',$user->id)->first();
                 $subscription->subscription_id = $request->data['object']['subscription']['id'];
                 $subscription->plan_id = $request->data['object']['subscription']['customer_id'];
                 $subscription->subscription_name = 'default';
-                $subscription->subscription_type = 'trial';
-                $subscription->trial_ends_at = date('Y-m-d', strtotime($date. ' +7 days'));
+                // $subscription->trial_ends_at = date('Y-m-d', strtotime($date. ' +7 days'));
                 $subscription->amount = 0;
                 $subscription->save();
 
-                $date = date('Y-m-d');
                 $user->subscription_type = 'trial';
                 $user->subscription_id = $request->data['object']['subscription']['id'];
-                $user->subscription_ends = date('Y-m-d', strtotime($date. ' +7 days'));
+                // $user->subscription_ends = date('Y-m-d', strtotime($date. ' +7 days'));
                 $user->save();
             }
         }
