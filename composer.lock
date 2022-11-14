@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< Updated upstream
-    "content-hash": "33dad864a9ada16c41bd8d76a057a845",
-=======
     "content-hash": "e91d84fc73051dd7363613b2daa55b5e",
->>>>>>> Stashed changes
     "packages": [
         {
             "name": "apimatic/core",
