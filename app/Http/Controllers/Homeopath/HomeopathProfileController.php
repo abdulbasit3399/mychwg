@@ -10,6 +10,8 @@ use App\Rules\PasswordExistRule;
 use Hash;
 use App\Models\User;
 use App\Models\Profile;
+use Square\SquareClient;
+use Square\Environment;
 use Crypt;
 use App\Models\HomeopathProfile;
 use App\Models\ServiceBooking;
@@ -21,6 +23,15 @@ use MacsiDigital\Zoom\Facades\Zoom;
 
 class HomeopathProfileController extends Controller
 {
+    protected $client;
+    
+    function __construct($foo = null)
+    {
+        $this->client = new SquareClient([
+            'accessToken' => env('SQUARE_ACCESS_TOKEN'),
+            'environment' => Environment::SANDBOX,
+        ]);
+    }
     public function dashboard()
     {
 
@@ -52,13 +63,23 @@ class HomeopathProfileController extends Controller
     public function profile()
     {
         $id = auth()->user()->id;
-        $subscription = Subscription::where('user_id', $id)->latest('id')->first();
+        
+
+        $api_response = $this->client->getCustomersApi()->retrieveCustomer(auth()->user()->stripe_id);
+
+        if ($api_response->isSuccess()) {
+            $result = $api_response->getResult();
+        } else {
+            $result = $api_response->getErrors();
+        }
+
+        dd($result);
+        // $subscription = Subscription::where('user_id', $id)->latest('id')->first();
         return view('homeopath.profile',get_defined_vars());
     }
 
 
     public function crop(Request $request){
-
         $dest = $request->file('uploads/users/');
 
         $file = $request->file('image');
