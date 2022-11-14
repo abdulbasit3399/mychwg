@@ -117,10 +117,7 @@ class SubscriptionController extends Controller
         $response = $client->post($url, [
             'headers' => ['Content-Type' => 'application/json', 'Accept' => 'application/json','Authorization' => 'Bearer '.env('SQUARE_ACCESS_TOKEN')],
             'body'    => json_encode($data)
-<<<<<<< Updated upstream
         ]);
-=======
-        ]); 
 
         $client = new SquareClient([
             'accessToken' => env('SQUARE_ACCESS_TOKEN'),
@@ -161,7 +158,6 @@ class SubscriptionController extends Controller
         }
 
 
->>>>>>> Stashed changes
         return redirect()->back()->withError('Invoice sent to your registered email, please Pay invoice and refresh this page.');
 
     }
