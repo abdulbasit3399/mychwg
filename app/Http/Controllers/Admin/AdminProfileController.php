@@ -29,7 +29,7 @@ class AdminProfileController extends Controller
             unlink($dest.$userPhoto);
         }
         $userInfo = User::find(auth()->user()->id)->update(['avatar'=>$new_image_name]);
-        return response()->json(['message'=> 'profile has been updated Successfully!']);
+        return response()->json(['status' => 1, 'message'=> 'profile has been updated Successfully!']);
 
     }
 

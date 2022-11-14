@@ -4,6 +4,8 @@
 
 
 @section('css')
+<link rel="stylesheet" href="{{ asset('ijaboCrop/ijaboCropTool.min.css') }}">
+
 <style type="text/css">
 
 /* Chrome, Safari, Edge, Opera */
@@ -58,7 +60,7 @@ input[type=number] {
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <label>Profile Avatar</label>
-                                        <input type="file" name="image" class="form-control dropify" data-default-file="{{asset(Auth::User()->avatar ?? '')}}">
+                                        <input type="file" name="image" id="image" class="form-control dropify" data-default-file="{{asset(Auth::User()->avatar ?? '')}}">
                                     </div>
                                     <div class="col-12 col-sm-6">
                                         <div class="form-group">
@@ -170,4 +172,30 @@ input[type=number] {
 </section>
 <!-- users edit ends -->
 
+@endsection
+
+@section('js')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{ asset('ijaboCrop/ijaboCropTool.min.js') }}"></script>
+
+<script>
+    $('#image').ijaboCropTool({
+        preview : '.image-previewer',
+        setRatio:1,
+        allowedExtensions: ['jpg', 'jpeg','png'],
+        buttonsText:['CROP','QUIT'],
+        buttonsColor:['#30bf7d','#ee5155', -15],
+
+        processUrl:'{{ route("user.crop") }}',
+        withCSRF:['_token','{{ csrf_token() }}'],
+
+        onSuccess:function(message, element, status){
+            //alert('Successful');
+            window.location.reload();
+        },
+        onError:function(message, element, status){
+        alert('Failed to crop image');
+        }
+    });
+</script>
 @endsection

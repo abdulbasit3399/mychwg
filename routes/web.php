@@ -390,6 +390,8 @@ Route::name('user.')->prefix('user')->namespace('User')->middleware(['status', '
     Route::get('/dashboard', 'UserProfileController@dashboard')->name('dashboard');
 
     Route::get('profile', 'UserProfileController@profile')->name('profile');
+    Route::post('crop', 'UserProfileController@crop')->name('crop');
+
     Route::post('update-profile', 'UserProfileController@updateProfile')->name('update.profile');
     Route::post('update-password', 'UserProfileController@updatePassword')->name('update.password');
 
@@ -415,7 +417,7 @@ Route::name('homeopath.')->prefix('homeopath')->namespace('Homeopath')->middlewa
     Route::get('/dashboard', 'HomeopathProfileController@dashboard')->name('dashboard');
     Route::post('complete-profile', 'HomeopathProfileController@completeProfile')->name('complete.profile');
     Route::post('complete-profile-update', 'HomeopathProfileController@completeProfileUpdate')->name('complete.profile.update');
-
+    Route::post('crop', 'HomeopathProfileController@crop')->name('crop');
 
 
     #CHECK HOMEOPATH PROFILE ACTIVE MIDDLEWRE
@@ -542,6 +544,7 @@ Route::name('advocate.')->prefix('advocate')->namespace('Advocate')->middleware(
     Route::post('update-profile', 'AdvocateProfileController@updateProfile')->name('update.profile');
     Route::post('update/other-profile', 'AdvocateProfileController@updateOtherProfile')->name('update.other.profile');
     Route::post('update-password', 'AdvocateProfileController@updatePassword')->name('update.password');
+    Route::post('crop', 'AdvocateProfileController@crop')->name('crop');
 
     Route::resources([
         'articles'         => 'ArticleController',

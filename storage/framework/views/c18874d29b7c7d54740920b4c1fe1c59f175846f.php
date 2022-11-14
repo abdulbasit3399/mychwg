@@ -89,7 +89,17 @@
         <style type="text/css">
 
 
+            .set{
 
+                height: 150px; !important
+                width: 150px; !important
+
+                object-fit: cover;
+
+            }
+            .st{
+                object-fit: cover; !important
+            }
             .custom-toast {
 
                 background-color: #ffffff;
@@ -480,7 +490,7 @@ $text=$setting['feedback-toast']??'';
         <script type="text/javascript" src="<?php echo e(asset('front/assets')); ?>/jquery/jquery-ui-1.11.4.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.60/inputmask/jquery.inputmask.js"></script>
         
-        
+
         <script type="text/javascript" src="<?php echo e(asset('front/assets')); ?>/dropzone/dropzone.js"></script>
 
         <script type="text/javascript" src="<?php echo e(asset('front/assets')); ?>/bootstrap/js/popper.min.js"></script>

@@ -1,7 +1,6 @@
-@extends('layouts.front')
-@section('title', $homeopath->name??'')
-@section('css')
- <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery-ui.css') }}">
+<?php $__env->startSection('title', $homeopath->name??''); ?>
+<?php $__env->startSection('css'); ?>
+ <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/jquery-ui.css')); ?>">
 
  <style>
  .v-box1 {
@@ -12,13 +11,13 @@
 
 }
  </style>
-@endsection
-@section('content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
 
 <header>
     <div class="wrapper">
         <div id="header_content" style="background:#dcf2fa 50% center;background-size: cover;">
-            @include('front.components.navbar')
+            <?php echo $__env->make('front.components.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             <!--PAGE BANNER-->
         </div>
     </div>
@@ -34,14 +33,14 @@
                        <!-- INCLUDE SOCIAL SIDEBAR CARD -->
             <!--=====================================================-->
             <div class="col-lg-2 col-md-12 col-12 col-sm-12 profile-sidebar m-0 p-0">
-               @include('front.homeopath.includes.social_sidebar')
+               <?php echo $__env->make('front.homeopath.includes.social_sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             </div>
 
             <!--=====================================================-->
                        <!-- INCLUDE PROFILE SIDEBAR -->
             <!--=====================================================-->
             <div class="col-lg-3 profile-sidebar" style="overflow: auto;">
-               @include('front.homeopath.includes.features_sidebar')
+               <?php echo $__env->make('front.homeopath.includes.features_sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             </div>
 
             <div class="col-lg-7 profile-right-sidebar">
@@ -50,7 +49,7 @@
                                <!-- INCLUDE SERVICES -->
                 <!--=====================================================-->
                 <div class="profile-services">
-                    @include('front.homeopath.includes.services')
+                    <?php echo $__env->make('front.homeopath.includes.services', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 </div>
 
                 <!--=====================================================-->
@@ -65,21 +64,21 @@
                                <!-- INCLUDE PHOTOS -->
                 <!--=====================================================-->
                 <div class="profile-photos mt-5">
-                    @include('front.homeopath.includes.photos')
+                    <?php echo $__env->make('front.homeopath.includes.photos', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 </div>
 
                 <!--=====================================================-->
                                <!-- INCLUDE TESTIMONIALS -->
                 <!--=====================================================-->
                 <div class="profile-testimonials mt-5">
-                   @include('front.homeopath.includes.testimonials')
+                   <?php echo $__env->make('front.homeopath.includes.testimonials', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 </div>
 
                 <!--=====================================================-->
                                <!-- INCLUDE RESOURCES -->
                 <!--=====================================================-->
                 <div class="profile-resources mt-5 mb-5">
-                    @include('front.homeopath.includes.resources')
+                    <?php echo $__env->make('front.homeopath.includes.resources', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 </div>
 
             </div>
@@ -114,11 +113,11 @@
 
 
 <input type="hidden" id="service_price">
-@endsection
+<?php $__env->stopSection(); ?>
 
 
 
-@section('js')
+<?php $__env->startSection('js'); ?>
 <script>
  $(document).on('click','.showImage',function(){
      $('.carousel-item').removeClass('active');
@@ -169,7 +168,7 @@
 
 
             $.ajax({
-            url: "{{ route('include.service.prompt') }}?service_id="+$s_id,
+            url: "<?php echo e(route('include.service.prompt')); ?>?service_id="+$s_id,
             success: function(response)
             {
                 $('.service__prompts__data').html(response);
@@ -194,7 +193,7 @@
         })
 
             $.ajax({
-            url: "{{ route('include.service.prompt') }}?service_id="+$s_id,
+            url: "<?php echo e(route('include.service.prompt')); ?>?service_id="+$s_id,
             success: function(response)
             {
                 $('.service__prompts__data').html(response);
@@ -317,7 +316,7 @@
 
                 $('.input_date').val($(this).val());
 
-                $.get("{{ route('get.service.slot') }}?service_id="+$input_service+'&date='+$(this).val(),'&homeopath_id='+$homeopath_id, function(response){
+                $.get("<?php echo e(route('get.service.slot')); ?>?service_id="+$input_service+'&date='+$(this).val(),'&homeopath_id='+$homeopath_id, function(response){
 
                   $('.booking-time-slot').html(response);
                   $('.search-slot-loader').toggleClass('d-none');
@@ -349,7 +348,7 @@
 
 
 
-                $.get("{{ route('check.service.slot') }}?slot="+thiss+'&date='+date_val+'&service_id='+$input_service+'&homeopath_id='+$homeopath_id, function(response){
+                $.get("<?php echo e(route('check.service.slot')); ?>?slot="+thiss+'&date='+date_val+'&service_id='+$input_service+'&homeopath_id='+$homeopath_id, function(response){
 
 
                   if (response) {
@@ -490,7 +489,7 @@
         function stripeCheckout()
         {
 
-      const stripe = Stripe('{{ env('STRIPE_KEY') }}', { locale: 'en' });
+      const stripe = Stripe('<?php echo e(env('STRIPE_KEY')); ?>', { locale: 'en' });
       const elements = stripe.elements(); // Create an instance of Elements.
             var style = {
                 base: {
@@ -553,7 +552,7 @@
    // console.log(result.paymentMethod.id);
     // Otherwise send paymentMethod.id to your server (see Step 4)
 
-    fetch('{{ route('intent') }}', {
+    fetch('<?php echo e(route('intent')); ?>', {
       method: 'POST',
      headers: {
         "Content-Type": "application/json",
@@ -565,7 +564,7 @@
       body: JSON.stringify({
         payment_method_id: result.paymentMethod.id,
         amount: $('#service_price').val() ,
-        location:'{{$homeopath->HomeopathProfile->location}}',
+        location:'<?php echo e($homeopath->HomeopathProfile->location); ?>',
 
       })
     }).then(function(result) {
@@ -631,7 +630,7 @@ function handleStripeJsResult(result) {
     // The card action has been handled
     // The PaymentIntent can be confirmed again on the server
      var payment_intent_id=result.paymentIntent.id;
-    fetch('{{ route('intent') }}', {
+    fetch('<?php echo e(route('intent')); ?>', {
       method: 'POST',
      headers: {
         "Content-Type": "application/json",
@@ -689,8 +688,8 @@ function handleStripeJsResult(result) {
 var map;
 
 function initMaps() {
-    var latitude = {{ $homeopath->HomeopathProfile->latitude??'' }}; // YOUR LATITUDE VALUE
-    var longitude = {{ $homeopath->HomeopathProfile->longitude??'' }}; // YOUR LONGITUDE VALUE
+    var latitude = <?php echo e($homeopath->HomeopathProfile->latitude??''); ?>; // YOUR LATITUDE VALUE
+    var longitude = <?php echo e($homeopath->HomeopathProfile->longitude??''); ?>; // YOUR LONGITUDE VALUE
 
     var myLatLng = {lat: latitude, lng: longitude};
 
@@ -858,4 +857,6 @@ $(document).ready(function(){
 
 </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.front', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\mychwg\resources\views/front/homeopath/profile_homeopath.blade.php ENDPATH**/ ?>

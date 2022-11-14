@@ -3,7 +3,15 @@
 
 <?php $__env->startSection('css'); ?>
 <link rel="stylesheet" href="<?php echo e(asset('ijaboCrop/ijaboCropTool.min.css')); ?>">
-
+<style type="text/css">
+    @font-face {
+        font-family: Quarto;
+        src: url('<?php echo e(public_path('font/QuartoBoldRegular.ttf')); ?>');
+    }
+    label{
+        font-family: Quarto;
+    }
+</style>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -92,12 +100,11 @@ unset($__errorArgs, $__bag); ?>
         buttonsColor:['#30bf7d','#ee5155', -15],
 
         processUrl:'<?php echo e(route("admin.crop")); ?>',
-
         withCSRF:['_token','<?php echo e(csrf_token()); ?>'],
 
-        onSuccess:function(message){
-
-            location.reload();
+        onSuccess:function(message, element, status){
+            //alert('Successful');
+            window.location.reload();
         },
         onError:function(message, element, status){
         alert('Failed to crop image');

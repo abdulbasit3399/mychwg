@@ -1,9 +1,10 @@
-
 <?php $__env->startSection('title','homeopath Dashbaord'); ?>
 <?php $__env->startSection('heading','Profile Management'); ?>
 
 
 <?php $__env->startSection('css'); ?>
+<link rel="stylesheet" href="<?php echo e(asset('ijaboCrop/ijaboCropTool.min.css')); ?>">
+
 <style type="text/css">
 
 /* Chrome, Safari, Edge, Opera */
@@ -58,7 +59,7 @@ input[type=number] {
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <label>Profile Avatar</label>
-                                        <input type="file" name="image" class="form-control dropify" data-default-file="<?php echo e(asset(Auth::User()->avatar ?? '')); ?>">
+                                        <input type="file" name="image" id="image" class="form-control dropify" data-default-file="<?php echo e(asset(Auth::User()->avatar ?? '')); ?>">
                                     </div>
                                     <div class="col-12 col-sm-6">
                                         <div class="form-group">
@@ -219,6 +220,32 @@ unset($__errorArgs, $__bag); ?>
 </section>
 <!-- users edit ends -->
 
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('js'); ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="<?php echo e(asset('ijaboCrop/ijaboCropTool.min.js')); ?>"></script>
+
+<script>
+    $('#image').ijaboCropTool({
+        preview : '.image-previewer',
+        setRatio:1,
+        allowedExtensions: ['jpg', 'jpeg','png'],
+        buttonsText:['CROP','QUIT'],
+        buttonsColor:['#30bf7d','#ee5155', -15],
+
+        processUrl:'<?php echo e(route("user.crop")); ?>',
+        withCSRF:['_token','<?php echo e(csrf_token()); ?>'],
+
+        onSuccess:function(message, element, status){
+            //alert('Successful');
+            window.location.reload();
+        },
+        onError:function(message, element, status){
+        alert('Failed to crop image');
+        }
+    });
+</script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.user', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\mychwg\resources\views/user/profile.blade.php ENDPATH**/ ?>

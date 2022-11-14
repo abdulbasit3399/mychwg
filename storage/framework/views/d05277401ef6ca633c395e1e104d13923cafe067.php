@@ -1,10 +1,9 @@
-@extends('layouts.homeopath')
-@section('title','homeopath Dashbaord')
-@section('heading','Profile Management')
+<?php $__env->startSection('title','homeopath Dashbaord'); ?>
+<?php $__env->startSection('heading','Profile Management'); ?>
 
 
-@section('css')
-<link rel="stylesheet" href="{{ asset('ijaboCrop/ijaboCropTool.min.css') }}">
+<?php $__env->startSection('css'); ?>
+<link rel="stylesheet" href="<?php echo e(asset('ijaboCrop/ijaboCropTool.min.css')); ?>">
 
 <style type="text/css">
 
@@ -21,10 +20,10 @@ input[type=number] {
 }
 
 </style>
-@endsection
+<?php $__env->stopSection(); ?>
 
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <!-- users edit start -->
 <section class="users-edit">
@@ -44,31 +43,38 @@ input[type=number] {
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#change_password">Change Password</a>
                         </li>
-                        @if(Auth::user()->role=='homeopath')
+                        <?php if(Auth::user()->role=='homeopath'): ?>
                             <li class="nav-item">
                                 <a class="nav-link"  data-toggle="modal" data-target="#serviceProfileModal">Homeopath Avatar</a>
                             </li>
-                        @endif
+                        <?php endif; ?>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="account" aria-labelledby="account-tab" role="tabpanel">
-                            <form method="post" action="{{ route('homeopath.update.profile') }}" enctype="multipart/form-data" id="profile-form" class="cmxform">
-                                @csrf
+                            <form method="post" action="<?php echo e(route('homeopath.update.profile')); ?>" enctype="multipart/form-data" id="profile-form" class="cmxform">
+                                <?php echo csrf_field(); ?>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <label>Profile Avatar</label>
-                                        <input type="file" name="image" id="image" class="form-control dropify" data-default-file="{{asset(Auth::User()->avatar ?? '')}}">
+                                        <input type="file" name="image" id="image" class="form-control dropify" data-default-file="<?php echo e(asset(Auth::User()->avatar ?? '')); ?>">
                                     </div>
                                     <div class="col-12 col-sm-6">
                                         <div class="form-group">
                                             <div class="controls">
                                                 <label>Name</label>
                                                 <input type="text" class="form-control" name="name"
-                                                    placeholder="name" value="{{Auth::User()->name ?? ''}}" required
+                                                    placeholder="name" value="<?php echo e(Auth::User()->name ?? ''); ?>" required
                                                     data-validation-required-message="This name field is required">
-                                                    @error('name')
-                                                    <div class="alert alert-danger">{{ $message }}</div>
-                                                    @enderror
+                                                    <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                                    <div class="alert alert-danger"><?php echo e($message); ?></div>
+                                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                             </div>
                                         </div>
 
@@ -76,22 +82,36 @@ input[type=number] {
                                             <div class="controls">
                                                 <label>E-mail</label>
                                                 <input type="email" class="form-control" placeholder="email"
-                                                    name="email" value="{{Auth::User()->email}}" required
+                                                    name="email" value="<?php echo e(Auth::User()->email); ?>" required
                                                     data-validation-required-message="This email field is required">
-                                                    @error('email')
-                                                    <div class="alert alert-danger">{{ $message }}</div>
-                                                    @enderror
+                                                    <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                                    <div class="alert alert-danger"><?php echo e($message); ?></div>
+                                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="controls">
                                                 <label>Phone</label>
                                                 <input type="number" min="0" class="form-control" name="phone"
-                                                    placeholder="Phone" value="{{Auth::User()->phone}}" required
+                                                    placeholder="Phone" value="<?php echo e(Auth::User()->phone); ?>" required
                                                     data-validation-required-message="This phone field is required">
-                                                    @error('phone')
-                                                    <div class="alert alert-danger">{{ $message }}</div>
-                                                    @enderror
+                                                    <?php $__errorArgs = ['phone'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                                    <div class="alert alert-danger"><?php echo e($message); ?></div>
+                                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                             </div>
                                         </div>
 
@@ -119,7 +139,7 @@ input[type=number] {
                                      <div class="col-8">
                                         <div class="form-group">
                                             <div class="controls">
-                                                <label>{{($subscription)?'Stripe':'N/A'}}</label>
+                                                <label><?php echo e(($subscription)?'Stripe':'N/A'); ?></label>
                                             </div>
                                         </div>
                                     </div>
@@ -134,7 +154,7 @@ input[type=number] {
                                      <div class="col-8">
                                         <div class="form-group">
                                             <div class="controls">
-                                                <label>{{($subscription )?$subscription->updated_at:'N/A'}}</label>
+                                                <label><?php echo e(($subscription )?$subscription->updated_at:'N/A'); ?></label>
                                             </div>
                                         </div>
                                     </div>
@@ -149,7 +169,7 @@ input[type=number] {
                                     <div class="col-8">
                                         <div class="form-group">
                                             <div class="controls">
-                                                <label>{{($subscription )?ucfirst($subscription->plan_interval).'ly':'N/A'}}</label>
+                                                <label><?php echo e(($subscription )?ucfirst($subscription->plan_interval).'ly':'N/A'); ?></label>
                                             </div>
                                         </div>
                                     </div>
@@ -163,7 +183,7 @@ input[type=number] {
                                     <div class="col-8">
                                         <div class="form-group">
                                             <div class="controls">
-                                                 <label>{{($subscription && $subscription->stripe_status)?ucfirst($subscription->stripe_status):'N/A'}}</label>
+                                                 <label><?php echo e(($subscription && $subscription->stripe_status)?ucfirst($subscription->stripe_status):'N/A'); ?></label>
                                             </div>
                                         </div>
                                     </div>
@@ -177,46 +197,60 @@ input[type=number] {
                                     <div class="col-8">
                                         <div class="form-group">
                                             <div class="controls">
-                                                @php($end_date =($subscription && $subscription->ends_at)?$subscription->ends_at:($subscription && auth()->user()->trial_ends_at?auth()->user()->trial_ends_at:'N/A'))
-                                                <label>{{$end_date}}</label>
+                                                <?php ($end_date =($subscription && $subscription->ends_at)?$subscription->ends_at:($subscription && auth()->user()->trial_ends_at?auth()->user()->trial_ends_at:'N/A')); ?>
+                                                <label><?php echo e($end_date); ?></label>
                                             </div>
                                         </div>
                                     </div>
-                                    @if($subscription)
-                                    @if($subscription->stripe_status=='active' || $subscription->stripe_status=='on_trial')
+                                    <?php if($subscription): ?>
+                                    <?php if($subscription->stripe_status=='active' || $subscription->stripe_status=='on_trial'): ?>
                                         <div class="col-2 offset-4">
                                             <div class="text-right">
                                                 <button
                                                 class="btn btn-danger cancel_sub">Cancel Subscription <i class="btn_loader fa fa-spinner fa-spin d-none"></i></button>
                                             </div>
                                         </div>
-                                    @else
+                                    <?php else: ?>
                                     <div class="col-2 offset-4">
                                             <div class="text-right">
-                                                <a href="{{ route('subscription.payment') }}" class="btn btn-relief-primary">Renew  Subscription</a>
+                                                <a href="<?php echo e(route('subscription.payment')); ?>" class="btn btn-relief-primary">Renew  Subscription</a>
                                             </div>
                                         </div>
-                                    @endif
-                                    @endif
+                                    <?php endif; ?>
+                                    <?php endif; ?>
                                     </div>
 
                             <!-- users edit account form ends -->
                         </div>
 
                         <div class="tab-pane" id="change_password" aria-labelledby="password-tab" role="tabpane2">
-                            <form method="post" action="{{ route('homeopath.update.password') }}" enctype="multipart/form-data" id="profile-form" class="cmxform">
-                                @csrf
+                            <form method="post" action="<?php echo e(route('homeopath.update.password')); ?>" enctype="multipart/form-data" id="profile-form" class="cmxform">
+                                <?php echo csrf_field(); ?>
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group has-float-label">
                                             <div class="controls">
                                                 <label for="account-old-password">Old Password</label>
-                                                <input type="password" class="form-control @error('old_password') is-invalid @enderror" name="old_password" id="account-old-password" placeholder="Old Password" data-validation-message="This old password field is">
-                                                @error('old_password')
+                                                <input type="password" class="form-control <?php $__errorArgs = ['old_password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" name="old_password" id="account-old-password" placeholder="Old Password" data-validation-message="This old password field is">
+                                                <?php $__errorArgs = ['old_password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                                     <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
+                                                        <strong><?php echo e($message); ?></strong>
                                                     </span>
-                                                @enderror
+                                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -224,12 +258,26 @@ input[type=number] {
                                         <div class="form-group has-float-label">
                                             <div class="controls">
                                                 <label for="account-new-password">New Password</label>
-                                                <input id="user-password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="current-password" type="password" name="password" id="account-new-password" class="form-control" placeholder="New Password" data-validation-message="The password field is" minlength="6">
-                                                @error('password')
+                                                <input id="user-password" class="form-control <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" name="password" autocomplete="current-password" type="password" name="password" id="account-new-password" class="form-control" placeholder="New Password" data-validation-message="The password field is" minlength="6">
+                                                <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                                     <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
+                                                        <strong><?php echo e($message); ?></strong>
                                                     </span>
-                                                @enderror
+                                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -263,7 +311,7 @@ input[type=number] {
 
 <div class="modal fade" id="serviceProfileModal" tabindex="-1" role="dialog" aria-labelledby="serviceProfileModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
-            <form action="{{route('homeopath.services.page.image.save')}}" method="post" enctype="multipart/form-data">
+            <form action="<?php echo e(route('homeopath.services.page.image.save')); ?>" method="post" enctype="multipart/form-data">
 
                 <div class="modal-content">
                   <div class="modal-header">
@@ -273,10 +321,10 @@ input[type=number] {
                     </button>
                   </div>
                   <div class="modal-body mt-2">
-                            @csrf
-                             <input type="hidden" name="id" value="{{Auth::user()->id}}">
+                            <?php echo csrf_field(); ?>
+                             <input type="hidden" name="id" value="<?php echo e(Auth::user()->id); ?>">
                             <div class="form-group mx-auto">
-                                <input type="file" accept="image/" name="image" required="" class="form-control dropify" data-default-file="{{asset(Auth::user()->HomeopathProfile->service_profile_img)}}">
+                                <input type="file" accept="image/" name="image" required="" class="form-control dropify" data-default-file="<?php echo e(asset(Auth::user()->HomeopathProfile->service_profile_img)); ?>">
                             </div>
                   </div>
                   <div class="modal-footer">
@@ -307,7 +355,7 @@ input[type=number] {
                 $('.btn_loader').removeClass('d-none');
                 $('.cancel_sub').attr('disabled','true');
                 $.ajax({
-                    url: "{{route('subscription.cancel')}}",
+                    url: "<?php echo e(route('subscription.cancel')); ?>",
                     type: "GET",
                     dataType: "html",
                     async:true,
@@ -359,7 +407,7 @@ input[type=number] {
 </script>
 <!-- users edit ends -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="{{ asset('ijaboCrop/ijaboCropTool.min.js') }}"></script>
+<script src="<?php echo e(asset('ijaboCrop/ijaboCropTool.min.js')); ?>"></script>
 
 <script>
     $('#image').ijaboCropTool({
@@ -369,8 +417,8 @@ input[type=number] {
         buttonsText:['CROP','QUIT'],
         buttonsColor:['#30bf7d','#ee5155', -15],
 
-        processUrl:'{{ route("homeopath.crop") }}',
-        withCSRF:['_token','{{ csrf_token() }}'],
+        processUrl:'<?php echo e(route("homeopath.crop")); ?>',
+        withCSRF:['_token','<?php echo e(csrf_token()); ?>'],
 
         onSuccess:function(message, element, status){
             //alert('Successful');
@@ -381,5 +429,7 @@ input[type=number] {
         }
     });
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('layouts.homeopath', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\mychwg\resources\views/homeopath/profile.blade.php ENDPATH**/ ?>
