@@ -4,7 +4,7 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('ijaboCrop/ijaboCropTool.min.css') }}">
-/* CUSTOM FONT
+ {{--  CUSTOM FONT
 <style type="text/css">
     @font-face {
         font-family: Quarto;
@@ -13,7 +13,8 @@
     label{
         font-family: Quarto;
     }
-</style>*/
+</style>  --}}
+
 @endsection
 
 @section('content')

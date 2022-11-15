@@ -3,15 +3,8 @@
 
 <?php $__env->startSection('css'); ?>
 <link rel="stylesheet" href="<?php echo e(asset('ijaboCrop/ijaboCropTool.min.css')); ?>">
-<style type="text/css">
-    @font-face {
-        font-family: Quarto;
-        src: url('<?php echo e(public_path('font/QuartoBoldRegular.ttf')); ?>');
-    }
-    label{
-        font-family: Quarto;
-    }
-</style>
+ 
+
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>

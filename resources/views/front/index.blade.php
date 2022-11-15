@@ -17,7 +17,33 @@
         font-size:16px;
         font-weight:700;
     }
+
+    @font-face {
+        font-family: Quarto;
+        src: url('{{ public_path('font/QuartoBoldRegular.ttf') }}');
+    }
+    .bol{
+        font-family: Quarto;
+    }
+
+    @font-face {
+        font-family: Quarto-Light;
+        src: url('{{ public_path('font/Quarto-Light.ttf') }}');
+    }
+    .light{
+        font-family: Quarto-Light;
+    }
+
 </style>
+{{--  <style type="text/css">
+    @font-face {
+        font-family: Quarto;
+        src: url('{{ public_path('font/QuartoBoldRegular.ttf') }}');
+    }
+    .bol{
+        font-family: Quarto;
+    }
+</style>  --}}
 @endsection
 
 @section('content')
@@ -33,10 +59,10 @@
                     <div class="row">
                         <div class="col-md-6 banner-left-bar">
                             <div class="hero__copy">
-                                <h1>{{$setting['banner_heading'] ?? ''}}</h1>
-                                <p>{{$setting['banner_description'] ?? ''}}</p>
+                                <h1 class="bol">{{$setting['banner_heading'] ?? ''}}</h1>
+                                <p class="light">{{$setting['banner_description'] ?? ''}}</p>
 
-                                    <a href="{{ route('our.mission') }}" class="btn btn-primary text-white">Learn More</a>
+                                    <a href="{{ route('our.mission') }}" class="btn btn-primary text-white light">Learn More</a>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-12">
@@ -63,11 +89,11 @@
         <div class="container">
             <div class="row align-center">
                 <div class="col-sm-9">
-                    <h2>{{$setting['reopening_journey_heading'] ?? ''}}</h2>
-                    <p>{{$setting['reopening_journey_description'] ?? ''}}</p>
+                    <h2 class="bol">{{$setting['reopening_journey_heading'] ?? ''}}</h2>
+                    <p class="light">{{$setting['reopening_journey_description'] ?? ''}}</p>
                 </div>
                 <div class="col-sm-3 text-right learnmore">
-                    <a href="{{ route('find.homeopath') }}" class="btn btn-black">Find a Homeopath</a>
+                    <a href="{{ route('find.homeopath') }}" class="btn btn-black bol">Find a Homeopath</a>
                 </div>
             </div>
         </div>
@@ -81,9 +107,9 @@
                 <div style=" margin:0 auto">
                     <img height="100" src="{{ asset($setting['chwg_for_advocates_icon'] ?? '')  }}" alt="advocates">
                 </div>
-                <h2>{{$setting['chwg_for_advocates'] ?? 'CHWG for Advocates'}}</h2>
-                <p >{{$setting['chwg_for_advocates_description'] ?? ''}}</p>
-                <a href="{{ route('advocates') }}" class="learnMore txt16">Learn More <i class="fas fa-arrow-right"></i></a>
+                <h2 class="bol">{{$setting['chwg_for_advocates'] ?? 'CHWG for Advocates'}}</h2>
+                <p class="light">{{$setting['chwg_for_advocates_description'] ?? ''}}</p>
+                <a href="{{ route('advocates') }}" class="learnMore txt16 light">Learn More <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="col-sm-2" >
                 <div class="seprator"></div>
@@ -92,9 +118,9 @@
                 <div style=" margin:0 auto">
                     <img height="100" src="{{ asset($setting['chwg_for_homeopaths_icon'] ?? '')  }}" alt="homeopathic">
                 </div>
-                <h2>{{$setting['chwg_for_homeopaths'] ?? 'CHWG for Homeopaths'}}</h2>
-                <p >{{$setting['chwg_for_homeopaths_description'] ?? ''}}</p>
-                <a href="{{ route('homeopathy.practitioners') }}" class="learnMore txt16">Learn More <i class="fas fa-arrow-right"></i></a>
+                <h2 class="bol">{{$setting['chwg_for_homeopaths'] ?? 'CHWG for Homeopaths'}}</h2>
+                <p class="light">{{$setting['chwg_for_homeopaths_description'] ?? ''}}</p>
+                <a href="{{ route('homeopathy.practitioners') }}" class="learnMore txt16 light">Learn More <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </div>
@@ -104,16 +130,16 @@
     <!--HELPFUL RESOURCES SECTION-->
     <div class="box2">
         <div class="container">
-            <h3 class="heading">Helpful Resources</h3>
+            <h3 class="heading bol">Helpful Resources</h3>
             <p class="txt21 text-center" style="margin:20px auto 5%; max-width:1003px;">{{$setting['helpful_resource_sub_heading'] ?? ''}}</p>
             <div class="row">
                 <div class="col-sm-4">
                     <div class="product1">
                         <img src="{{ asset($setting['helpful_resource_1st_thumbnail'] ?? '')  }}" alt="">
                         <div class="inner">
-                            <h3>{{$setting['helpful_resource_1st_heading'] ?? ''}}</h3>
-                            <p>{{$setting['helpful_resource_1st_description'] ?? ''}}</p>
-                            <a href="{{ route('our.mission') }}">Read <i class="fas fa-arrow-right"></i></a>
+                            <h3 class="bol">{{$setting['helpful_resource_1st_heading'] ?? ''}}</h3>
+                            <p class="light">{{$setting['helpful_resource_1st_description'] ?? ''}}</p>
+                            <a class="light" href="{{ route('our.mission') }}">Read <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -121,9 +147,9 @@
                     <div class="product1">
                         <img src="{{ asset($setting['helpful_resource_2nd_thumbnail'] ?? '')  }}" alt="">
                         <div class="inner">
-                            <h3>{{$setting['helpful_resource_2nd_heading'] ?? ''}}</h3>
-                            <p>{{$setting['helpful_resource_2nd_description'] ?? ''}}</p>
-                            <a href="{{ route('explore.homeopathy') }}">Read <i class="fas fa-arrow-right"></i></a>
+                            <h3 class="bol">{{$setting['helpful_resource_2nd_heading'] ?? ''}}</h3>
+                            <p class="light">{{$setting['helpful_resource_2nd_description'] ?? ''}}</p>
+                            <a class="light" href="{{ route('explore.homeopathy') }}">Read <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -131,9 +157,9 @@
                     <div class="product1">
                         <img src="{{ asset($setting['helpful_resource_3rd_thumbnail'] ?? '')  }}" alt="">
                         <div class="inner">
-                            <h3>{{$setting['helpful_resource_3rd_heading'] ?? ''}}</h3>
-                            <p>{{$setting['helpful_resource_3rd_description'] ?? ''}}</p>
-                            <a href="{{ route('faqs') }}">Read <i class="fas fa-arrow-right"></i></a>
+                            <h3 class="bol">{{$setting['helpful_resource_3rd_heading'] ?? ''}}</h3>
+                            <p class="light">{{$setting['helpful_resource_3rd_description'] ?? ''}}</p>
+                            <a class="light" href="{{ route('faqs') }}">Read <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -145,17 +171,17 @@
     <!--SECURE NON CERECARE SECTION-->
     <div class="box3">
         <div class="container">
-            <h3 class="heading" >{{$setting['secure_heading'] ?? ''}}</h3>
-            <p class="txt21 text-center" >{{$setting['secure_description'] ?? ''}}</p>
+            <h3 class="heading bol" >{{$setting['secure_heading'] ?? ''}}</h3>
+            <p class="txt21 text-center light" >{{$setting['secure_description'] ?? ''}}</p>
 
             <div class="row mt-5">
                 <div class="col-md-12 col-lg-4">
                     <div class="product2">
-                        <h3 class="txt24 fwb" style="margin-bottom:12px">
+                        <h3 class="txt24 fwb bol" style="margin-bottom:12px">
                         <img src="{{ asset('front/assets') }}/templates-assets/header/img/img1.svg" alt="">
                         <span class="dib vm" style="margin-left:10px">{{$setting['secure_1st_heading'] ?? ''}}</span>
                         </h3>
-                        <p class="mt10 txt16">
+                        <p class="mt10 txt16 light">
                             {{$setting['secure_1st_description'] ?? ''}}
                         </p>
                         {{-- <a href="#" class="learnMore txt16">Learn More <i class="fas fa-arrow-right"></i></a> --}}
@@ -163,11 +189,11 @@
                 </div>
                 <div class="col-md-12 col-lg-4">
                     <div class="product2">
-                        <h3 class="txt24 fwb" style="margin-bottom:12px">
+                        <h3 class="txt24 fwb bol" style="margin-bottom:12px">
                         <img src="{{ asset('front/assets') }}/templates-assets/header/img/img2.svg" alt="">
                         <span class="dib vm" style="margin-left:10px">{{$setting['secure_2nd_heading'] ?? ''}}</span>
                         </h3>
-                        <p class="mt10 txt16">
+                        <p class="mt10 txt16 light">
                             {{$setting['secure_2nd_description'] ?? ''}}
                         </p>
                         {{-- <a href="#" class="learnMore txt16">Learn More <i class="fas fa-arrow-right"></i></a> --}}
@@ -175,11 +201,11 @@
                 </div>
                 <div class="col-md-12 col-lg-4">
                     <div class="product2">
-                        <h3 class="txt24 fwb" style="margin-bottom:12px">
+                        <h3 class="txt24 fwb bol" style="margin-bottom:12px">
                         <img src="{{ asset('front/assets') }}/templates-assets/header/img/img3.svg" alt="">
                         <span class="dib vm" style="margin-left:10px">{{$setting['secure_3rd_heading'] ?? ''}}</span>
                         </h3>
-                        <p class="mt10 txt16">
+                        <p class="mt10 txt16 light">
                             {{$setting['secure_3rd_description'] ?? ''}}
                         </p>
                         {{-- <a href="#" class="learnMore txt16">Learn More <i class="fas fa-arrow-right"></i></a> --}}
@@ -195,13 +221,13 @@
 
     <!--CHWG SECTION FOR HOMEOPATHS-->
     <div class="container" style="padding:50px 15px;">
-        <h3 class="heading">{{$setting['what_is_ch_for_homeo_heading'] ?? 'What is CHWG for Homeopaths'}}</h3>
-        <p class="txt21 text-center" style="margin:20px auto ; max-width:903px;">
+        <h3 class="heading bol">{{$setting['what_is_ch_for_homeo_heading'] ?? 'What is CHWG for Homeopaths'}}</h3>
+        <p class="txt21 text-center light" style="margin:20px auto ; max-width:903px;">
             {{$setting['what_is_ch_for_homeo_description'] ?? ''}}
         </p>
-        <div class="text-center">
-            <a href="{{ route('contact.us') }}" class="btn btn-primary btn-blue ">Contact Us</a>
-            <a href="{{ route('homeopathy.practitioners') }}" class="btn btn-primary  btn-blue2" style="margin-left:10px">Learn More</a>
+        <div class="text-center light">
+            <a href="{{ route('contact.us') }}" class="btn btn-primary btn-blue">Contact Us</a>
+            <a href="{{ route('homeopathy.practitioners') }}" class="btn btn-primary btn-blue2" style="margin-left:10px">Learn More</a>
         </div>
     </div>
     <div id="tabs" class="current-documents partial-app-features-slideshow2">
@@ -224,26 +250,26 @@
                 <ul>
                     <li class="effect-tb" data-feature-id="documents">
                         <a class="home-tab-documents" href="#documents" >
-                            <h4><i>{{$setting['what_is_ch_for_homeo_1st_word'] ?? ''}}</i> {{$setting['what_is_ch_for_homeo_1st_title'] ?? ''}}</h4>
-                            <p class="txt16">{{$setting['what_is_ch_for_homeo_1st_summary'] ?? ''}}</p>
+                            <h4 class="bol"><i>{{$setting['what_is_ch_for_homeo_1st_word'] ?? ''}}</i> {{$setting['what_is_ch_for_homeo_1st_title'] ?? ''}}</h4>
+                            <p class="txt16 light">{{$setting['what_is_ch_for_homeo_1st_summary'] ?? ''}}</p>
                         </a>
                     </li>
                     <li class="effect-tb" data-feature-id="spreadsheets" >
                         <a class="home-tab-spreadsheets" href="#spreadsheets">
-                            <h4><i>{{$setting['what_is_ch_for_homeo_2nd_word'] ?? ''}}</i> {{$setting['what_is_ch_for_homeo_2nd_title'] ?? ''}}</h4>
-                            <p class="txt16">{{$setting['what_is_ch_for_homeo_2nd_summary'] ?? ''}}</p>
+                            <h4 class="bol"><i>{{$setting['what_is_ch_for_homeo_2nd_word'] ?? ''}}</i> {{$setting['what_is_ch_for_homeo_2nd_title'] ?? ''}}</h4>
+                            <p class="txt16 light">{{$setting['what_is_ch_for_homeo_2nd_summary'] ?? ''}}</p>
                         </a>
                     </li>
                     <li  class="effect-tb" data-feature-id="slides">
                         <a class="home-tab-slides" href="#slides">
-                            <h4><i>{{$setting['what_is_ch_for_homeo_3rd_word'] ?? ''}}</i> {{$setting['what_is_ch_for_homeo_3rd_title'] ?? ''}}</h4>
-                            <p class="txt16">{{$setting['what_is_ch_for_homeo_3rd_summary'] ?? ''}}</p>
+                            <h4 class="bol"><i>{{$setting['what_is_ch_for_homeo_3rd_word'] ?? ''}}</i> {{$setting['what_is_ch_for_homeo_3rd_title'] ?? ''}}</h4>
+                            <p class="txt16 light">{{$setting['what_is_ch_for_homeo_3rd_summary'] ?? ''}}</p>
                         </a>
                     </li>
                     <li class="effect-tb" data-feature-id="chat" >
                         <a class="home-tab-chat" href="#chat">
-                            <h4><i>{{$setting['what_is_ch_for_homeo_4th_word'] ?? ''}}</i> {{$setting['what_is_ch_for_homeo_4th_title'] ?? ''}}</h4>
-                            <p class="txt16">{{$setting['what_is_ch_for_homeo_4th_summary'] ?? ''}}</p>
+                            <h4 class="bol"><i>{{$setting['what_is_ch_for_homeo_4th_word'] ?? ''}}</i> {{$setting['what_is_ch_for_homeo_4th_title'] ?? ''}}</h4>
+                            <p class="txt16 light">{{$setting['what_is_ch_for_homeo_4th_summary'] ?? ''}}</p>
                         </a>
                     </li>
                 </ul>
@@ -256,11 +282,11 @@
 
     <!--CHWG SECTION FOR ADVOCATES-->
     <div class="container" style="padding:50px 15px;">
-        <h3 class="heading">{{$setting['what_is_ch_for_adv_heading'] ?? 'What is CHWG for Advocates'}}</h3>
-        <p class="txt21 text-center" style="margin:20px auto ; max-width:903px;">
+        <h3 class="heading bol">{{$setting['what_is_ch_for_adv_heading'] ?? 'What is CHWG for Advocates'}}</h3>
+        <p class="txt21 text-center light" style="margin:20px auto ; max-width:903px;">
             {{$setting['what_is_ch_for_adv_description'] ?? ''}}
         </p>
-        <div class="text-center">
+        <div class="text-center light">
             <a href="{{ route('contact.us') }}" class="btn btn-primary btn-blue ">Contact Us</a>
             <a href="{{ route('advocates') }}" class="btn btn-primary  btn-blue2" style="margin-left:10px">Learn More</a>
         </div>
@@ -285,26 +311,26 @@
                 <ul>
                     <li class="effect-tb2" data-features-id="documents_1">
                         <a class="home-tab-documents_2" href="#documents_1" >
-                            <h4><i>{{$setting['what_is_ch_for_adv_1st_word'] ?? ''}}</i> {{$setting['what_is_ch_for_adv_1st_title'] ?? ''}}</h4>
-                            <p class="txt16">{{$setting['what_is_ch_for_adv_1st_summary'] ?? ''}}</p>
+                            <h4 class="bol"><i>{{$setting['what_is_ch_for_adv_1st_word'] ?? ''}}</i> {{$setting['what_is_ch_for_adv_1st_title'] ?? ''}}</h4>
+                            <p class="txt16 light">{{$setting['what_is_ch_for_adv_1st_summary'] ?? ''}}</p>
                         </a>
                     </li>
                     <li class="effect-tb2" data-features-id="spreadsheets_1" >
                         <a class="home-tab-spreadsheets_2" href="#spreadsheets_1">
-                            <h4><i>{{$setting['what_is_ch_for_adv_2nd_word'] ?? ''}}</i> {{$setting['what_is_ch_for_adv_2nd_title'] ?? ''}}</h4>
-                            <p class="txt16">{{$setting['what_is_ch_for_adv_2nd_summary'] ?? ''}}</p>
+                            <h4 class="bol"><i>{{$setting['what_is_ch_for_adv_2nd_word'] ?? ''}}</i> {{$setting['what_is_ch_for_adv_2nd_title'] ?? ''}}</h4>
+                            <p class="txt16 light">{{$setting['what_is_ch_for_adv_2nd_summary'] ?? ''}}</p>
                         </a>
                     </li>
                     <li  class="effect-tb2" data-features-id="slides_1">
                         <a class="home-tab-slides_2" href="#slides_1">
-                            <h4><i>{{$setting['what_is_ch_for_adv_3rd_word'] ?? ''}}</i> {{$setting['what_is_ch_for_adv_3rd_title'] ?? ''}}</h4>
-                            <p class="txt16">{{$setting['what_is_ch_for_adv_3rd_summary'] ?? ''}}</p>
+                            <h4 class="bol"><i>{{$setting['what_is_ch_for_adv_3rd_word'] ?? ''}}</i> {{$setting['what_is_ch_for_adv_3rd_title'] ?? ''}}</h4>
+                            <p class="txt16 light">{{$setting['what_is_ch_for_adv_3rd_summary'] ?? ''}}</p>
                         </a>
                     </li>
                     <li class="effect-tb2" data-features-id="chat_1" >
                         <a class="home-tab-chat_2" href="#chat_1">
-                            <h4><i>{{$setting['what_is_ch_for_adv_4th_word'] ?? ''}}</i> {{$setting['what_is_ch_for_adv_4th_title'] ?? ''}}</h4>
-                            <p class="txt16">{{$setting['what_is_ch_for_adv_4th_summary'] ?? ''}}</p>
+                            <h4 class="bol"><i>{{$setting['what_is_ch_for_adv_4th_word'] ?? ''}}</i> {{$setting['what_is_ch_for_adv_4th_title'] ?? ''}}</h4>
+                            <p class="txt16 light">{{$setting['what_is_ch_for_adv_4th_summary'] ?? ''}}</p>
                         </a>
                     </li>
                 </ul>

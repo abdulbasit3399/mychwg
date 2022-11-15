@@ -24,7 +24,7 @@ use MacsiDigital\Zoom\Facades\Zoom;
 class HomeopathProfileController extends Controller
 {
     protected $client;
-    
+
     function __construct($foo = null)
     {
         $this->client = new SquareClient([
@@ -63,7 +63,7 @@ class HomeopathProfileController extends Controller
     public function profile()
     {
         $id = auth()->user()->id;
-        
+
 
         $api_response = $this->client->getCustomersApi()->retrieveCustomer(auth()->user()->stripe_id);
 
