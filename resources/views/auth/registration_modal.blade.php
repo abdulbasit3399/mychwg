@@ -154,7 +154,7 @@ input[type=number] {
 
                                                                 <div class="form-group">
 
-                                                                    <select class="form-control input__country" required="" name="country">
+                                                                    <select class="form-control input__country" id="commoditySelect" required="" name="country">
 
                                                                         <option value="">Select Country</option>
 
@@ -180,7 +180,7 @@ input[type=number] {
 
                                                                 <div class="form-group">
 
-                                                                    <div class="input-group "> <input class="form-control zip_code" name="zip_code" type="text" placeholder="Zip code*" required=""> </div>
+                                                                    <div class="input-group "> <input class="form-control zip_code" id="commodityLabel" name="zip_code" type="text" placeholder="Zip code*" required=""> </div>
 
                                                                 </div>
 

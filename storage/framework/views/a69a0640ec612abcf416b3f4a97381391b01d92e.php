@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title', 'Homeopath Registration'); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -70,12 +68,12 @@
                 <div class="panel panel-login">
 
                     <div class="panel-heading">
-                        
+
                         <div class="row justify-content-center mt-3">
 
                             <div class="col-xs-12 text-center">
 
-                                
+
                                 <h3>Register your Remport Account</h3>
 
                             </div>
@@ -123,7 +121,7 @@
 
                             </div>
 
-                            
+
 
                             <div class="form-group has-feedback">
 
@@ -133,9 +131,9 @@
 
                             </div>
 
-                                                                
 
-                          
+
+
 
                             <div class="form-group has-feedback">
 
@@ -147,7 +145,7 @@
 
                             <div class="form-group has-feedback">
 
-                                <input class="form-control" name="phone" type="number" min="0" placeholder="Phone"> 
+                                <input class="form-control" name="phone" type="number" min="0" placeholder="Phone">
 
                                 <span class="fa fa-phone form-control-feedback"></span>
 
@@ -157,7 +155,7 @@
 
                             <div class="form-group">
 
-                                <select class="form-control input__country" name="country" required>
+                                <select class="form-control input__country" id="commoditySel" name="country" required>
 
                                     <option value="">Select Country</option>
 
@@ -175,7 +173,7 @@
 
                             <div class="form-group has-feedback">
 
-                                <input name="state" class="form-control" placeholder="State*" type="text" required="">
+                                <input name="state" class="form-control" id="commodityLab" placeholder="State*" type="text" required="">
 
                                 <span class="fa fa-globe form-control-feedback"></span>
 
@@ -193,7 +191,7 @@
 
 
 
-                            
+
 
                             <div class="form-group">
 
@@ -253,7 +251,17 @@
 
 <?php $__env->startSection('js'); ?>
 
-
+<script>
+    $(function() {
+        $('#commoditySel').change(function() {
+          if ($('#commoditySel').val() == 'Canada') {
+            $('#commodityLab').attr("placeholder", "Province*");
+          } else {
+            $('#commodityLab').attr("placeholder", "State*");
+          }
+        });
+      });
+</script>
 
 <?php $__env->stopSection(); ?>
 

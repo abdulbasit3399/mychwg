@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('title', 'Register Advocate'); ?>
 <?php $__env->startSection('content'); ?>
 <header>
@@ -144,7 +143,7 @@
                                         <hr class="colorgraph">
                                         <div class="row">
                                             <div class="col-xs-12 col-md-6">
-                                                <button class="btn btn-secondary btn-block btn-md register-adv-btn" type="button">Advocate Registration</button> 
+                                                <button class="btn btn-secondary btn-block btn-md register-adv-btn" type="button">Advocate Registration</button>
                                             </div>
                                             <div class="col-xs-12 col-md-6"><a href="<?php echo e(route('login')); ?>" class="btn btn-secondary btn-block btn-md vendor-reg-log-in-text">Login</a></div>
                                         </div>
@@ -178,6 +177,17 @@
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('js'); ?>
 <script>
+    $(function() {
+        $('#commoditySelect').change(function() {
+          if ($('#commoditySelect').val() == 'Canada') {
+            $('#commodityLabel').attr("placeholder", "Postal code*");
+          } else {
+            $('#commodityLabel').attr("placeholder", "Zip code*");
+          }
+        });
+      });
+</script>
+<script>
     $(document).on('click','.register-adv-btn',function(e){
         e.preventDefault();
         $("#advocate-reg-form").submit();
@@ -194,7 +204,7 @@
             })
     });
 
-     
+
     $(document).ready(function() {
         // validate signup form on keyup and submit
         var validator = $("#advocate-reg-form").validate({
@@ -283,4 +293,5 @@
     });
     </script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.front', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\mychwg\resources\views/auth/register.blade.php ENDPATH**/ ?>

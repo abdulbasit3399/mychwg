@@ -76,7 +76,7 @@
                             <img src="{{ asset(badge(Auth::user()->badge)['path']) }}" title="{{ badge(Auth::user()->badge)['title'] }}">
                           </div>
                         </div>
-                        
+
                         @if(badgesInformation(Auth::id())['posts'] >= 100)
                         <div class="col-md-4 col-sm-6">
                           <div class="item" style="background-color: transparent;">
@@ -88,9 +88,9 @@
                           </div>
                         </div>
                         @endif
-                        
 
-                        
+
+
                         @if(badgesInformation(Auth::id())['resources'] >= 5)
                         <div class="col-md-4 col-sm-6">
                           <div class="item1">
@@ -102,8 +102,8 @@
                           </div>
                         </div>
                         @endif
-                      
-                        
+
+
                         @if(Auth::user()->HomeopathProfile)
                         @if(homaopathBadgeStatus(Auth::user()->HomeopathProfile->id,"Booking Milestone")=='true' && count(getHomeopathBookings(Auth::user()->id)) >= 5)
                         @php
@@ -128,7 +128,7 @@
                         </div>
                         @endif
                         @endif
-                        
+
                         <div class="col-md-4 col-sm-6">
                           <div class="item bg-grey" style="">
 
@@ -139,7 +139,7 @@
                               data-container="body" data-trigger="hover" style="width:76px !important" data-toggle="popover" data-placement="top" >
                               @elseif(Auth::user()->created_at->diffInMonths() > 0)
                               <span class="txt9" style="font-size:12px" >
-                                {{ Auth::user()->created_at->diffForHumans() }} 
+                                {{ Auth::user()->created_at->diffForHumans() }}
                               </span>
                               @else
                               <img src="{{ asset('uploads/badges/grand_opening.png') }}"  class="profile-bowl"
@@ -189,8 +189,8 @@
 
 
 
-                        
-                        
+
+
 
 
 
@@ -474,7 +474,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-zoom" role="document">
       <div class="modal-content rounded-0">
         <div class="modal-body p-0" style="overflow: auto;overflow-x: hidden;background-color: #F6F6F6;">
-             
+
 
             <div class="row p-3" style="height:420px">
               <div class="col-sm-9">
@@ -491,7 +491,7 @@
               </div>
 
             </div>
-              
+
         </div>
       </div>
     </div>
@@ -505,9 +505,22 @@
 @endsection
 
 @section('js')
- 
 
 
+<script>
+    function copyToClipboard(element) {
+        var $temp = $(".cpy");
+        var $url = $(".cpy").attr('href');
+        $("body").append($temp);
+        $temp. val($(element).text()).select();
+        document.execCommand("copy");
+
+        alert($temp);
+
+        $temp.remove();
+
+}
+</script>
 <script>
 
   $(document).on('click','.btn-read', function(){
