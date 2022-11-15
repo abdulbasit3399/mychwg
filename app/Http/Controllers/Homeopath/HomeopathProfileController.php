@@ -65,16 +65,16 @@ class HomeopathProfileController extends Controller
         $id = auth()->user()->id;
 
 
-        $api_response = $this->client->getCustomersApi()->retrieveCustomer(auth()->user()->stripe_id);
+        // $api_response = $this->client->getCustomersApi()->retrieveCustomer(auth()->user()->stripe_id);
 
-        if ($api_response->isSuccess()) {
-            $result = $api_response->getResult();
-        } else {
-            $result = $api_response->getErrors();
-        }
+        // if ($api_response->isSuccess()) {
+        //     $result = $api_response->getResult();
+        // } else {
+        //     $result = $api_response->getErrors();
+        // }
 
-        dd($result);
-        // $subscription = Subscription::where('user_id', $id)->latest('id')->first();
+        // dd($result);
+        $subscription = Subscription::where('user_id', $id)->latest('id')->first();
         return view('homeopath.profile',get_defined_vars());
     }
 
