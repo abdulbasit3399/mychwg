@@ -515,7 +515,7 @@
         $temp. val($(element).text()).select();
         document.execCommand("copy");
 
-        alert($temp);
+
 
         $temp.remove();
 
