@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('title','Materia Faction'); ?>
 
 <?php $__env->startSection('css'); ?>
@@ -493,7 +495,7 @@
     function copyToClipboard(element) {
         var $temp = $(".cpy");
         var $url = $(".cpy").attr('href');
-        $(".cpy").append($temp);
+        $("body").append($temp);
         $temp. val($(element).text()).select();
         document.execCommand("copy");
 
