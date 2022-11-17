@@ -177,7 +177,9 @@ input[type=number] {
                                     <div class="col-8">
                                         <div class="form-group">
                                             <div class="controls">
-                                                @php($end_date =($subscription && $subscription->ends_at)?$subscription->ends_at:($subscription && auth()->user()->trial_ends_at?auth()->user()->trial_ends_at:'N/A'))
+                                                @php
+                                                $end_date = $subscription && $subscription->ends_at ?$subscription->ends_at:($subscription && auth()->user()->trial_ends_at?auth()->user()->trial_ends_at:'N/A')
+                                                @endphp
                                                 <label>{{$end_date}}</label>
                                             </div>
                                         </div>
@@ -275,8 +277,14 @@ input[type=number] {
                   <div class="modal-body mt-2">
                             @csrf
                              <input type="hidden" name="id" value="{{Auth::user()->id}}">
+                            @php
+                            if(Auth::user()->HomeopathProfile)
+                                $img = Auth::user()->HomeopathProfile->service_profile_img;
+                            else
+                                $img = 'uploads/users/default.png';
+                            @endphp
                             <div class="form-group mx-auto">
-                                <input type="file" accept="image/" name="image" required="" class="form-control dropify" data-default-file="{{asset(Auth::user()->HomeopathProfile->service_profile_img)}}">
+                                <input type="file" accept="image/" name="image" required="" class="form-control dropify" data-default-file="{{asset($img)}}">
                             </div>
                   </div>
                   <div class="modal-footer">
