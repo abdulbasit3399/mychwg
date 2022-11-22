@@ -6,7 +6,23 @@
   Author: Pixinvent
   Author URL: hhttp://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
+$('#image').ijaboCropTool({
+    preview : '.image-previewer',
+    setRatio:1,
+    allowedExtensions: ['jpg', 'jpeg','png'],
+    buttonsText:['CROP','QUIT'],
+    buttonsColor:['#30bf7d','#ee5155', -15],
 
+    processUrl:'/profile_image/updload',
+
+    onSuccess:function(message, element, status){
+        //alert('Successful');
+        window.location.reload();
+    },
+    onError:function(message, element, status){
+    alert('Failed to crop image');
+    }
+});
 (function (window, document, $) {
   "use strict";
   var $html = $("html");

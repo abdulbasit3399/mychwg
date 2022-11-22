@@ -101,15 +101,15 @@ body
 {
   border-radius: 100px;
   width: 65px;
-  height: 60px;
-  border: 2px solid red;
+  height: 65px;
+/*  border: 2px solid red;*/
 }
 .profile-avatar-small
 {
   border-radius: 100px;
   width: 40px;
   height: 40px;
-  border: 2px solid red;
+/*  border: 2px solid red;*/
 }
 
 .profile-avatar-extra-small
@@ -117,7 +117,7 @@ body
   border-radius: 100px;
   width: 30px !important;
   height: 30px !important;
-  border: 2px solid red;
+/*  border: 2px solid red;*/
 }
 
 
@@ -487,8 +487,8 @@ body
         .profile-avatar-small1 {
             border-radius: 100px;
             width: 29px;
-            height: 28px;
-            border: 2px solid red;
+            height: 29px;
+/*            border: 2px solid red;*/
         }
         .html body p {
             line-height: 0.5rem;
@@ -711,7 +711,7 @@ body
             border-radius: 100px;
             width: 36px;
             height: 36px;
-            border: 2px solid red;
+/*            border: 2px solid red;*/
         }
         .html body p {
             line-height: 0.5rem;
@@ -1570,6 +1570,10 @@ textarea
     width: 70px !important;
     height: 67px !important;
     font-size: 10px;
+}
+.social-badges .item .profile-bowl
+{
+    padding: 4px !important; 
 }
 
 

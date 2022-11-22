@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/themes/dark-layout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/themes/semi-dark-layout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin/dropify/css/dropify.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('ijaboCrop/ijaboCropTool.min.css') }}">
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/core/menu/menu-types/horizontal-menu.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/core/colors/palette-gradient.css') }}">
@@ -435,7 +436,8 @@ $text=$setting[$text_name.'-toast']??'';
         @endif
 
     <script src="{{ asset('admin/vendors/js/vendors.min.js') }}"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ asset('ijaboCrop/ijaboCropTool.min.js') }}"></script>
     <script src="{{ asset('admin/vendors/js/tables/datatable/datatables.min.js') }}"></script>
     <script src="{{ asset('admin/vendors/js/tables/datatable/datatables.buttons.min.js') }}"></script>
     <script src="{{ asset('admin/vendors/js/tables/datatable/datatables.bootstrap4.min.js') }}"></script>
@@ -443,7 +445,7 @@ $text=$setting[$text_name.'-toast']??'';
     <script src="{{ asset('admin/vendors/js/tables/datatable/dataTables.select.min.js') }}"></script>
     <script src="{{ asset('admin/vendors/js/tables/datatable/datatables.checkboxes.min.js') }}"></script>
     <script src="{{asset('admin/dropify/js/dropify.min.js') }}"></script>
-
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="{{ asset('admin/vendors/js/extensions/tether.min.js') }}"></script>
     <script src="{{ asset('admin/js/core/app-menu.js') }}"></script>
     <script src="{{ asset('admin/js/core/app.js') }}"></script>
@@ -451,11 +453,8 @@ $text=$setting[$text_name.'-toast']??'';
     <script src="{{ asset('admin/js/sweetalert.min.js') }}"></script>
     <script src="{{ asset('admin/js/scripts/ui/data-list-view.js') }}"></script>
     <script src="{{ asset('admin/vendors/js/extensions/toastr.min.js') }}"></script>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script src="{{ asset('admin/js/map_autocomplete.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-    <script src="{{ asset('admin/js/tag_input.js') }}"></script>
-<script src="https://cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
 <script type="text/javascript">
     $(document).ready(function(){
@@ -538,7 +537,7 @@ $text=$setting[$text_name.'-toast']??'';
         });
     </script>
     <script>
-       	@if(session('message'))
+        @if(session('message'))
             toastr.success("{{ session('message') }}");
         @elseif(session('error'))
             toastr.error("{{ session('error') }}");

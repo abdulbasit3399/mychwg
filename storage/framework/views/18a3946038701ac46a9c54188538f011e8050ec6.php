@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/css/core/menu/menu-types/vertical-menu.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/css/core/colors/palette-gradient.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/css/custom.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('ijaboCrop/ijaboCropTool.min.css')); ?>">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo e(asset('front/assets')); ?>/plugins/icheck/square/purple.css" />
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -70,7 +71,8 @@
     <div class="drag-target"></div>
 
     <script src="<?php echo e(asset('admin/vendors/js/vendors.min.js')); ?>"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="<?php echo e(asset('ijaboCrop/ijaboCropTool.min.js')); ?>"></script>
     <script src="<?php echo e(asset('admin/vendors/js/tables/datatable/datatables.min.js')); ?>"></script>
     <script src="<?php echo e(asset('admin/vendors/js/tables/datatable/datatables.buttons.min.js')); ?>"></script>
     <script src="<?php echo e(asset('admin/vendors/js/tables/datatable/datatables.bootstrap4.min.js')); ?>"></script>

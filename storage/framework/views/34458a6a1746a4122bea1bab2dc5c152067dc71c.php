@@ -127,12 +127,11 @@
                     <?php if(homaopathBadgeStatus($item->HomeopathProfile->id,"Badge")=='true'): ?>
                     <div class="item1">
                       <img src="<?php echo e(asset(badge($item->badge)['path'])); ?>"  class="profile-bowl h-100"
-                      data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="<?php echo e(badge($item->badge)['title']); ?>"
-                      >
+                      data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="<?php echo e(badge($item->badge)['title']); ?>" style="border-radius:11px;">
                     </div>
                     <?php endif; ?>
 
-                    <?php if(homaopathBadgeStatus($item->HomeopathProfile->id,"Booking Milestone")=='true' && count(getHomeopathBookings($item->id)) >= 5): ?>
+                    <?php if(homaopathBadgeStatus($item->HomeopathProfile->id,"Booking Milestone")=='true' && count(getHomeopathBookings($item->id)) >= 0): ?>
                     <?php
                       $modulas = 0;
                       if((count(getHomeopathBookings($item->id)) % 5) == 0)

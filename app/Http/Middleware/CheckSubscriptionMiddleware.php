@@ -28,7 +28,7 @@ class CheckSubscriptionMiddleware
                 return $next($request);
             }
 
-            return redirect()->route('subscription.payment')->withError('Your Subscribtion is not available now. Please pay invoice which is sent to your registered email.');
+            return redirect()->route('subscription.expire');
         }
 
         return $next($request);

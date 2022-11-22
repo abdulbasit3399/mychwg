@@ -196,7 +196,7 @@ $text=$setting['feedback-toast']??'';
 
 <!--FOOTER SECTION-->
 
-<footer id="footer" class="footer-wrapper">
+<footer id="footer" class="footer-wrapper fixed-bottom">
 
     <div class="footer-top full-width">
 

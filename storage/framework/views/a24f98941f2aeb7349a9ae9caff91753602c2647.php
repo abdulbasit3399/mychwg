@@ -6,17 +6,10 @@
        
    </div>
 
-<<<<<<< Updated upstream
        <div class="row mt-2 slick_autoplay ml-4 mr-4 ">
            <?php $__currentLoopData = $homeopath->HomeopathImages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                <div class="col-sm-3 showImage p-0 mx-1 set"  data-count="<?php echo e($loop->iteration); ?>" data-toggle="modal" data-target="#viewOnePhoto">
                    <img data-toggle="" src="<?php echo e(asset($image->image)); ?>" class="">
-=======
-       <div class="row mt-2 slick_autoplay ml-4 mr-4">
-           <?php $__currentLoopData = $homeopath->HomeopathImages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-               <div class="col-sm-3 showImage p-0 mx-1 "  data-count="<?php echo e($loop->iteration); ?>" data-toggle="modal" data-target="#viewOnePhoto">
-                   <img data-toggle="" src="<?php echo e(asset($image->image)); ?>" >
->>>>>>> Stashed changes
                </div>
            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
        </div>
@@ -36,11 +29,7 @@
 
            <div class="row">
                <?php $__currentLoopData = $homeopath->HomeopathImages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-<<<<<<< Updated upstream
                  <div class="col-sm-3 mb-3 mag ">
-=======
-                 <div class="col-sm-3 mb-3 mag">
->>>>>>> Stashed changes
                     <img data-toggle=""  src="<?php echo e(asset($image->image)); ?>">
                  </div>
                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

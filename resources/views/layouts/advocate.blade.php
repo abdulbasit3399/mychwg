@@ -25,6 +25,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/themes/dark-layout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/themes/semi-dark-layout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin/dropify/css/dropify.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('ijaboCrop/ijaboCropTool.min.css') }}">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/core/menu/menu-types/horizontal-menu.css') }}">
@@ -115,7 +116,8 @@ $text=$setting[$text_name.'-toast']??'';
 
 
     <script src="{{ asset('admin/vendors/js/vendors.min.js') }}"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ asset('ijaboCrop/ijaboCropTool.min.js') }}"></script>
     <script src="{{ asset('admin/vendors/js/tables/datatable/datatables.min.js') }}"></script>
     <script src="{{ asset('admin/vendors/js/tables/datatable/datatables.buttons.min.js') }}"></script>
     <script src="{{ asset('admin/vendors/js/tables/datatable/datatables.bootstrap4.min.js') }}"></script>

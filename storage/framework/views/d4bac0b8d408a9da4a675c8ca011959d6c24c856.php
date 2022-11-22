@@ -3,7 +3,7 @@
 <?php $__env->startSection('heading','Profile Info'); ?>
 
 <?php $__env->startSection('css'); ?>
-<link rel="stylesheet" href="<?php echo e(asset('ijaboCrop/ijaboCropTool.min.css')); ?>">
+
  
 
 <?php $__env->stopSection(); ?>
@@ -81,30 +81,5 @@ unset($__errorArgs, $__bag); ?>
 
 <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('js'); ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="<?php echo e(asset('ijaboCrop/ijaboCropTool.min.js')); ?>"></script>
-
-<script>
-    $('#image').ijaboCropTool({
-        preview : '.image-previewer',
-        setRatio:1,
-        allowedExtensions: ['jpg', 'jpeg','png'],
-        buttonsText:['CROP','QUIT'],
-        buttonsColor:['#30bf7d','#ee5155', -15],
-
-        processUrl:'<?php echo e(route("admin.crop")); ?>',
-        withCSRF:['_token','<?php echo e(csrf_token()); ?>'],
-
-        onSuccess:function(message, element, status){
-            //alert('Successful');
-            window.location.reload();
-        },
-        onError:function(message, element, status){
-        alert('Failed to crop image');
-        }
-    });
-</script>
-<?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\mychwg\resources\views/admin/profile.blade.php ENDPATH**/ ?>

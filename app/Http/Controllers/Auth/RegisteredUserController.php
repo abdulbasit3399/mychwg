@@ -59,6 +59,20 @@ class RegisteredUserController extends Controller
             $req['name']  = $req->name.' '.$req->last_name;
         }
 
+        $data = array(
+           'given_name' => $req->name,
+           'email_address' => $req->email
+        );
+        $url = env('SQUARE_API_URL')."/v2/customers";
+        $client = new \GuzzleHttp\Client();
+        $response = $client->post($url, [
+            'headers' => ['Content-Type' => 'application/json', 'Accept' => 'application/json','Authorization' => 'Bearer '.env('SQUARE_ACCESS_TOKEN')],
+            'body'    => json_encode($data)
+        ]); 
+        
+        
+        $customer_result = json_decode($response->getBody(), true);
+        $customer_id = $customer_result['customer']['id'];
 
 
         $user = User::create([

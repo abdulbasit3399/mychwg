@@ -17,7 +17,7 @@ class HomeController extends Controller
 
     public function __construct()
     {
-        // $this->middleware(['auth', 'verified']);
+        $this->middleware(['auth', 'verified']);
     }
     public function redirectDashboard()
     {
@@ -113,7 +113,25 @@ class HomeController extends Controller
         return view('front.payment_succeed', get_defined_vars());
     }
 
+    public function profile_image_upload(Request $request)
+    {
+        $dest = 'uploads/users/';
+        $file = $request->file('image');
+        $new_image_name = 'PFP_'.date('dmY').uniqid().'.jpg';
 
+        $move = $file->move($dest, $new_image_name);
+        $new_image_name = $dest.$new_image_name;
+        $userInfo = User::find(auth()->user()->id);
+        $userPhoto = $userInfo->avatar;
+
+        $userInfo = User::find(auth()->user()->id)->update(['avatar'=>$new_image_name]);
+        if($userPhoto != '' && file_exists($userPhoto) && $userPhoto != 'uploads/users/default.png')
+        {
+            unlink($userPhoto);
+        }
+        
+        return response()->json(['status' => 1, 'message'=> 'profile has been updated Successfully!']);
+    }
 
 
 

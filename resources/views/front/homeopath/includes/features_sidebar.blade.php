@@ -51,13 +51,13 @@
                                 <div>
                                     @if($homeopath->HomeopathProfile->created_at->diffInMonths() >= 12)
                                     <img src="{{ asset('uploads/badges/year_1.png') }}"  class="profile-bowl"
-                                    data-container="body" data-trigger="hover" style="width:76px !important" data-toggle="popover" data-placement="top" >
+                                    data-container="body" data-trigger="hover" style="width:54px !important" data-toggle="popover" data-placement="top" >
                                     @elseif($homeopath->HomeopathProfile->created_at->diffInMonths() > 0)
                                     <span class="txt9" style="font-size:12px" >
                                         {{ $homeopath->HomeopathProfile->created_at->diffForHumans() }} </span>
                                     @else
                                     <img src="{{ asset('uploads/badges/grand_opening.png') }}"  class="profile-bowl"
-                                    data-container="body" data-trigger="hover" style="width:76px !important" data-toggle="popover" data-placement="top">
+                                    data-container="body" data-trigger="hover" style="width:54px !important" data-toggle="popover" data-placement="top">
                                     @endif
 
                                 </div>

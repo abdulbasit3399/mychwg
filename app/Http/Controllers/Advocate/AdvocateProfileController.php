@@ -12,6 +12,7 @@ use App\Models\User;
 use App\Models\EventRequest;
 use App\Models\Profile;
 use App\Models\AdsSetting;
+use App\Models\UserPayment;
 
 
 class AdvocateProfileController extends Controller
@@ -33,6 +34,7 @@ class AdvocateProfileController extends Controller
     public function profile()
     {
         $id = auth()->user()->id;
+        $payments = UserPayment::where('user_id',$id)->get();
         $subscription = Subscription::where('user_id', $id)->latest('id')->first();
 
         return view('advocate.profile',get_defined_vars());

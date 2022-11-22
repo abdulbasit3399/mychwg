@@ -48,6 +48,8 @@ Route::get('/newsletter/email/list','NewsLetterEmailController@index')->name('ne
 Route::post('/newsletter/email/send','NewsLetterEmailController@email_send')->name('newsletter.email.send')->middleware('admin');
 Route::get('/newsletter/unsubscribe/{mail}','NewsLetterEmailController@email_unsubscribe')->name('newsletter.unsubscribe');
 Route::post('/square/webhook','PaymentController@square_webhook')->name('square_webhook');
+Route::get('/square-subscription/cancel','PaymentController@subscription_cancel')->name('square.subscription.cancel')->middleware('auth');
+Route::post('/profile_image/updload','HomeController@profile_image_upload')->name('profile_image.updload');
 
 Route::namespace('Front')->middleware('visitlog')->group(function () {
     Route::get('/', 'FrontEndController@index')->name('index');
@@ -231,6 +233,7 @@ Route::middleware(['auth', 'status'])->group(function () {
 
 
     Route::get('/subscription/payment', 'Homeopath\SubscriptionController@subscriptionPayment')->name('subscription.payment');
+    Route::get('/subscription/expire', 'Homeopath\SubscriptionController@subscriptionExpire')->name('subscription.expire');
     Route::get('create-subscription/{id}','Homeopath\SubscriptionController@createSubscription')->name('create.subscription');
     // Route::post('create-subscription','Homeopath\SubscriptionController@createSubscription')->name('create.subscription');
     Route::get('subscriptions/cancel', 'Homeopath\SubscriptionController@subscriptionCancel')->name('subscription.cancel');

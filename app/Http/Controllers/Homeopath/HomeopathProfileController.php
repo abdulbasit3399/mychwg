@@ -15,6 +15,7 @@ use Square\Environment;
 use Crypt;
 use App\Models\HomeopathProfile;
 use App\Models\ServiceBooking;
+use App\Models\UserPayment;
 use App\Models\HomeopathService;
 use App\Models\AdsSetting;
 use App\Models\ShopOrder;
@@ -64,7 +65,6 @@ class HomeopathProfileController extends Controller
     {
         $id = auth()->user()->id;
 
-
         // $api_response = $this->client->getCustomersApi()->retrieveCustomer(auth()->user()->stripe_id);
 
         // if ($api_response->isSuccess()) {
@@ -74,7 +74,9 @@ class HomeopathProfileController extends Controller
         // }
 
         // dd($result);
+        $payments = UserPayment::where('user_id',$id)->get();
         $subscription = Subscription::where('user_id', $id)->latest('id')->first();
+        
         return view('homeopath.profile',get_defined_vars());
     }
 

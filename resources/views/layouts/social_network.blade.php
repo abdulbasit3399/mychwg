@@ -172,7 +172,7 @@ $text=$setting[$text_name.'-toast']??'';
 
                         <li class="dropdown dropdown-user nav-item">
                             <a class="dropdown-toggle nav-link dropdown-user-link pb-0" href="#" data-toggle="dropdown">
-                                <span class="user-nav pr-4 " style="padding-left: 5px;">
+                                <span class="user-nav pr-4 ">
                                     <span class="user-nav-inner">
                                         <img src="{{ asset(Auth::user()->avatar) }}" class="round float-left" style="margin-right: 10px;" height="30" width="30">
                                         <h5 class="m-0 font-weight-bold text-primary">{{ Auth::user()->name }}</h5>

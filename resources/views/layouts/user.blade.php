@@ -25,6 +25,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/themes/dark-layout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/themes/semi-dark-layout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin/dropify/css/dropify.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('ijaboCrop/ijaboCropTool.min.css') }}">
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/core/menu/menu-types/horizontal-menu.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/core/colors/palette-gradient.css') }}">
@@ -141,6 +142,8 @@ $text=$setting[$text_name.'-toast']??'';
     <script src="{{ asset('admin/vendors/js/tables/datatable/dataTables.select.min.js') }}"></script>
     <script src="{{ asset('admin/vendors/js/tables/datatable/datatables.checkboxes.min.js') }}"></script>
     <script src="{{asset('admin/dropify/js/dropify.min.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ asset('ijaboCrop/ijaboCropTool.min.js') }}"></script>
 
     <script src="{{ asset('admin/vendors/js/extensions/tether.min.js') }}"></script>
     <script src="{{ asset('admin/js/core/app-menu.js') }}"></script>

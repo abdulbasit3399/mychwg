@@ -143,7 +143,7 @@
                               </span>
                               @else
                               <img src="{{ asset('uploads/badges/grand_opening.png') }}"  class="profile-bowl"
-                              data-container="body" data-trigger="hover" style="width:76px !important" data-toggle="popover" data-placement="top">
+                              data-container="body" data-trigger="hover" style="width:54px !important" data-toggle="popover" data-placement="top">
                               @endif
                             </div>
                           </div>

@@ -3,7 +3,7 @@
 @section('heading','Profile Info')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('ijaboCrop/ijaboCropTool.min.css') }}">
+
  {{--  CUSTOM FONT
 <style type="text/css">
     @font-face {
@@ -76,28 +76,3 @@
 
 @endsection
 
-@section('js')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="{{ asset('ijaboCrop/ijaboCropTool.min.js') }}"></script>
-
-<script>
-    $('#image').ijaboCropTool({
-        preview : '.image-previewer',
-        setRatio:1,
-        allowedExtensions: ['jpg', 'jpeg','png'],
-        buttonsText:['CROP','QUIT'],
-        buttonsColor:['#30bf7d','#ee5155', -15],
-
-        processUrl:'{{ route("admin.crop") }}',
-        withCSRF:['_token','{{ csrf_token() }}'],
-
-        onSuccess:function(message, element, status){
-            //alert('Successful');
-            window.location.reload();
-        },
-        onError:function(message, element, status){
-        alert('Failed to crop image');
-        }
-    });
-</script>
-@endsection

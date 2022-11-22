@@ -2,7 +2,6 @@
 @section('title','Advocate Dashbaord')
 @section('heading','Profile Management')
 @section('css')
-<link rel="stylesheet" href="{{ asset('ijaboCrop/ijaboCropTool.min.css') }}">
 
 @endsection
 
@@ -86,186 +85,50 @@
           <div class="tab-pane" id="billing" aria-labelledby="account-tab" role="tabpanel">
 
             <div class="row">
-
-              <div class="col-2 offset-2">
-
-                <div class="form-group">
-
-                  <div class="controls">
-
-                    <b>Payment Method</b>
-
-                  </div>
-
-                </div>
-
+              @if(\Auth::user()->user_subscription->status == 1)
+              <div class="col-md-6">
+                <h5>Next Payment Date</h5>
+                <p><b>{{date('F j, Y',strtotime(\Auth::user()->subscription_ends))}}</b></p>
               </div>
-
-              <div class="col-8">
-
-                <div class="form-group">
-
-                  <div class="controls">
-
-                    <label>{{($subscription)?'Stripe':'N/A'}}</label>
-
-                  </div>
-
-                </div>
-
+              <div class="col-md-6">
+                <a href="{{route('square.subscription.cancel')}}" onclick="return confirm('You want to cacnel this Subscription?')" class="btn btn-danger mb-4" style="float:right;">Cancel Subscription</a>
               </div>
-
-
-
-              <div class="col-2 offset-2">
-
-                <div class="form-group">
-
-                  <div class="controls">
-
-                    <b>Subscription Date</b>
-
-                  </div>
-
-                </div>
-
+              @else
+              <div class="col-md-6">
               </div>
-
-              <div class="col-8">
-
-                <div class="form-group">
-
-                  <div class="controls">
-
-                    <label>{{($subscription )?$subscription->updated_at:'N/A'}}</label>
-
-                  </div>
-
-                </div>
-
+              <div class="col-md-6">
+                <button class="btn btn-danger mb-4" disabled style="float:right;">Subscription Cancelled</button>
               </div>
-
-
-
-              <div class="col-2 offset-2">
-
-                <div class="form-group">
-
-                  <div class="controls">
-
-                    <b>Choosed Plan</b>
-
-                  </div>
-
+              @endif
+              <div class="col-md-12">
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <td>#</td>
+                        <td>Date</td>
+                        <td>Invoice ID</td>
+                        <td>Payment</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @php
+                      $count = 0;
+                      foreach($payments as $pay):
+                        $count++;
+                      @endphp
+                      <tr>
+                        <td>{{$count}}</td>
+                        <td>{{date('Y-m-d',strtotime($pay->created_at))}}</td>
+                        <td>{{$pay->invoice_id}}</td>
+                        <td>{{'$'.$pay->payment}}</td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
                 </div>
-
               </div>
-
-              <div class="col-8">
-
-                <div class="form-group">
-
-                  <div class="controls">
-
-                    <label>{{($subscription )?ucfirst($subscription->plan_interval).'ly':'N/A'}}</label>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-              <div class="col-2 offset-2">
-
-                <div class="form-group">
-
-                  <div class="controls">
-
-                    <b>Status</b>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-              <div class="col-8">
-
-                <div class="form-group">
-
-                  <div class="controls">
-
-                   <label>{{($subscription && $subscription->stripe_status)?ucfirst($subscription->stripe_status):'N/A'}}</label>
-
-                 </div>
-
-               </div>
-
-             </div>
-
-             <div class="col-2 offset-2">
-
-              <div class="form-group">
-
-                <div class="controls">
-
-                  <b>Next Billing</b>
-
-                </div>
-
-              </div>
-
             </div>
-
-            <div class="col-8">
-
-              <div class="form-group">
-
-                <div class="controls">
-
-                  @php($end_date =($subscription && $subscription->ends_at)?$subscription->ends_at:($subscription && auth()->user()->trial_ends_at?auth()->user()->trial_ends_at:'N/A'))
-
-                  <label>{{$end_date}}</label>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            @if($subscription)
-
-            @if($subscription->stripe_status=='active' || $subscription->stripe_status=='on_trial')
-
-            <div class="col-2 offset-4">
-
-              <div class="text-right">
-
-                <button
-
-                class="btn btn-danger cancel_sub">Cancel Subscription <i class="btn_loader fa fa-spinner fa-spin d-none"></i></button>
-
-              </div>
-
-            </div>
-
-            @else
-
-            <div class="col-2 offset-4">
-
-              <div class="text-right">
-
-                <a href="{{ route('subscription.payment') }}" class="btn btn-relief-primary">Renew  Subscription</a>
-
-              </div>
-
-            </div>
-
-            @endif
-
-            @endif
-
-          </div>
 
 
 
@@ -482,28 +345,3 @@
 
 @endsection
 
-@section('js')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="{{ asset('ijaboCrop/ijaboCropTool.min.js') }}"></script>
-
-<script>
-    $('#image').ijaboCropTool({
-        preview : '.image-previewer',
-        setRatio:1,
-        allowedExtensions: ['jpg', 'jpeg','png'],
-        buttonsText:['CROP','QUIT'],
-        buttonsColor:['#30bf7d','#ee5155', -15],
-
-        processUrl:'{{ route("advocate.crop") }}',
-        withCSRF:['_token','{{ csrf_token() }}'],
-
-        onSuccess:function(message, element, status){
-            //alert('Successful');
-            window.location.reload();
-        },
-        onError:function(message, element, status){
-        alert('Failed to crop image');
-        }
-    });
-</script>
-@endsection

@@ -14,24 +14,7 @@ class AdminProfileController extends Controller
         return view('admin.profile');
     }
 
-    public function crop(Request $request){
 
-        $dest = $request->file('uploads/users/');
-
-        $file = $request->file('image');
-        $new_image_name = 'PFP_'.date('dmY').uniqid().'.jpg';
-        $move = $file->move(public_path($dest), $new_image_name);
-
-        $userInfo = User::find(auth()->user()->id);
-        $userPhoto = $userInfo->avatar;
-        if($userPhoto != '')
-        {
-            unlink($dest.$userPhoto);
-        }
-        $userInfo = User::find(auth()->user()->id)->update(['avatar'=>$new_image_name]);
-        return response()->json(['status' => 1, 'message'=> 'profile has been updated Successfully!']);
-
-    }
 
     public function updateProfile(Request $request)
     {

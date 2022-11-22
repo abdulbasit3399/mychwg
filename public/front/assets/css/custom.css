@@ -2501,12 +2501,12 @@ div.item1 img
     height: 104%;
 }*/
 
-/*.profile-services img, .profile-photos img {
+.profile-services img, .profile-photos img {
     width: 100%;
-    height: 230px;
+    height: 100%;
     object-fit: cover;
     border-radius: 5px;
-}*/
+}
 .btn-book,
 .btn-book:hover,
 .book_btn,
