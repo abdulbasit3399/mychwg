@@ -24,7 +24,9 @@
     <div class="ellips ml-auto p-0">
       <i class="fa fa-ellipsis-v fa-1x"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: 800;"></i>
       <div class="dropdown-menu dropdown-menu-right">
-        <button class="dropdown-item " id="pdf" class="cpy" type="button" onclick="copyToClipboard()"><i class="fa fa-copy mr-1"></i>Copy</button>
+        <button class="dropdown-item " id="pdf" class="cpy" href="<?php if(isset($post->attachement)): ?> <?php echo e(asset($post->attachement)); ?> <?php endif; ?>" type="button" data-pdf="<?php if(isset($post->attachement)): ?> <?php echo e(asset($post->attachement)); ?> <?php endif; ?>" onclick="copyToClipboard(this)">
+          <i class="fa fa-copy mr-1"></i>Copy
+        </button>
 
         <button class="dropdown-item post_delete_btn" data-url="<?php echo e(route('social.post.delete',$post->id)); ?>" type="button"><i class="fa fa-trash mr-1"></i>Delete</button>
       </div>
@@ -50,8 +52,9 @@
             <button type="button" class="btn__open_resource btn-read w-50 text-center" style="border: none;"
               data-title="<?php echo e($post->caption); ?>"
               data-author="<?php echo e($post->user->name); ?>"
+              data-author_image="<?php echo e($post->user->avatar); ?>"
               data-src="<?php echo e($post->file ?  asset($post->file) : asset('uploads/img/resource.png')); ?>"
-              data-description="<?php echo $post->desc; ?>"
+              data-description="<?php echo e($post->desc); ?>"
               data-pdf="<?php if(isset($post->attachement)): ?> <?php echo e(asset($post->attachement)); ?> <?php endif; ?>"
               >
                   Open Resource

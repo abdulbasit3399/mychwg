@@ -16,12 +16,16 @@
                 {{-- <a href="{{ asset($item->attachment) }}" target="_blank" class="btn__open_resource">
                     Open Resource
                 </a> --}}
+                @if(isset($item->attachment))
+                <a href="{{asset($item->attachment)}}" class="btn-read btn__open_resource">Open Resource</a>
+                @endif
+
                 <button type="button" 
                   data-title="{{ $item->title }}" 
                   data-author="{{ $item->author }}" 
                   data-src="{{ $item->image ?  asset($item->image) : asset('uploads/img/resource.png') }}" 
                   data-description="{!! $item->description!!}" 
-                  data-pdf="@if(isset($item->attachment)) {{asset($item->attachment)}} @endif"  class="btn-read btn__open_resource">Open Resource
+                  data-pdf="@if(isset($item->attachment)) {{asset($item->attachment)}} @endif"  class="btn-read btn__open_resource d-none">Open Resource
                 </button>
                 
                 

@@ -14,12 +14,16 @@
               <h5 class="font-weight-bold" style="height:60px"><?php echo e(Str::limit($item->title, 70)); ?></h5>
               <small class="font-weight-bold">By <?php echo e($item->author); ?></small>
                 
+                <?php if(isset($item->attachment)): ?>
+                <a href="<?php echo e(asset($item->attachment)); ?>" class="btn-read btn__open_resource">Open Resource</a>
+                <?php endif; ?>
+
                 <button type="button" 
                   data-title="<?php echo e($item->title); ?>" 
                   data-author="<?php echo e($item->author); ?>" 
                   data-src="<?php echo e($item->image ?  asset($item->image) : asset('uploads/img/resource.png')); ?>" 
                   data-description="<?php echo $item->description; ?>" 
-                  data-pdf="<?php if(isset($item->attachment)): ?> <?php echo e(asset($item->attachment)); ?> <?php endif; ?>"  class="btn-read btn__open_resource">Open Resource
+                  data-pdf="<?php if(isset($item->attachment)): ?> <?php echo e(asset($item->attachment)); ?> <?php endif; ?>"  class="btn-read btn__open_resource d-none">Open Resource
                 </button>
                 
                 

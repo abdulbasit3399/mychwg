@@ -24,7 +24,9 @@
     <div class="ellips ml-auto p-0">
       <i class="fa fa-ellipsis-v fa-1x"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: 800;"></i>
       <div class="dropdown-menu dropdown-menu-right">
-        <button class="dropdown-item " id="pdf" class="cpy" type="button" onclick="copyToClipboard()"><i class="fa fa-copy mr-1"></i>Copy</button>
+        <button class="dropdown-item " id="pdf" class="cpy" href="@if(isset($post->attachement)) {{asset($post->attachement)}} @endif" type="button" data-pdf="@if(isset($post->attachement)) {{asset($post->attachement)}} @endif" onclick="copyToClipboard(this)">
+          <i class="fa fa-copy mr-1"></i>Copy
+        </button>
 
         <button class="dropdown-item post_delete_btn" data-url="{{route('social.post.delete',$post->id)}}" type="button"><i class="fa fa-trash mr-1"></i>Delete</button>
       </div>
@@ -51,8 +53,9 @@
             <button type="button" class="btn__open_resource btn-read w-50 text-center" style="border: none;"
               data-title="{{ $post->caption }}"
               data-author="{{ $post->user->name }}"
+              data-author_image="{{ $post->user->avatar }}"
               data-src="{{ $post->file ?  asset($post->file) : asset('uploads/img/resource.png') }}"
-              data-description="{!! $post->desc!!}"
+              data-description="{{ $post->desc }}"
               data-pdf="@if(isset($post->attachement)) {{asset($post->attachement)}} @endif"
               >
                   Open Resource

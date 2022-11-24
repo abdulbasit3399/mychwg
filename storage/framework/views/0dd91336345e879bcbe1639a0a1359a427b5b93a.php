@@ -1098,7 +1098,20 @@ unset($__errorArgs, $__bag); ?>
       <div class="modal-content rounded-0">
 
         <div class="modal-body p-0" style="height:500px;overflow: auto;overflow-x: hidden;">
-
+            <div class="row p-3" style="background-color: #254A51;color: #fff;">
+              <div class="col-sm-9">
+                  <div class="media">
+                    <img class="mr-4" id="resource_image" src="" style="width:40px;border-radius: 100px;">
+                    <div class="media-body">
+                      <h5 class="my-0" id="resource-author"></h5>
+                      <small>Practitioner</small>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-sm-3 text-right m-auto">
+                <a data-dismiss="modal" aria-label="Close" style="color:#fff;opacity: 0.7;font-weight: bold;cursor: pointer;">View Profile</a>
+              </div>
+            </div>
             <div class="row">
 
               <div class="col-sm-3 p-0">
