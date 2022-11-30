@@ -30,7 +30,7 @@ class HomeopathController extends Controller
         $homeopaths = User::with('HomeopathProfile')
                       ->whereRole('homeopath')
                       ->whereStatus('active');
-
+        
 
         if(isset($req->latitude) && isset($req->longitude))
         {

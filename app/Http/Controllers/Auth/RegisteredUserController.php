@@ -80,6 +80,7 @@ class RegisteredUserController extends Controller
             'slug'       => Str::slug($req->name),
             'user_name'  => $req->user_name,
             'email'      => $req->email,
+            'badge'      => 2,
             'password'   => Hash::make($req->password),
             'phone'      => $req->phone ?? '',
             'stripe_id'  => $customer_id
@@ -135,7 +136,8 @@ class RegisteredUserController extends Controller
 
     public function userRegister(Request $req)
     {
-
+        dump('2');
+        dd($request->all());
         $req->validate([
             
             'name' => 'required',

@@ -69,7 +69,7 @@
 @section('content')
 
 
-<div class="col-xl-12 col-lg-12 mt-1 bookings-section p-0">
+<div class="col-xl-12 col-lg-12 bookings-section p-0">
 
 <div class="row">
                         <div class="col-lg-3 col-sm-6 col-12">

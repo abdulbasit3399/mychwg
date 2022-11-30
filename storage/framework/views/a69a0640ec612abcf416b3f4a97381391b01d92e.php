@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('title', 'Homeopath Registration'); ?>
 
 <?php $__env->startSection('content'); ?>

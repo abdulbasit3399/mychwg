@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('title', 'Register Advocate'); ?>
 <?php $__env->startSection('content'); ?>
 <header>

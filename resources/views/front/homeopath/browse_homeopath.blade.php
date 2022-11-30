@@ -123,9 +123,10 @@
                   <div class="v-box1 mt-3">
 
                     @if(homaopathBadgeStatus($item->HomeopathProfile->id,"Badge")=='true')
-                    <div class="item1">
-                      <img src="{{ asset(badge($item->badge)['path']) }}"  class="profile-bowl h-100"
-                      data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="{{ badge($item->badge)['title'] }}" style="border-radius:11px;">
+                    <div class="item">
+                      
+                      <img src="{{ asset(badge($item->badge)['path']) }}"  class="profile-bowl1 h-100 1"
+                      data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="{{ badge($item->badge)['title'] }}" >
                     </div>
                     @endif
 

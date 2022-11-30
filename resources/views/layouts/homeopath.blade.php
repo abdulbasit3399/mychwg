@@ -408,7 +408,7 @@ $text=$setting[$text_name.'-toast']??'';
     <div class="app-content content">
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
-        <div class="content-wrapper mt-1">
+        <div class="content-wrapper">
             <div class="content-body">
 
                 @if(Auth::User()->HomeopathProfile)

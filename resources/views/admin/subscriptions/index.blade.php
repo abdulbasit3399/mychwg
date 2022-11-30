@@ -50,11 +50,21 @@
 
                                         <tr>
 
-                                            <td class="text-capitalize">{{ checkPlanType($key)['plan'] != 'other' ? checkPlanType($key)['plan_name'] : 'Other' }}</td>
+                                            <td class="text-capitalize">
+                                                @if(env('HOMEOPATH_YEARLY_PLAN_SQUARE') == $item->plan_id)
+                                                    HOMEOPATH YEARLY PLAN
+                                                @elseif(env('HOMEOPATH_MONTHLY_PLAN_SQUARE') == $item->plan_id)
+                                                    HOMEOPATH MONTHLY PLAN
+                                                @elseif(env('ADVOCATE_YEARLY_PLAN_SQUARE') == $item->plan_id)
+                                                    ADVOCATE YEARLY PLAN
+                                                @elseif(env('ADVOCATE_MONTHLY_PLAN_SQUARE') == $item->plan_id)
+                                                    ADVOCATE MONTHLY PLAN
+                                                @endif
+                                                </td>
 
-                                            <td>{{ count($item) }}</td>
+                                            <td>{{ $item->total }}</td>
 
-                                            <td>${{$item->sum('amount')}} CAD</td>
+                                            <td>${{$item->total_rev}} CAD</td>
 
                                         </tr>
 
@@ -114,15 +124,25 @@
 
                                     <tbody>
 
-                                        @foreach($subscriptions as $item)
+                                        @foreach($payments as $item)
 
                                             <tr>
 
                                                 <th>{{ $item->user ? $item->user->name : '' }} (CHWGRN{{ $item->user ? $item->user->id : ''}})</th>
 
-                                                <td>{{ checkPlanType($item->stripe_price)['plan'] != 'other' ? checkPlanType($item->stripe_price)['subscription'] : 'Other' }}</td>
+                                                <td>
+                                                @if(env('HOMEOPATH_YEARLY_PLAN_SQUARE') == $item->plan_id)
+                                                    HOMEOPATH YEARLY PLAN
+                                                @elseif(env('HOMEOPATH_MONTHLY_PLAN_SQUARE') == $item->plan_id)
+                                                    HOMEOPATH MONTHLY PLAN
+                                                @elseif(env('ADVOCATE_YEARLY_PLAN_SQUARE') == $item->plan_id)
+                                                    ADVOCATE YEARLY PLAN
+                                                @elseif(env('ADVOCATE_MONTHLY_PLAN_SQUARE') == $item->plan_id)
+                                                    ADVOCATE MONTHLY PLAN
+                                                @endif
+                                                </td>
 
-                                                <td>${{ $item->amount }} CAD</td>
+                                                <td>${{ $item->payment}} CAD</td>
 
                                                 <td>{{ $item->created_at->format('d/m/Y') }}</td>
 

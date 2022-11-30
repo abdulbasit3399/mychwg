@@ -8,7 +8,7 @@
 
   .item img {
 
-    max-width: 87%;
+/*    max-width: 87%;*/
 
     height: auto;
 
@@ -71,19 +71,19 @@
 
 
                       <div class="v-box1-1 social-badges row" style="margin:0 auto;width: 80%;">
-                        <div class="col-md-4 col-sm-6">
-                          <div class="item1 bg-transparent ">
-                            <img src="{{ asset(badge(Auth::user()->badge)['path']) }}" title="{{ badge(Auth::user()->badge)['title'] }}">
+                        <div class="col-4 col-sm-4 col-md-4">
+                          <div class="item bg-grey">
+                            <img src="{{ asset(badge(Auth::user()->badge)['path']) }}" title="{{ badge(Auth::user()->badge)['title'] }}" style="border-radius:8px">
                           </div>
                         </div>
 
                         @if(badgesInformation(Auth::id())['posts'] >= 100)
-                        <div class="col-md-4 col-sm-6">
-                          <div class="item" style="background-color: transparent;">
+                        <div class="col-4 col-sm-4 col-md-4">
+                          <div class="item bg-grey">
 
                             <div>
                               <img src="{{ asset('uploads/badges/posts_100.png') }}"  class="profile-bowl"
-                              data-container="body" data-trigger="hover" style="width:63px !important;height: 66px;border-radius: 6px;" data-toggle="popover" data-placement="top">
+                              data-container="body" data-trigger="hover" style="height: 49px;" data-toggle="popover" data-placement="top">
                             </div>
                           </div>
                         </div>
@@ -92,12 +92,12 @@
 
 
                         @if(badgesInformation(Auth::id())['resources'] >= 5)
-                        <div class="col-md-4 col-sm-6">
+                        <div class="col-4 col-sm-4 col-md-4">
                           <div class="item1">
 
                             <div>
                               <img src="{{ asset('uploads/badges/resources_5.png') }}"  class="profile-bowl"
-                              data-container="body" data-trigger="hover" style="width:100%;border-radius: 6px;" data-toggle="popover" data-placement="top">
+                              data-container="body" data-trigger="hover" style="border-radius: 6px;" data-toggle="popover" data-placement="top">
                             </div>
                           </div>
                         </div>
@@ -114,11 +114,11 @@
                           $modulas = count(getHomeopathBookings(Auth::user()->id)) - (count(getHomeopathBookings(Auth::user()->id)) % 5);
 
                         @endphp
-                        <div class="col-md-4 col-sm-6">
-                          <div class="item">
+                        <div class="col-4 col-sm-4 col-md-4">
+                          <div class="item bg-grey">
 
                             <div>
-                              <img src="{{ asset('uploads/badges/bookings_25.png') }}"class="profile-bowl " style="width:76px !important" ><br/>
+                              <img src="{{ asset('uploads/badges/bookings_25.png') }}"class="profile-bowl "   ><br/>
                               <span style="font-size:8px;font-weight: 800;color: black;">
                                 {{$modulas}} BOOKINGS
                               </span>
@@ -129,14 +129,15 @@
                         @endif
                         @endif
 
-                        <div class="col-md-4 col-sm-6">
+
+                        <div class="col-4 col-sm-4 col-md-4">
                           <div class="item bg-grey" style="">
 
                             <div>
 
                               @if(Auth::user()->created_at->diffInMonths() >= 12)
                               <img src="{{ asset('uploads/badges/year_1.png') }}"  class="profile-bowl"
-                              data-container="body" data-trigger="hover" style="width:76px !important" data-toggle="popover" data-placement="top" >
+                              data-container="body" data-trigger="hover"   data-toggle="popover" data-placement="top" >
                               @elseif(Auth::user()->created_at->diffInMonths() > 0)
                               <span class="txt9" style="font-size:12px" >
                                 {{ Auth::user()->created_at->diffForHumans() }}
@@ -148,7 +149,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-4 col-sm-6">
+                        <div class="col-4 col-sm-4 col-md-4">
                           <div class="item bg-grey">
 
                             <div>
@@ -161,7 +162,7 @@
 
                           </div>
                         </div>
-                        <div class="col-md-4 col-sm-6">
+                        <div class="col-4 col-sm-4 col-md-4">
                           <div class="item bg-grey" >
 
                             <div>
@@ -264,7 +265,7 @@
 
 
 
-                    <div class="col-sm-4 pb-1 px-0 {{ $follower->user_name }}">
+                    <div class="col-4 col-sm-4 pb-1 px-0 {{ $follower->user_name }}">
 
                       <a href="{{ route('social.connection.profile', [$follower->user_name ?? '',$follower->slug??'']) }}" class="text-dark" target="_blank">
 
@@ -386,7 +387,7 @@
 
                     @foreach(Auth::user()->userFollowings->sortByDesc('id')->take(9) as $follower)
 
-                    <div class="col-sm-4 pb-1 px-0 {{ $follower->user_name }}">
+                    <div class="col-4 col-sm-4 pb-1 px-0 {{ $follower->user_name }}">
 
                       <a href="{{ route('social.connection.profile', $follower->user_name ?? '') }}" class="text-dark" target="_blank">
 

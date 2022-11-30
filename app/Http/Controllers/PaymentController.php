@@ -408,13 +408,13 @@ public function generateResponse($intent)
       {
         $subscription = SquareSubscription::where('user_id',$user->id)->first();
         $subscription->subscription_id = $request->data['object']['subscription']['id'];
-        $subscription->plan_id = $request->data['object']['subscription']['customer_id'];
+        $subscription->plan_id = $request->data['object']['subscription']['plan_id'];
         $subscription->subscription_name = 'default';
-                // $subscription->trial_ends_at = date('Y-m-d', strtotime($date. ' +7 days'));
-        $subscription->amount = 0;
+        // $subscription->trial_ends_at = date('Y-m-d', strtotime($date. ' +7 days'));
+        // $subscription->amount = 0;
         $subscription->save();
 
-        $user->subscription_type = 'trial';
+        // $user->subscription_type = 'trial';
         $user->subscription_id = $request->data['object']['subscription']['id'];
                 // $user->subscription_ends = date('Y-m-d', strtotime($date. ' +7 days'));
         $user->save();
@@ -431,6 +431,7 @@ public function generateResponse($intent)
           $new_payment = new UserPayment;
           $new_payment->user_id = $user->id;
           $new_payment->invoice_id = $inv;
+          $new_payment->plan_id = $request->data['object']['subscription']['plan_id'];
           $new_payment->save();
 
           $url = env('SQUARE_API_URL')."/v2/invoices/".$inv;

@@ -188,7 +188,7 @@
                                 <a class="btn btn-sm btn-info text-white p-2" href="<?php echo e(route('create.subscription',$yearly_plan)); ?>">Subscribe</a>
                                 <?php endif; ?>
                             </div>
-                            <h4 class="font-weight-bold">$20</h4>
+                            <h4 class="font-weight-bold">$200</h4>
 
                         </div>
                         <hr>
@@ -205,7 +205,7 @@
                                 <a class="btn btn-sm btn-info text-white p-2" href="<?php echo e(route('create.subscription',$monthly_plan)); ?>">Subscribe</a>
                                 <?php endif; ?>
                             </div>
-                            <h4 class="font-weight-bold">$200</h4>
+                            <h4 class="font-weight-bold">$20</h4>
 
                         </div>
 

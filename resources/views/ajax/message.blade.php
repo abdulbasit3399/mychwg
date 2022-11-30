@@ -5,7 +5,7 @@
         background: #fff;
         float: left;
         overflow: hidden;
-        width: 30%;
+        width: 100%;
         border-right: 1px solid #ddd;
     }
 

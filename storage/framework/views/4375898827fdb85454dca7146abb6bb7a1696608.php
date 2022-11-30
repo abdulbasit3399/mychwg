@@ -1,6 +1,6 @@
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner rounded">
+  <div class="carousel-inner rounded" >
     
     <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
       <div class="carousel-item <?php if($loop->first): ?> active <?php endif; ?>" data-interval="5000">

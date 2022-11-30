@@ -1,6 +1,6 @@
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner rounded">
+  <div class="carousel-inner rounded" >
     
     @foreach($data as $item)
       <div class="carousel-item @if($loop->first) active @endif" data-interval="5000">

@@ -59,7 +59,7 @@
     <div class="app-content content">
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
-        <div class="content-wrapper mt-2">
+        <div class="content-wrapper">
             <div class="content-body">
                 <?php echo $__env->yieldContent('content'); ?>
             </div>

@@ -36,7 +36,7 @@
         </div>
     @else
 
-        <div class="col-lg-6 mb-3">
+        <div class="col-lg-6">
             <div class="card">
                 <div class="card-body">
 
@@ -55,7 +55,7 @@
             </div>
         </div>
 
-        <div class="col-lg-6 mb-3">
+        <div class="col-lg-6">
             <div class="card" style="min-height: 458px;">
                 <div class="card-body">
 

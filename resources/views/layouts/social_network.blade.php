@@ -109,7 +109,9 @@
         }
 
 
-
+        html body .content .content-wrapper {
+            padding-top: 10px !important;
+        }
 
 </style>
     @yield('css')
@@ -163,15 +165,15 @@ $text=$setting[$text_name.'-toast']??'';
                     </div>
 
 
-                    <ul class="nav navbar-nav float-right">
+                    <ul class="nav navbar-nav float-right1" style="padding-left: 7px;">
 
-                        <div id="appendNotification">
+                        <div id="appendNotification" style="width:20%">
                             @include('vendor.social-network.pages.notification')
                         </div>
 
 
-                        <li class="dropdown dropdown-user nav-item">
-                            <a class="dropdown-toggle nav-link dropdown-user-link pb-0" href="#" data-toggle="dropdown">
+                        <li class="dropdown dropdown-user nav-item" style="width:80%">
+                            <a class="dropdown-toggle nav-link dropdown-user-link pb-0 pr-0" href="#" data-toggle="dropdown" style="float: right;">
                                 <span class="user-nav pr-4 ">
                                     <span class="user-nav-inner">
                                         <img src="{{ asset(Auth::user()->avatar) }}" class="round float-left" style="margin-right: 10px;" height="30" width="30">

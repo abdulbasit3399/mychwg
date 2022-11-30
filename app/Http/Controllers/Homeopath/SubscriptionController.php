@@ -118,6 +118,7 @@ class SubscriptionController extends Controller
       'headers' => ['Content-Type' => 'application/json', 'Accept' => 'application/json','Authorization' => 'Bearer '.env('SQUARE_ACCESS_TOKEN')],
       'body'    => json_encode($data)
     ]);
+    $response = json_decode($response->getBody(), true);
 
     $client = new SquareClient([
       'accessToken' => env('SQUARE_ACCESS_TOKEN'),
@@ -130,6 +131,7 @@ class SubscriptionController extends Controller
     } else {
       $result = $api_response->getErrors();
     }
+
     $days = 0;
     foreach ($result as $key => $rslt) {
       if($rslt->getOrdinal() == 0)
@@ -143,13 +145,13 @@ class SubscriptionController extends Controller
         $subscription->subscription_type = 'trial';
         $subscription->plan_id = $id;
         $subscription->trial_ends_at = date('Y-m-d', strtotime($date. ' '.$days.' days'));
-        $subscription->plan_interval = 'MONTHLY';
+        $subscription->plan_interval = 'Daily';
         $subscription->amount = 0;
         $subscription->save();
 
         $date = date('Y-m-d');
         $user->subscription_type = 'trial';
-        $user->subscription_id = '0123';
+        $user->subscription_id = $response['subscription']['id'];
         $user->subscription_ends = date('Y-m-d', strtotime($date. ' +'.$days.' days'));
         $user->save();
 
@@ -157,7 +159,38 @@ class SubscriptionController extends Controller
       }
     }
 
+    foreach ($result as $key => $rslt) {
+      if($rslt->getOrdinal() == 1)
+      {
+        if($rslt->getCadence() == 'MONTHLY')
+          $days = 30;
+        elseif($rslt->getCadence() == 'ANNUAL')
+          $days = 365;
 
+
+        $date = date('Y-m-d');
+        $user = User::find(auth()->user()->id);
+
+        $subscription = new SquareSubscription;
+        $subscription->user_id = $user->id;
+        $subscription->subscription_type = 'subscription';
+        $subscription->plan_id = $id;
+        $subscription->trial_ends_at = date('Y-m-d', strtotime($date. ' '.$days.' days'));
+        $subscription->plan_interval = $rslt->getCadence();
+        $subscription->amount = $rslt->getRecurringPriceMoney()->getAmount() / 100;
+        $subscription->save();
+
+        $date = date('Y-m-d');
+        $user->subscription_type = 'subscription';
+        $user->subscription_id = $response['subscription']['id'];
+        $user->subscription_ends = date('Y-m-d', strtotime($date. ' +'.$days.' days'));
+        $user->save();
+
+        return redirect()->route('redirect.dashboard');
+      }
+    }
+
+    return redirect()->route('redirect.dashboard');
     return redirect()->back()->withError('Invoice sent to your registered email, please Pay invoice and refresh this page.');
 
   }
