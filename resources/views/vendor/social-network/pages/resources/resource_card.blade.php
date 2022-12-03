@@ -3,9 +3,17 @@
     <div class="card-body text-center">
         <h3 class="font-weight-bold" style="height:70px;overflow:hidden;">{{ $post->caption }}</h3>
         <p class="font-weight-bold">By {{ $post->author }}</p>
-        <a href="{{ asset($post->attachement) }}" target="_blank" class="btn__open_resource">
+        <a target="_blank" class="btn__open_resource btn-read"
+            data-title="{{ $post->caption }}"
+              data-author="{{ $post->user->name }}"
+              data-author_image="{{ asset($post->user->avatar) }}"
+              data-src="{{ $post->file ?  asset($post->file) : asset('uploads/img/resource.png') }}"
+              data-description="{{ $post->desc }}"
+              data-pdf="@if(isset($post->attachement)) {{asset($post->attachement)}} @endif"
+              >
             Open Resource
         </a>
+
 
         @if(Auth::id() == $post->user_id)
             @if($post->is_shared == true)

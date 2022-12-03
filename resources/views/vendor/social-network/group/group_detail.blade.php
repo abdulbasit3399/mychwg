@@ -329,7 +329,7 @@
                                     
 
 @endsection
-@section('js')
+@section('custome_js')
 
 
 

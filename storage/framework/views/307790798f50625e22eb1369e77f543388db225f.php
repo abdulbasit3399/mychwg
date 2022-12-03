@@ -501,7 +501,7 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('js'); ?>
+<?php $__env->startSection('custome_js'); ?>
 
 
 <script>

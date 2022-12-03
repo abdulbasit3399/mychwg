@@ -1795,7 +1795,7 @@ $text=$setting[$text_name.'-toast']??'';
     })
 </script>
 
-    @yield('js')
+    @yield('custome_js')
 
 </body>
 </html>

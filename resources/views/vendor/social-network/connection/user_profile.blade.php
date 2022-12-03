@@ -302,7 +302,45 @@
 
 
 
+<div class="modal fade bg-dark1" id="viewsingleResource" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-zoom" role="document">
+      <div class="modal-content rounded-0">
+        <div class="modal-body p-0" style="overflow: auto;overflow-x: hidden;background-color: #F6F6F6;">
+            <div class="row p-1" style="background-color: #254A51;color: #fff;">
+              <div class="col-sm-9">
+                  <div class="media">
+                    <img class="mr-1" src="" id="author_image" style="width:41px;border-radius: 100px;height: 39px;">
+                    <div class="media-body p-0">
+                      <h5 class="my-0 resource-author text-white"></h5>
+                      <small>Practitioner</small>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-sm-3 text-right m-auto">
+                <a data-dismiss="modal" aria-label="Close" style="color:#fff;opacity: 0.7;font-weight: bold;cursor: pointer;">Go Back</a>
+              </div>
+            </div>
 
+            <div class="row p-3" style="height:420px">
+              <div class="col-sm-9">
+                    <div style="font-weight: 900;font-size: 2.6vw;">"<span id="resource-title"></span>"</div>
+                    <div style="opacity: 0.7;font-weight: bold;font-size: 16px;">By <span class="resource-author"></span></div>
+                      <div class="mt-3" id="resource-description"></div>
+                      <a href="" id="pdf1" target="_blank" class="btn rounded-0 px-3 py-2" style="position:absolute;bottom: 0;background-color: #E5BCB3;color: #fff;">Read Now</a>
+              </div>
+
+              <div class="col-sm-3 px-0 m-auto">
+                  <img id="resource_image" src="" style="width:100%;box-shadow: 15px 0px 0px -9px rgba(115,115,115,1);
+-webkit-box-shadow: 15px 0px 0px -9px rgba(115,115,115,1);
+-moz-box-shadow: 15px 0px 0px -9px rgba(115,115,115,1);">
+              </div>
+
+            </div>
+              
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
@@ -462,14 +500,34 @@
 
 @endif
 
+
 @endsection
 
-@section('js')
+@section('custome_js')
 
+<script type="text/javascript">
+    $(document).on('click','.btn-read', function(){
+        $('#viewAllResources').modal('hide');
 
+        $('#resource_image').attr('src', $(this).data('src'));
+        $('#resource-title').text($(this).data('title'));
+        $('.resource-author').text($(this).data('author'));
+        $('#resource-description').html($(this).data('description'));
+        $('#author_image').attr('src', $(this).data('author_image'));
 
+        if($(this).data('pdf').length == 0)
+        {
+          $('#pdf1').addClass('d-none');
+        }
+        else
+        {
+          $('#pdf1').removeClass('d-none');
+          $('#pdf1').attr('href',$(this).data('pdf'));
+        }
 
-
+        $('#viewsingleResource').modal('show');
+    })
+</script>
 
 
 @endsection
