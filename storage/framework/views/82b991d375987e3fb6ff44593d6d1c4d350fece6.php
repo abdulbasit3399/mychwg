@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('title', 'Register Advocate'); ?>
 <?php $__env->startSection('content'); ?>
 <header>
@@ -9,7 +10,7 @@
                 <div class="banner-top text-center">
                     <div class="inner">
                         <h2 class="text-dark">Advocate Sign Up</h2>
-                        <p>'Register your Advocate Account</p>
+                        <p>Register your Advocate Account</p>
                         <p class="cmp-button-row non-mobile-only">
                             <div class="right-box">
                                 <div class="screenshot"></div>
@@ -24,13 +25,17 @@
 <!--END HEADER-->
 
                     <section class="content">
-                        <div id="vendor_registration" class="container custom-extra-top-style">
+                        <div id="vendor_registration" class="container custom-extra-top-style pt-0">
                             <div class="row justify-content-center">
+                                
                                 <div class="col-xs-12 col-sm-8 col-md-6">
+                                    <div class="text-center my-3">
+                                        <img src="<?php echo e(asset('front/mettria.png')); ?>" style="width:230px">
+                                    </div>
                                     <form method="post" action="<?php echo e(route('register')); ?>" id="advocate-reg-form">
                                         <?php echo csrf_field(); ?>
                                         <div class="text-center">
-                                            <h2>Please Sign Up <small>It's always will be.</small></h2>
+                                            <h2>Register your Advocate Account</h2>
                                             <?php if($errors->any()): ?>
                                                 <?php echo implode('', $errors->all('<div class="text-danger">:message</div>')); ?>
 

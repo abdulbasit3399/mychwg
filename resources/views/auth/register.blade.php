@@ -25,13 +25,17 @@
 <!--END HEADER-->
 
                     <section class="content">
-                        <div id="vendor_registration" class="container custom-extra-top-style">
+                        <div id="vendor_registration" class="container custom-extra-top-style pt-0">
                             <div class="row justify-content-center">
+                                
                                 <div class="col-xs-12 col-sm-8 col-md-6">
+                                    <div class="text-center my-3">
+                                        <img src="{{ asset('front/mettria.png') }}" style="width:230px">
+                                    </div>
                                     <form method="post" action="{{ route('register') }}" id="advocate-reg-form">
                                         @csrf
                                         <div class="text-center">
-                                            <h2>Please Sign Up <small>It's always will be.</small></h2>
+                                            <h2>Register your Advocate Account</h2>
                                             @if($errors->any())
                                                 {!! implode('', $errors->all('<div class="text-danger">:message</div>')) !!}
                                             @endif
