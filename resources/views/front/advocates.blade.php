@@ -54,7 +54,7 @@
 
                                 <p class="cmp-button-row non-mobile-only">
 
-                                    <a href="{{ route('find.homeopath') }}" class="btn btn-primary  text-white">Start Your Subscription Today</a>
+                                    <a href="{{ route('find.homeopath') }}" class="btn btn-primary  text-white">Sign-up for a Free Trial</a>
 
                                 </p>
 

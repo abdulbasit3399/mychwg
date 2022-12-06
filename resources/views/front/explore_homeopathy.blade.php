@@ -14,7 +14,7 @@
 <!--MAIN CONTENT SECTION-->
 <section class="content">
     <div id="custom_single_page">
-        
+
         <!-- Tab panes -->
 {{--         <div class="tab-content mt-3">
             @foreach($homeopath_categories as $category)
@@ -43,13 +43,13 @@
                         <div class="explore-bar">
                             <div class="sidebar left">
 
-                                    
+
                                     <ul class="list-sidebar bg-defoult">
 
                                         @foreach($homeopath_categories as $category)
                                             <li style="border-bottom:1px solid;font-size: 15px;">
                                                 <a href="#" data-toggle="collapse" data-target="#{{ $category->id }}" area-expanded="true" class="collapsed" >
-                                                    <span class="nav-label"> {{ $category->title }} </span> 
+                                                    <span class="nav-label"> {{ $category->title }} </span>
                                                 </a>
 
                                                 <ul class="sub-menu collapse show" id="{{ $category->id }}">
@@ -61,7 +61,7 @@
                                             </li>
                                         @endforeach
 
-                                      
+
                                     </ul>
                             </div>
 
@@ -75,7 +75,7 @@
 
             </div>
         </div>
-        <div class="banner-bottom  text-center">
+        <div class="banner-bottom  text-center bg-light">
             <div class="inner">
                 <h2>Looking for more information? Join Materia.</h2>
             </div>
@@ -98,7 +98,7 @@
                 $('.append__result').html(response);
             });
         })
-            
+
         $(document).ready(function(){
             $(".btn__library").first().click();
         })

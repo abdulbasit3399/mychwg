@@ -38,7 +38,7 @@
 
     <div class="card mt-1">
 
-        <h5 class="m-0"><span class="text-white bg-dark p-1 ">Update Appointment Schedule</span></h5>
+        <h5 class="m-0"><span class="text-white bg-dark p-1 ">Schedule / Timetable</span></h5>
 
         <div class="card-content">
 

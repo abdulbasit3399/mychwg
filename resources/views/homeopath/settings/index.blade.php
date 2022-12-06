@@ -36,7 +36,7 @@
 
 <div class="card mt-1">
 
-    <h6 class="m-0"><span class="text-white bg-dark p-1">Homeopath Photos</span></h6>
+    <h6 class="m-0"><span class="text-white bg-dark p-1">Photos</span></h6>
 
 
 
@@ -158,7 +158,7 @@
 
                                                             <label>Caption</label>
 
-                                                            <textarea rows="5" name="caption" class="form-control" style="height:150px" 
+                                                            <textarea rows="5" name="caption" class="form-control" style="height:150px"
 
                                                                 placeholder="Caption" required="">{{ Auth::user()->HomeopathProfile->caption ?? '' }}</textarea>
 
@@ -192,7 +192,7 @@
 
                                                             <input type="hidden" id="longitude" name="longitude" value="{{ Auth::user()->HomeopathProfile->longitude ?? '' }}">
 
-                                                    
+
 
                                                 </div>
 
@@ -262,13 +262,13 @@
 
         <div class="card">
 
-            
+
 
             <h6 class="m-0"><span class="text-white bg-dark p-1">Badges Setting</span></h6>
 
             <div class="card-content">
 
-           
+
 
                 <div class="table-responsive mt-3">
 
@@ -284,7 +284,7 @@
 
                                 <th>Action</th>
 
-                                
+
 
                             </tr>
 
@@ -306,13 +306,13 @@
 
                                </td>
 
-                               
+
 
                                <td>
 
                                    <div class="mb-4">
 
-              
+
 
                                       <label class="custom-control teleport-switch">
 
@@ -336,7 +336,7 @@
 
                            <tr>
 
-                               
+
 
                                <td>
 
@@ -354,7 +354,7 @@
 
                                    <div class="mb-4">
 
-              
+
 
                                       <label class="custom-control teleport-switch">
 
@@ -376,7 +376,7 @@
 
                            <tr>
 
-                               
+
 
                                <td>
 
@@ -394,7 +394,7 @@
 
                                    <div class="mb-4">
 
-              
+
 
                                       <label class="custom-control teleport-switch">
 
@@ -418,7 +418,7 @@
 
                            <tr>
 
-                               
+
 
                                <td>
 
@@ -436,7 +436,7 @@
 
                                    <div class="mb-4">
 
-              
+
 
                                       <label class="custom-control teleport-switch">
 
@@ -458,7 +458,7 @@
 
                            <tr>
 
-                               
+
 
                                <td>
 
@@ -476,7 +476,7 @@
 
                                    <div class="mb-4">
 
-              
+
 
                                       <label class="custom-control teleport-switch">
 
@@ -498,7 +498,7 @@
 
                            <tr>
 
-                               
+
 
                                <td>
 
@@ -516,7 +516,7 @@
 
                                    <div class="mb-4">
 
-              
+
 
                                       <label class="custom-control teleport-switch">
 
@@ -536,7 +536,7 @@
 
                            </tr>
 
-                            
+
 
                         </tbody>
 
@@ -692,7 +692,7 @@ $(this).closest('div').remove();
 
             {
 
-              if (data) 
+              if (data)
 
               {
 

@@ -20,7 +20,7 @@
 
                     <div class="inner">
 
-                        <h2>{{ env('APP_NAME') }} Homeopath Registration</h2>
+                        <h2>Homeopath Registration</h2>
 
                         <p>Provide your correct credentials to register at CHWG</p>
 
@@ -60,7 +60,7 @@
         <div class="row justify-content-center mb-4">
             <div class="col-xs-12 text-center">
                 <img src="{{asset('uploads/img/16.png')}}" width="150">
-                <p>We help you help others </p>
+                <p>Your Clinic made Easier </p>
             </div>
         </div>
         <div class="row justify-content-center">

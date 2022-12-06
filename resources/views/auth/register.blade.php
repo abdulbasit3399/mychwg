@@ -10,7 +10,7 @@
                 <div class="banner-top text-center">
                     <div class="inner">
                         <h2 class="text-dark">Advocate Sign Up</h2>
-                        <p>Please Sign Up It's always will be.</p>
+                        <p>Register your Advocate Account</p>
                         <p class="cmp-button-row non-mobile-only">
                             <div class="right-box">
                                 <div class="screenshot"></div>
