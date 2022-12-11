@@ -6,7 +6,7 @@
                     <ul class="nav navbar-nav">
                         <li class="nav-item mobile-menu d-xl-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ficon feather icon-menu"></i></a></li>
                     </ul>
-                    <h3 class="m-auto">@yield('heading')</h3>
+                    <h5 class="m-auto">@yield('heading')</h5>
                 </div>
                 <ul class="nav navbar-nav float-right">
 

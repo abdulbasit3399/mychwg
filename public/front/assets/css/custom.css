@@ -1040,7 +1040,7 @@ padding: 0;
 
 .profile-sidebar img
 {
-    border-radius: 11px;
+/*    border-radius: 11px;*/
 }
 
 .profile-sidebar p
@@ -1562,7 +1562,6 @@ cursor: pointer;
 .wrapper-payemnt-choose .option{
   background: #d7d6d640;
   height: 100%;
-  text-transform: uppercase;
   font-weight: bold;
   font-size: 12px;
   width: 100%;
@@ -1581,12 +1580,12 @@ cursor: pointer;
 }
 #option-1:checked:checked ~ .option-1,
 #option-2:checked:checked ~ .option-2{
-  border-color: #50b86a;
-    background: #50b86a;
+  border-color: #12B0A0;
+    background: #12B0A0;
 }
 
 .wrapper-payemnt-choose .option span{
-  font-size: 20px;
+  font-size: 18px;
   color: #808080;
 }
 #option-1:checked:checked ~ .option-1 span,
@@ -2790,5 +2789,5 @@ cursor: pointer;
     border-radius: 100px !important;
     width: 60px;
     height: 60px;
-    border: 2px solid red;
+/*    border: 2px solid red;*/
 }

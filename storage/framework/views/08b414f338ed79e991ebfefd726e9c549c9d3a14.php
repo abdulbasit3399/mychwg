@@ -36,10 +36,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/owl.carousel.min.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('front/icomoon/style.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/switch/style.css')); ?>">
-    <script
-        src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
-        crossorigin="anonymous"></script>
+    
     <!-- END: Page CSS-->
     <style>
         .btn
@@ -437,7 +434,7 @@ $text=$setting[$text_name.'-toast']??'';
         <?php endif; ?>
 
     <script src="<?php echo e(asset('admin/vendors/js/vendors.min.js')); ?>"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
     <script src="<?php echo e(asset('ijaboCrop/ijaboCropTool.min.js')); ?>"></script>
     <script src="<?php echo e(asset('admin/vendors/js/tables/datatable/datatables.min.js')); ?>"></script>
     <script src="<?php echo e(asset('admin/vendors/js/tables/datatable/datatables.buttons.min.js')); ?>"></script>
@@ -610,11 +607,6 @@ $text=$setting[$text_name.'-toast']??'';
             var last_part = parts[parts.length-1];
             last_part=last_part+'-toast';
             $('.toast').toast('show');
-
-
-
-
-
         }
         function anotherToast(text)
         {
@@ -629,9 +621,9 @@ $text=$setting[$text_name.'-toast']??'';
 
             }
             else{
-                    $('.toast-text').text('');
-                    $('.toast-text').text(text);
-                    $('.toast').toast('show');
+                    // $('.toast-text').text('');
+                    // $('.toast-text').text(text);
+                    // $('.toast').toast('show');
                 }
         }
     $(document).ready(function() {

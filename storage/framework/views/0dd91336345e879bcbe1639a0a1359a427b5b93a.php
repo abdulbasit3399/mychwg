@@ -1158,7 +1158,7 @@ unset($__errorArgs, $__bag); ?>
 
 <div class="modal fade" id="modalPostWritePopup">
 
-    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-zoom shodow-0">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-zoom shodow-0 b-modal" >
 
       <div class="modal-content rounded-0 shodow-0" style="background:transparent;">
 

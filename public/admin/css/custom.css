@@ -243,7 +243,12 @@ body
   position: absolute;
   }
 }
-
+@media (max-width: 990px)
+{
+    .b-modal{
+        margin-top: 200px;
+    }
+}
 
 .site-logo img
 {

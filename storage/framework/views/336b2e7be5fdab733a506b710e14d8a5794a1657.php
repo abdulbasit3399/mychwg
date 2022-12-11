@@ -21,7 +21,10 @@
 
                         <?php if(homaopathBadgeStatus($homeopath->HomeopathProfile->id,"Badge")=='true'): ?>
                             <div class="main-accolade col-sm-4 mb-2 icon-border-radius">
-                                <img src="<?php echo e(asset(badge($homeopath->badge ?? '' )['path'] ?? '')); ?>" title="<?php echo e(badge($homeopath->badge??'')['title']??''); ?>" class="w-100 h-100">
+                                <div>
+                                    <img src="<?php echo e(asset(badge($homeopath->badge ?? '' )['path'] ?? '')); ?>" title="<?php echo e(badge($homeopath->badge??'')['title']??''); ?>" class="" style="width:54px !important">
+                                </div>
+                                
                             </div>
                         <?php endif; ?>
 

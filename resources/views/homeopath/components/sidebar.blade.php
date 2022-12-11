@@ -16,7 +16,7 @@
 
             <li class="nav-item has-sub">
 
-                <a href="#" class="font-weight-bold"><i class=""></i><img src="{{asset('uploads/img/16.png')}}" width="150">
+                <a href="#" class="font-weight-bold"><i class=""></i><img src="{{asset('uploads/img/16.png')}}" width="120">
 
                      <i class="fas fa-chevron-down float-right"></i>
 

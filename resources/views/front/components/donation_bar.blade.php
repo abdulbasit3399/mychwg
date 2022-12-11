@@ -1,6 +1,6 @@
 <div class="demo-panel dp-right right-panel position-fixed">
 
-  <div class="demo-panel-trigger bg-success" style="width: 130px;">
+  <div class="demo-panel-trigger bg-success" style="width: 130px;background-color: #12B0A0 !important;">
 
     Care to Donate?
 
@@ -53,16 +53,16 @@
                   <div class="wrapper-payemnt-choose">
                     <input type="radio" name="payment_type" id="option-1" checked required="" value="one_time">
                     <input type="radio" name="payment_type" id="option-2" class="form-control" value="monthly">
-                    <label for="option-1" class="option option-1">
+                    <label for="option-1" class="option option-1" style="background-color: #12B0A0 !important;">
                       <div class="dot"></div>
-                      <span>One Time</span>
+                      <span>One-Time</span>
                     </label>
                     <label for="option-2" class="option option-2">
                       <div class="dot"></div>
                       <span>Monthly</span>
                     </label>
                   </div>
-                  <button type="submit" class="btn btn-dark pull-right" style="background-color: #50b86a;border-color: #50b86a;">Donate</button>
+                  <button type="submit" class="btn btn-dark pull-right" style="background-color: #12B0A0;border-color: #12B0A0;">Donate</button>
                 </div>
               </form>
             </div>

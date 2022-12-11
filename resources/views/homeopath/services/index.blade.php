@@ -402,15 +402,15 @@
 
         $(document).on('click', '.btn-add-service', function(){
 
-            $modal = $('#modalAddService');
+            var modal = $('#modalAddService');
 
-            $modal.find('form').attr('action', $(this).data('action'));
+            modal.find('form').attr('action', $(this).data('action'));
 
             $('#title').val('');
 
 
 
-            $modal.modal('show');
+            $('#modalAddService').modal('show');
 
         })
 

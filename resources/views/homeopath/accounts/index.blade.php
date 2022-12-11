@@ -35,7 +35,7 @@
             <h6>If you need more information about the connect attachement. Contact to administrator authority of the CHWG platform.</h6>
         </div>
     @else
-        <div class="col-lg-6">
+        <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
 
@@ -55,7 +55,7 @@
         </div>
 
 
-        <div class="col-lg-6">
+        {{-- <div class="col-lg-6">
             <div class="card" style="min-height: 458px;">
                 <div class="card-body">
 
@@ -68,7 +68,7 @@
                         </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
     @endif
 
