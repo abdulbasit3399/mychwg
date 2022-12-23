@@ -50,11 +50,12 @@ class SocialController extends Controller
 
     public function savePost(Request $request)
     {
-        // dd($request->all());
-        $request->validate([
-           'caption'=>'required',
-        ]);
-
+        if($request->media_type == null)
+        {
+            $request->validate([
+               'caption'=>'required',
+            ]);
+        }
         if($request->post_type == 'Resources')
         {
             $request->validate([
@@ -64,6 +65,7 @@ class SocialController extends Controller
                'tags'        =>'required',
             ]);
         }
+        
 
 
         if ($request->hasFile('file'))

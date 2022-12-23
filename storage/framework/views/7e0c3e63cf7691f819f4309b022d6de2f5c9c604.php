@@ -32,7 +32,7 @@
                             <?php if($post->is_shared == true): ?>
                                 <a href="<?php echo e(route('social.share.resource', base64_encode($post->id))); ?>"
                                    class="dropdown-item">
-                                   <i class="fas fa-share"></i> Hold post
+                                   <i class="fas fa-share"></i> Share post
                                 </a>
                             <?php else: ?>
                                 <a href="<?php echo e(route('social.share.resource', base64_encode($post->id))); ?>"

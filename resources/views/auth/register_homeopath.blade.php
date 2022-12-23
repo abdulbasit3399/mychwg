@@ -59,8 +59,9 @@
     <div class="container custom-extra-top-style">
         <div class="row justify-content-center mb-4">
             <div class="col-xs-12 text-center">
-                <img src="{{asset('uploads/img/16.png')}}" width="150">
-                <p>Your Clinic made Easier </p>
+                <img src="{{asset('uploads/img/17.png')}}" width="150">
+                <br/>
+                <p>We help you help others</p>
             </div>
         </div>
         <div class="row justify-content-center">

@@ -1724,7 +1724,7 @@ $text=$setting[$text_name.'-toast']??'';
 
                 if(isUrl(url))
                 {
-                    $('linkPreview').html('');
+                    $('.linkPreview').html('');
                     $('.linkPreview').html('<div class="lds-dual-ring"></div>');
 
                     $.get({

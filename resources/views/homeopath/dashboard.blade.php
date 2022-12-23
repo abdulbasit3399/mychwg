@@ -227,22 +227,25 @@
                                         </div>
                                     </div>
                                     <div class="permissions mt-2">
-                                        <h5 class="h5-heading">Functionalities to get this attachement</h5>
+                                        <h5>By connecting your zoom account you can...</h5>
                                         <ul>
-                                            <h5>-Generate virtual appointments</h5>
-                                            <h5>-Generate seminars</h5>
+                                            <li>Set up virtual services</li>
+                                            <li>Conduct virtual meet-ups</li>
                                         </ul>
                                     </div>
 
                                     @if(Auth::user()->zoom_access_token == "")
 
-                                        <div class="jumbotron py-1 mb-1">
+                                        {{-- <div class="jumbotron py-1 mb-1">
                                             <h5 class="h5-heading">Why zoom attachment is important?</h5>
                                             <p>Zoom attachement is mandatory in order to start meetings for events. if you will not attach your account. you will not be able to start your event session.</p>
                                             <h6 class="bg-rgba-info p-1 m-0"><span class="text-warning">NOTE: </span> There will be one time Zoom account integration and you dont need to attach again. Sincerely, if you will link it we will not ask it again.</h6>
                                             <h5>You can start generating virtual sessions with patients</h5>
-                                        </div>
-
+                                        </div> --}}
+                                        <h6 class="bg-rgba-info p-1 m-0" style="font-weight: 700;">NOTE: Only a one-time integration is required when connecting your Zoom account. Follow the steps in the confirmation email you receive from Zoom in order to verify the attachment.</h6>
+                                        <br/>
+                                        <br/>
+                                        <br/>
                                         <h6 class="h5-heading">By clicking on the "Attach my account" button you agree to the <a target="_blank" href="https://explore.zoom.us/en/terms/">terms and conditions</a> of Zoom.us</h6>
                                         <hr class="mt-0">
                                         <button type="submit" class=" btn float-right btn-attach">Attach my account</button>

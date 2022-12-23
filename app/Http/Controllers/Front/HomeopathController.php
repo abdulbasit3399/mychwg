@@ -15,13 +15,8 @@ class HomeopathController extends Controller
     public function findHomeopath(Request $req)
     {
 
-
-
         $data = $req->all();
 
-        #=======================================
-                #GET SPECIALIZATIONS
-        #=======================================
 
         $specializations = str_replace(' ', '', implode("," , HomeopathProfile::pluck('specializations')->toArray()));
         $specializations = array_unique(explode(',', $specializations));
@@ -40,8 +35,9 @@ class HomeopathController extends Controller
 
 
 
-            $locations = DB::select("select * from(select *,( 6371 * acos( cos( radians(".$req->latitude.") ) * cos( radians(homeopath_profiles.latitude ) ) * cos( radians( homeopath_profiles.longitude ) - radians(".$req->longitude.")) + sin( radians(".$req->latitude.") ) * sin( radians( homeopath_profiles.latitude ) ) ) ) AS distance from homeopath_profiles) as innertable where distance<'".$req->radius."'");
+            // $locations = DB::select("select * from(select *,( 6371 * acos( cos( radians(".$req->latitude.") ) * cos( radians(homeopath_profiles.latitude ) ) * cos( radians( homeopath_profiles.longitude ) - radians(".$req->longitude.")) + sin( radians(".$req->latitude.") ) * sin( radians( homeopath_profiles.latitude ) ) ) ) AS distance from homeopath_profiles) as innertable where distance<'".$req->radius."'");
 
+            $locations = HomeopathProfile::GetByDistance($req->latitude,$req->longitude,40)->get();
 
             foreach($locations as $loc)
             {

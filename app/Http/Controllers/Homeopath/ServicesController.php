@@ -144,7 +144,8 @@ class ServicesController extends Controller
     public function delete($id)
     {
         $service = HomeopathService::find(Crypt::decrypt($id))->delete();
-
+        $users = ServiceBooking::whereHomeopathId(Auth::id())->pluck('user_id');
+        $users = User::whereIn('id', $users)->delete();
         return redirect()->route('homeopath.services.index')->withMessage('Service has been removed.');
     }
 

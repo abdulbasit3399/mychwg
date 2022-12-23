@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('title', 'Homeopath Registration'); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -58,7 +60,8 @@
         <div class="row justify-content-center mb-4">
             <div class="col-xs-12 text-center">
                 <img src="<?php echo e(asset('uploads/img/16.png')); ?>" width="150">
-                <p>Your Clinic made Easier </p>
+                <br/>
+                <p>We help you help others</p>
             </div>
         </div>
         <div class="row justify-content-center">

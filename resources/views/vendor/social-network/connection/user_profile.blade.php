@@ -98,7 +98,7 @@
 
 
 
-                                        <div class="v-box1 text-center">
+                                        <div class="v-box1 text-center mb-2">
 
 
 

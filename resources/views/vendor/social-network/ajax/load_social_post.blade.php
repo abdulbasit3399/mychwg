@@ -32,7 +32,7 @@
                             @if($post->is_shared == true)
                                 <a href="{{ route('social.share.resource', base64_encode($post->id)) }}"
                                    class="dropdown-item">
-                                   <i class="fas fa-share"></i> Hold post
+                                   <i class="fas fa-share"></i> Share post
                                 </a>
                             @else
                                 <a href="{{ route('social.share.resource', base64_encode($post->id)) }}"
