@@ -18,24 +18,24 @@ class ServicesController extends Controller
 {
     public function index()
     {
-       
+
         return view('homeopath.services.index', get_defined_vars());
     }
     public function servicesProfileImage(Request $req)
     {
-       
+
 
         // $req->validate([
-            
+
         //     'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:4096',
         // ]);
-       
+
         if ($req->hasFile('image')) {
 
             $image = uploadImage($req->image,'uploads/services');
             $Auth_user=User::findOrFail($req->id);
             $user=HomeopathProfile::where('user_id',$Auth_user->id)->first();
-            
+
             $user->user_id=$Auth_user->id;
             $user->service_profile_img=$image;
             $user->save();
@@ -106,9 +106,9 @@ class ServicesController extends Controller
 
             $thumbnail = uploadImage($req->thumbnail, 'uploads/services');
 
-        
+
         }
-        
+
         $meeting_handel_via=json_encode($req->meeting_handled_via);
         $service->update([
             'user_id'            => Auth::Id(),
@@ -146,7 +146,7 @@ class ServicesController extends Controller
         $service = HomeopathService::find(Crypt::decrypt($id))->delete();
         $users = ServiceBooking::whereHomeopathId(Auth::id())->pluck('user_id');
         $users = User::whereIn('id', $users)->delete();
-        return redirect()->route('homeopath.services.index')->withMessage('Service has been removed.');
+        return redirect()->route('homeopath.services.index')->with('error', 'Wiped.');
     }
 
 
@@ -162,7 +162,7 @@ class ServicesController extends Controller
 
         return view('front.services.homeopath.book_appointment', get_defined_vars());
     }
-    
+
     public function createAppointment(Request $req)
     {
         // dd($req->all());
@@ -176,7 +176,7 @@ class ServicesController extends Controller
         {
 
             $req->validate([
-                
+
                 'patient_name' => 'required',
                 'patient_email' => 'required',
                 'patient_phone' => 'required'
@@ -203,9 +203,9 @@ class ServicesController extends Controller
         }
 
 
-        
+
             $service = HomeopathService::findOrFail(Crypt::decrypt($req->service_id));
-       
+
                 $time_slots=getAllTimeSlots($req->time_slot,$service->duration??30);
                 $time_slots=json_encode($time_slots);
                 $booking = ServiceBooking::create([
@@ -222,7 +222,7 @@ class ServicesController extends Controller
 
                 return redirect()->route('homeopath.dashboard')->withMessage('Booking has been created.');
 
-            
+
 
     }
 
