@@ -20,7 +20,7 @@
 
         <div class="btn-group">
 
-            
+
 
             {{-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#serviceIntervalSetModal">
 
@@ -60,7 +60,7 @@
 
                         @endif
 
-                        
+
 
                         <h5 class="mt-1">{{ $item->title }}</h5>
 
@@ -102,7 +102,7 @@
 
 </div>
 
-    
+
 
 <!-- Button trigger modal -->
 
@@ -136,13 +136,13 @@
 
                   <div class="modal-body">
 
-                    
+
 
                             @csrf
 
                              <input type="hidden" name="id" value="{{Auth::user()->id}}">
 
-                    
+
 
                             <div class="form-group">
 
@@ -158,13 +158,13 @@
 
                                     @endfor
 
-                                    
+
 
                                 </select>
 
                             </div>
 
-                            
+
 
                   </div>
 
@@ -240,7 +240,7 @@
 
                             @for($i=30; $i< 181; $i+=30)
 
-                                <option value="{{ $i }}">{{ $i }} Minutes</option> 
+                                <option value="{{ $i }}">{{ $i }} Minutes</option>
 
                             @endfor
 
@@ -258,7 +258,7 @@
 
                             @for($i=5; $i< 500; $i+=5)
 
-                                <option value="{{ $i }}">{{ $i }}</option> 
+                                <option value="{{ $i }}">{{ $i }}</option>
 
                             @endfor
 
@@ -276,7 +276,7 @@
 
                     </div>
 
-                    
+
 
                     <label>Service Type</label>
 
@@ -306,7 +306,7 @@
 
                     <div class="input-group mb-2 mr-sm-2 mt-2 pr-3">
 
-                        
+
 
                         <input type="checkbox" name="meeting_handled_via[]" value="Offline" class="meeting_handled_via_offline">
 
@@ -318,7 +318,7 @@
 
                     <div class="input-group mb-2 mr-sm-2">
 
-                
+
 
                         <input type="checkbox" name="meeting_handled_via[]" value="Online" class="meeting_handled_via_online">
 
@@ -358,15 +358,14 @@
 
                         <select class="form-control" name="is_show_additional_doc">
 
+                            <option value="Yes" selected>Yes</option>
+
                             <option value="No">No</option>
-
-                            <option value="Yes">Yes</option>
-
                         </select>
 
                     </div>
 
-                        
+
 
                     <div class="text-right">
 
@@ -434,9 +433,9 @@
 
 
 
-      
 
-        
+
+
 
 </script>
 

@@ -157,12 +157,15 @@ input[type=number] {
                                                                     <select class="form-control input__country" id="commoditySelect" required="" name="country">
 
                                                                         <option value="">Select Country</option>
+                                                                        <option value="United States">United States</option>
+                                                                        <option value="Canada">Canada</option>
+                                                                        <option value="Mexico">Mexico</option>
 
-                                                                        @foreach(getCountries() as $item)
+                                                                        {{--  @foreach(getCountries() as $item)
 
                                                                             <option value="{{ $item->name }}">{{ $item->name }}</option>
 
-                                                                        @endforeach
+                                                                        @endforeach  --}}
 
                                                                     </select>
 

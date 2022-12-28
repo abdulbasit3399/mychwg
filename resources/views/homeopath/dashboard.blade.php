@@ -253,7 +253,7 @@
 
                                     @else
                                         <div class="jumbotron bg-rgba-warning text-center">
-                                            <i class="far fa-smile text-success fa-5x"></i>
+                                            {{--  <i class="far fa-smile text-success fa-5x"></i>  --}}
                                             <h2 class="text-success mt-1 font-weight-bold">Your account is linked with Zoom</h2>
                                             @if($is_zoom_active == true)
                                                     <span><strong class="badge badge-success">Zoom account is activated <i class="fas fa-check"></i></strong></span><br>

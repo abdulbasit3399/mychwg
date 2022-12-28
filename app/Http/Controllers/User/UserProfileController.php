@@ -54,14 +54,19 @@ class UserProfileController extends Controller
         $request->validate([
           'name'=>'required',
           'email'=>'required',
+          'zip_code' => 'required|string|regex:/^[A-Z0-9][\[A-Z\-0-9\]]*$/u',
         ]);
+        // dd($request->all());
+
         if ($request->email != $user->email) {
             $request->validate([
               'email' =>'required|email|unique:users',
             ]);
         }
-        $user->name = $request->name;
-        $user->phone = $request->phone;
+        $user->name      = $request->name;
+        $user->phone     = $request->phone;
+        $user->zip_code  = $request->zip_code;
+
         $user->email = $request->email;
         if ($request->password) {
             $user->password = $request->password;

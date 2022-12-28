@@ -88,7 +88,7 @@
 
                                             <strong class="text-info">First Half of Email:</strong>
 
-                                            <textarea type="text" name="first_part" class="form-control small-summernote">{{$setting->first_part??''}}</textarea>
+                                            <textarea type="text" name="first_part" class="form-control small-summernote" rows="2">{{$setting->first_part??''}}</textarea>
 
                                         </div>
 
@@ -96,7 +96,7 @@
 
                                             <strong class="text-info">2nd Half of Email:</strong>
 
-                                            <textarea type="text" name="second_part" class="form-control small-summernote">
+                                            <textarea type="text" name="second_part" class="form-control small-summernote" rows="2">
 
                                                 {{$setting->second_part??''}}
 

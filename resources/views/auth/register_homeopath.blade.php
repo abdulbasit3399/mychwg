@@ -8,7 +8,7 @@
 
     <div class="wrapper">
 
-        <div id="header_content" style="background:#dcf2fa url({{ asset('front/assets') }}/templates-assets/header/img/account.jpg) no-repeat 50% center;background-size: cover;">
+        <div id="header_content" style="background:#dcf2fa url({{ asset('front/assets') }}/templates-assets/headerr/img/account.jpg) no-repeat 50% center;background-size: cover;">
 
             @include('front.components.navbar')
 
@@ -20,7 +20,7 @@
 
                     <div class="inner">
 
-                        <h2>Homeopath Registration</h2>
+                        <h2 class="text-dark">Homeopath Registration</h2>
 
                         <p>Provide your correct credentials to register at CHWG</p>
 

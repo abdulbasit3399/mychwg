@@ -43,7 +43,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <strong class="text-info">Content of Email:</strong>
-                                            <textarea type="text" name="desc" class="form-control small-summernote">
+                                            <textarea type="text" name="desc" rows="5" class="form-control small-summernote">
                                                 {{$setting->desc??''}}
                                             </textarea>
                                         </div>

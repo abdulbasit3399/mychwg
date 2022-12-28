@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('title', 'Find A Homeopath'); ?>
 
 <?php $__env->startSection('css'); ?>
@@ -88,7 +87,7 @@
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 mb-4">
               <div class="vendors-list-content">
                 <div class="pr" style="position: absolute; top: -13%; left: 50%;-webkit-transform: translateX(-50%);transform: translateX(-50%);">
-                  <span class="v-tag"></span>
+                  
                   <div class="vendors-list-profile-image">
                     <img src="<?php echo e(asset($item->avatar)); ?>">
                   </div>
@@ -126,7 +125,7 @@
 
                     <?php if(homaopathBadgeStatus($item->HomeopathProfile->id,"Badge")=='true'): ?>
                     <div class="item">
-                      
+
                       <img src="<?php echo e(asset(badge($item->badge)['path'])); ?>"  class="profile-bowl1 h-100 1"
                       data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="<?php echo e(badge($item->badge)['title']); ?>" >
                     </div>

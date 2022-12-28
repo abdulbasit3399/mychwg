@@ -20,7 +20,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
-            
+
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Title</label>
@@ -45,9 +45,9 @@
                                             <textarea name="privacy_body" class="form-control summernote">{{$setting['privacy_body'] ?? ''}}</textarea>
                                         </div>
                                     </div>
-                                    
-                                    
-                                    
+
+
+
                                 </div>
                             </div>
                         </div>

@@ -96,6 +96,17 @@ input[type=number] {
                                                     @enderror
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <div class="controls">
+                                                <label>Postal Code</label>
+                                                <input type="text" class="form-control" name="zip_code"
+                                                    placeholder="Postal Code" value="{{Auth::User()->zip_code ?? ''}}" required
+                                                    data-validation-required-message="This postal code field is required">
+                                                    @error('zip_code')
+                                                    <div class="alert alert-danger">{{ $message }}</div>
+                                                    @enderror
+                                            </div>
+                                        </div>
 
                                         <div class="text-right">
                                             <button type="submit"

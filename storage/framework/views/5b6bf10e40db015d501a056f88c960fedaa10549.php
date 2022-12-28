@@ -168,12 +168,11 @@ input[type=number] {
                                                                     <select class="form-control input__country" id="commoditySelect" required="" name="country">
 
                                                                         <option value="">Select Country</option>
+                                                                        <option value="United States">United States</option>
+                                                                        <option value="Canada">Canada</option>
+                                                                        <option value="Mexico">Mexico</option>
 
-                                                                        <?php $__currentLoopData = getCountries(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
-                                                                            <option value="<?php echo e($item->name); ?>"><?php echo e($item->name); ?></option>
-
-                                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                                        
 
                                                                     </select>
 

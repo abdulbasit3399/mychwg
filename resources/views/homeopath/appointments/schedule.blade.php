@@ -16,7 +16,7 @@
 
     {
 
-        width: 100% !important;
+        //width: 100% !important;
 
     }
 
@@ -670,13 +670,13 @@
 
             <label>Holiday Starting From <span class="text-danger">*</span></label>
 
-            <input type="text" class="form-control datepicker font-weight-bold text-center" name="holiday_from" readonly required value="{{ now()->addDay()->format('Y-m-d') }}">
+            <input type="text" class="form-control datepicker font-weight-bold text-dark text-center" name="holiday_from" readonly required value="{{ now()->addDay()->format('Y-m-d') }}">
 
 
 
             <label>Holiday Ending to <span class="text-danger">*</span></label>
 
-            <input type="text" class="form-control datepicker font-weight-bold text-center" name="holiday_to" readonly required value="{{ now()->addDay(2)->format('Y-m-d') }}">
+            <input type="text" class="form-control datepicker font-weight-bold text-dark text-center" name="holiday_to" readonly required value="{{ now()->addDay(2)->format('Y-m-d') }}">
 
 
 

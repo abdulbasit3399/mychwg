@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title', 'Homeopath Registration'); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -8,7 +6,7 @@
 
     <div class="wrapper">
 
-        <div id="header_content" style="background:#dcf2fa url(<?php echo e(asset('front/assets')); ?>/templates-assets/header/img/account.jpg) no-repeat 50% center;background-size: cover;">
+        <div id="header_content" style="background:#dcf2fa url(<?php echo e(asset('front/assets')); ?>/templates-assets/headerr/img/account.jpg) no-repeat 50% center;background-size: cover;">
 
             <?php echo $__env->make('front.components.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
@@ -20,9 +18,9 @@
 
                     <div class="inner">
 
-                        <h2>Homeopath Registration</h2>
+                        <h2 class="text-dark">Homeopath Registration</h2>
 
-                        <p>Provide your correct credentials to register at CHWG</p>
+                        <p class="text-dark">Provide your correct credentials to register at CHWG</p>
 
                         <p class="cmp-button-row non-mobile-only">
 
@@ -59,7 +57,7 @@
     <div class="container custom-extra-top-style">
         <div class="row justify-content-center mb-4">
             <div class="col-xs-12 text-center">
-                <img src="<?php echo e(asset('uploads/img/16.png')); ?>" width="150">
+                <img src="<?php echo e(asset('uploads/img/17.png')); ?>" width="150">
                 <br/>
                 <p>We help you help others</p>
             </div>

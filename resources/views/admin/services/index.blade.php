@@ -6,7 +6,7 @@
 @section('content')
 <div class="row">
 
-    
+
         <div class="col-sm-12 mb-4">
             <div class="card">
                 <div class="p-1">
@@ -47,12 +47,12 @@
                             </table>
                         </div>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
 
 
-    
+
 
 </div>
 
@@ -82,8 +82,8 @@
                     <div class="input-group mb-2 mr-sm-2">
                         <input type="file" class=" dropify" id="fileChooser" name="cover" required="">
                     </div>
-                    
-                    
+
+
                     <div class="text-right">
                         <button class="btn btn-dark" type="submit">Save</button>
                     </div>
@@ -101,13 +101,18 @@
 
 
 @section('js')
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
         $(document).on('click', '.btn-add-color', function(){
+            //$('#modalAddColor').modal('show');
             $modal = $('#modalAddColor');
             $modal.find('form').attr('action', $(this).data('action'));
             $('#title').val('');
 
             $modal.modal('show');
+
         })
 </script>
+
 @endsection

@@ -136,9 +136,9 @@
 
                     <div class="modal-body create-post-model-contents">
 
-                        
 
-                        
+
+
 
                         <textarea class="form-control  caption_textarea" rows="5" placeholder="What's in your Mind..." name="caption" required=""></textarea>
 
@@ -1006,11 +1006,11 @@
 
       <div class="modal-body" id="model-body">
 
-        
+
 
       </div>
 
-      
+
 
     </div>
 
@@ -1133,7 +1133,7 @@
 
             </div>
 
-              
+
 
         </div>
 
@@ -1207,11 +1207,11 @@
 
               </div>
 
-              
+
 
             </div>
 
-              
+
 
         </div>
 
@@ -1281,7 +1281,7 @@
 
                         <input type="text" name="tags" required class="form-control">
 
-                </div>                
+                </div>
 
                 <div class="text-center">
 
@@ -1291,9 +1291,9 @@
 
             </form>
 
-            
 
-              
+
+
 
         </div>
 
@@ -1319,7 +1319,7 @@
 
                 @csrf
 
-                <h4 class="font-weight-bold text-success"><em>Choose the caegory folder below to save post</em></h4><hr>
+                <h4 class="font-weight-bold text-success"><em>Choose the category folder below to save post</em></h4><hr>
 
                 <input type="hidden" name="social_post_id" value="" class="save_post_id">
 
@@ -1339,7 +1339,7 @@
 
             </form>
 
-              
+
 
         </div>
 
@@ -1349,7 +1349,7 @@
 
   </div>
 
-  
+
 
 
 
@@ -1373,7 +1373,7 @@
 
         <div class="modal-body">
 
-            
+
 
         </div>
 
@@ -1383,5 +1383,5 @@
 
   </div>
 
-  
+
 

@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title','Services'); ?>
 
 <?php $__env->startSection('heading','Services'); ?>
@@ -20,7 +18,7 @@
 
         <div class="btn-group">
 
-            
+
 
             
 
@@ -56,7 +54,7 @@
 
                         <?php endif; ?>
 
-                        
+
 
                         <h5 class="mt-1"><?php echo e($item->title); ?></h5>
 
@@ -98,7 +96,7 @@
 
 </div>
 
-    
+
 
 <!-- Button trigger modal -->
 
@@ -132,13 +130,13 @@
 
                   <div class="modal-body">
 
-                    
+
 
                             <?php echo csrf_field(); ?>
 
                              <input type="hidden" name="id" value="<?php echo e(Auth::user()->id); ?>">
 
-                    
+
 
                             <div class="form-group">
 
@@ -154,13 +152,13 @@
 
                                     <?php endfor; ?>
 
-                                    
+
 
                                 </select>
 
                             </div>
 
-                            
+
 
                   </div>
 
@@ -236,7 +234,7 @@
 
                             <?php for($i=30; $i< 181; $i+=30): ?>
 
-                                <option value="<?php echo e($i); ?>"><?php echo e($i); ?> Minutes</option> 
+                                <option value="<?php echo e($i); ?>"><?php echo e($i); ?> Minutes</option>
 
                             <?php endfor; ?>
 
@@ -254,7 +252,7 @@
 
                             <?php for($i=5; $i< 500; $i+=5): ?>
 
-                                <option value="<?php echo e($i); ?>"><?php echo e($i); ?></option> 
+                                <option value="<?php echo e($i); ?>"><?php echo e($i); ?></option>
 
                             <?php endfor; ?>
 
@@ -272,7 +270,7 @@
 
                     </div>
 
-                    
+
 
                     <label>Service Type</label>
 
@@ -302,7 +300,7 @@
 
                     <div class="input-group mb-2 mr-sm-2 mt-2 pr-3">
 
-                        
+
 
                         <input type="checkbox" name="meeting_handled_via[]" value="Offline" class="meeting_handled_via_offline">
 
@@ -314,7 +312,7 @@
 
                     <div class="input-group mb-2 mr-sm-2">
 
-                
+
 
                         <input type="checkbox" name="meeting_handled_via[]" value="Online" class="meeting_handled_via_online">
 
@@ -354,15 +352,14 @@
 
                         <select class="form-control" name="is_show_additional_doc">
 
+                            <option value="Yes" selected>Yes</option>
+
                             <option value="No">No</option>
-
-                            <option value="Yes">Yes</option>
-
                         </select>
 
                     </div>
 
-                        
+
 
                     <div class="text-right">
 
@@ -430,9 +427,9 @@
 
 
 
-      
 
-        
+
+
 
 </script>
 

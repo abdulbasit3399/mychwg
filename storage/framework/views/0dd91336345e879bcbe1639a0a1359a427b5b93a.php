@@ -136,9 +136,9 @@
 
                     <div class="modal-body create-post-model-contents">
 
-                        
 
-                        
+
+
 
                         <textarea class="form-control  caption_textarea" rows="5" placeholder="What's in your Mind..." name="caption" required=""></textarea>
 
@@ -1013,11 +1013,11 @@ unset($__errorArgs, $__bag); ?>
 
       <div class="modal-body" id="model-body">
 
-        
+
 
       </div>
 
-      
+
 
     </div>
 
@@ -1140,7 +1140,7 @@ unset($__errorArgs, $__bag); ?>
 
             </div>
 
-              
+
 
         </div>
 
@@ -1214,11 +1214,11 @@ unset($__errorArgs, $__bag); ?>
 
               </div>
 
-              
+
 
             </div>
 
-              
+
 
         </div>
 
@@ -1288,7 +1288,7 @@ unset($__errorArgs, $__bag); ?>
 
                         <input type="text" name="tags" required class="form-control">
 
-                </div>                
+                </div>
 
                 <div class="text-center">
 
@@ -1298,9 +1298,9 @@ unset($__errorArgs, $__bag); ?>
 
             </form>
 
-            
 
-              
+
+
 
         </div>
 
@@ -1326,7 +1326,7 @@ unset($__errorArgs, $__bag); ?>
 
                 <?php echo csrf_field(); ?>
 
-                <h4 class="font-weight-bold text-success"><em>Choose the caegory folder below to save post</em></h4><hr>
+                <h4 class="font-weight-bold text-success"><em>Choose the category folder below to save post</em></h4><hr>
 
                 <input type="hidden" name="social_post_id" value="" class="save_post_id">
 
@@ -1346,7 +1346,7 @@ unset($__errorArgs, $__bag); ?>
 
             </form>
 
-              
+
 
         </div>
 
@@ -1356,7 +1356,7 @@ unset($__errorArgs, $__bag); ?>
 
   </div>
 
-  
+
 
 
 
@@ -1380,7 +1380,7 @@ unset($__errorArgs, $__bag); ?>
 
         <div class="modal-body">
 
-            
+
 
         </div>
 
@@ -1390,6 +1390,6 @@ unset($__errorArgs, $__bag); ?>
 
   </div>
 
-  
+
 
 <?php /**PATH C:\laragon\www\mychwg\resources\views/vendor/social-network/components/social_modals.blade.php ENDPATH**/ ?>

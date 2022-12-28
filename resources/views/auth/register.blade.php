@@ -3,7 +3,7 @@
 @section('content')
 <header>
     <div class="wrapper">
-        <div id="header_content" style="background:#dcf2fa url({{ asset('front/assets') }}/templates-assets/header/img/about-us.jpg) no-repeat 50% center;background-size: cover;">
+        <div id="header_content" style="background:#dcf2fa url({{ asset('front/assets') }}/templates-assets/headerr/img/about-us.jpg) no-repeat 50% center;background-size: cover;">
             @include('front.components.navbar')
             <!--PAGE BANNER-->
             <div class="banner-box">
@@ -27,7 +27,7 @@
                     <section class="content">
                         <div id="vendor_registration" class="container custom-extra-top-style pt-0">
                             <div class="row justify-content-center">
-                                
+
                                 <div class="col-xs-12 col-sm-8 col-md-6">
                                     <div class="text-center my-3">
                                         <img src="{{ asset('front/mettria.png') }}" style="width:230px">

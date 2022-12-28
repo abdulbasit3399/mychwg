@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('title', 'Login'); ?>
 <?php $__env->startSection('content'); ?>
 <header>
@@ -9,7 +8,7 @@
             <div class="banner-box">
                 <div class="banner-top text-center">
                     <div class="inner">
-                        <h2>Login</h2>
+                        <h2 class="text-dark">Login</h2>
                         <p><?php echo e($setting['login_page_subheading'] ?? ''); ?></p>
                         <p class="cmp-button-row non-mobile-only">
                         <div class="right-box">

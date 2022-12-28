@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title','Materia Faction'); ?>
 
 <?php $__env->startSection('css'); ?>
@@ -488,7 +486,7 @@
               </div>
 
             </div>
-              
+
         </div>
       </div>
     </div>

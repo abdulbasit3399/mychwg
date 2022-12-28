@@ -15,6 +15,14 @@
           &#62;
           <a href="<?php echo e(route('social.group.detail', Crypt::encrypt($post->socialGroup->id))); ?>" class="text-dark"> <?php echo e($post->socialGroup->title ?? ''); ?></a>
           <?php endif; ?>
+          <?php
+            if($post->shared_from && $post->is_shared):
+                $orignal_post = \App\Models\SocialPost::find($post->shared_from);
+            ?>
+                <span>&nbsp;Shared</span>
+                <a class="post-user-name post-feed-title" href="<?php echo e(route('social.connection.profile', $orignal_post->user->user_name ?? '' )); ?>" style="font-size:15px!important"><?php echo e($orignal_post->user->name ?? 'N/A'); ?></a>
+                <span>Resource</span>
+            <?php endif; ?>
         </strong>
         <strong><?php echo e($post->user->role); ?></strong>
       </div>
@@ -24,6 +32,17 @@
     <div class="ellips ml-auto p-0">
       <i class="fa fa-ellipsis-v fa-1x"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: 800;"></i>
       <div class="dropdown-menu dropdown-menu-right">
+        <?php if($post->is_shared == true): ?>
+            <a href="<?php echo e(route('social.share.resource', base64_encode($post->id))); ?>"
+                class="dropdown-item">
+                <i class="fas fa-share"></i> Share
+            </a>
+        <?php else: ?>
+            <a href="<?php echo e(route('social.share.resource', base64_encode($post->id))); ?>"
+                class="dropdown-item"><i class="fas fa-share"></i> Share
+            </a>
+        <?php endif; ?>
+
         <button class="dropdown-item " id="pdf" class="cpy" href="<?php if(isset($post->attachement)): ?> <?php echo e(asset($post->attachement)); ?> <?php endif; ?>" type="button" data-pdf="<?php if(isset($post->attachement)): ?> <?php echo e(asset($post->attachement)); ?> <?php endif; ?>" onclick="copyToClipboard(this)">
           <i class="fa fa-copy mr-1"></i>Copy
         </button>

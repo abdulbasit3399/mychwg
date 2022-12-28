@@ -1,9 +1,8 @@
-
 <?php $__env->startSection('title', 'Register Advocate'); ?>
 <?php $__env->startSection('content'); ?>
 <header>
     <div class="wrapper">
-        <div id="header_content" style="background:#dcf2fa url(<?php echo e(asset('front/assets')); ?>/templates-assets/header/img/about-us.jpg) no-repeat 50% center;background-size: cover;">
+        <div id="header_content" style="background:#dcf2fa url(<?php echo e(asset('front/assets')); ?>/templates-assets/headerr/img/about-us.jpg) no-repeat 50% center;background-size: cover;">
             <?php echo $__env->make('front.components.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             <!--PAGE BANNER-->
             <div class="banner-box">
@@ -27,7 +26,7 @@
                     <section class="content">
                         <div id="vendor_registration" class="container custom-extra-top-style pt-0">
                             <div class="row justify-content-center">
-                                
+
                                 <div class="col-xs-12 col-sm-8 col-md-6">
                                     <div class="text-center my-3">
                                         <img src="<?php echo e(asset('front/mettria.png')); ?>" style="width:230px">

@@ -20,7 +20,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
-            
+
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Page Title</label>
@@ -40,25 +40,25 @@
                                             <input type="text" value="{{$setting['pracitioners_banner_subheading'] ?? ''}}" name="pracitioners_banner_subheading" class="form-control">
                                         </div>
                                     </div>
-                                    
-                                    <div class="col-md-6">
+
+                                    <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Banner Background Image</label>
                                             <input type="file" class=" dropify dropify-event" name="pracitioners_banner_image" data-default-file="{{ asset($setting['pracitioners_banner_image'] ?? '')  }}">
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    {{--  <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Banner Right Image</label>
                                             <input type="file" class=" dropify dropify-event" name="pracitioners_banner_right_image" data-default-file="{{ asset($setting['pracitioners_banner_right_image'] ?? '')  }}">
                                         </div>
-                                    </div>
-                                    
-                                    
-                                    
-                                    
-                                    
+                                    </div>  --}}
+
+
+
+
+
                                 </div>
                             </div>
                         </div>
@@ -67,7 +67,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
-                                    
+
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Body Heading</label>
@@ -80,15 +80,15 @@
                                             <input type="text" value="{{$setting['pracitioners_body_subheading'] ?? ''}}" name="pracitioners_body_subheading" class="form-control">
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
 
                     @for($i = 1; $i<=4; $i++)
-                        @php 
+                        @php
                             $head      = 'pracitioners_body_sec_'.$i.'_heading';
                             $subhead   = 'pracitioners_body_sec_'.$i.'_subheading';
                             $animate_1 = 'pracitioners_body_sec_'.$i.'_animate_1';
@@ -107,7 +107,7 @@
                                     <h4 class="card-title">Body Section {{ $i }}</h4>
                                 </div>
                                     <div class="col-md-12 mt-1">
-                                        
+
                                         <div class="row">
                                             <div class="col-sm-4">
                                                 <label>Section Heading</label>
@@ -121,7 +121,7 @@
                                                 <input type="text" class="form-control" name="{{ $animate_2 }}" value="{{$setting[$animate_2] ?? ''}}">
                                                 <input type="text" class="form-control" name="{{ $animate_3 }}" value="{{$setting[$animate_3] ?? ''}}">
                                                 <input type="text" class="form-control" name="{{ $animate_4 }}" value="{{$setting[$animate_4] ?? ''}}">
-                                                
+
                                             </div>
                                             <div class="col-sm-2">
                                                 <label>Image 1</label>
@@ -135,14 +135,14 @@
                                                 <label>Image 3</label>
                                                 <input type="file" class=" dropify dropify-event" name="{{ $image_3 }}" data-default-file="{{ asset($setting[$image_3] ?? '')  }}">
                                             </div>
-                                            
 
-                                            
+
+
                                         </div>
 
                                     </div>
 
-                                    
+
                                 </div>
                             </div>
                         </div>

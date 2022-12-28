@@ -12,7 +12,12 @@
             <a href="##" class="text-dark comment-btn"><i class="far fa-comments"></i> Comment</a>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-4 col-4">
-            <i class="fas fa-save fa-1x btnSavePostInFolder" data-post-id="<?php echo e($post->id); ?>" title="Save post"></i>
+            
+            <i class="fas fa-save fa-1x btnSavePostInFolder" data-post-id="<?php echo e($post->id); ?>" title="Save post">
+            </i>
+            <small>Save</small>
+
+            
         </div>
 
         <div class="col-md-12 comments-div border-top mt-2">

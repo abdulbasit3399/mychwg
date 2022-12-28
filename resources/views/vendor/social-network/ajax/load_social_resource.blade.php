@@ -15,6 +15,14 @@
           &#62;
           <a href="{{ route('social.group.detail', Crypt::encrypt($post->socialGroup->id)) }}" class="text-dark"> {{ $post->socialGroup->title ?? '' }}</a>
           @endif
+          @php
+            if($post->shared_from && $post->is_shared):
+                $orignal_post = \App\Models\SocialPost::find($post->shared_from);
+            @endphp
+                <span>&nbsp;Shared</span>
+                <a class="post-user-name post-feed-title" href="{{ route('social.connection.profile', $orignal_post->user->user_name ?? '' ) }}" style="font-size:15px!important">{{$orignal_post->user->name ?? 'N/A'}}</a>
+                <span>Resource</span>
+            @endif
         </strong>
         <strong>{{ $post->user->role }}</strong>
       </div>
@@ -24,6 +32,17 @@
     <div class="ellips ml-auto p-0">
       <i class="fa fa-ellipsis-v fa-1x"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: 800;"></i>
       <div class="dropdown-menu dropdown-menu-right">
+        @if($post->is_shared == true)
+            <a href="{{ route('social.share.resource', base64_encode($post->id)) }}"
+                class="dropdown-item">
+                <i class="fas fa-share"></i> Share
+            </a>
+        @else
+            <a href="{{ route('social.share.resource', base64_encode($post->id)) }}"
+                class="dropdown-item"><i class="fas fa-share"></i> Share
+            </a>
+        @endif
+
         <button class="dropdown-item " id="pdf" class="cpy" href="@if(isset($post->attachement)) {{asset($post->attachement)}} @endif" type="button" data-pdf="@if(isset($post->attachement)) {{asset($post->attachement)}} @endif" onclick="copyToClipboard(this)">
           <i class="fa fa-copy mr-1"></i>Copy
         </button>

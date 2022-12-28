@@ -15,7 +15,7 @@ class SettingController extends Controller
     }
     public function update(Request $request)
     {
-
+        // dd($request->all());
         $setting = $request->except('_token');
         foreach ($setting as $key => $value) {
             if (empty($value))

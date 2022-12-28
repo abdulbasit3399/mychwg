@@ -9,7 +9,7 @@
             <div class="banner-box">
                 <div class="banner-top text-center">
                     <div class="inner">
-                        <h2>Login</h2>
+                        <h2 class="text-dark">Login</h2>
                         <p>{{$setting['login_page_subheading'] ?? ''}}</p>
                         <p class="cmp-button-row non-mobile-only">
                         <div class="right-box">
