@@ -5,7 +5,7 @@
 
 @section('content')
 
-<h3 class="text-center text-muted">Minimum transfer of payout amount must be greater than <span class="text-danger"> CAD 99 and account (Stripe/Paypal)</span> of homeopath must connected.</h3>
+{{--  <h3 class="text-center text-muted">Minimum transfer of payout amount must be greater than <span class="text-danger"> CAD 99 and account (Stripe/Paypal)</span> of homeopath must connected.</h3>  --}}
 
 <section>
     <div class="row">
@@ -25,7 +25,7 @@
                                         <th>Account Attached</th>
                                         <th>Total Revenue (Balance)</th>
                                         <th class="text-right">----------</th>
-                                        
+
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -42,7 +42,7 @@
                                                 @else
                                                     <span class="badge badge-danger text-uppercase font-weight-bold">Not connected yet</span>
                                                 @endif
-                                                
+
                                             </td>
                                             <td><h2 class=" text-success"><em style="font-size: 14px">CAD</em> <strong>{{number_format($item->balance, 2)}}</strong></h2></td>
                                             <td class="text-right">
@@ -61,9 +61,9 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
-        
+
     </div>
 </section>
 

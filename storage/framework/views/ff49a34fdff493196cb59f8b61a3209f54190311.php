@@ -1,4 +1,4 @@
-<div class="demo-panel dp-right right-panel position-fixed">
+<div class="demo-panel dp-right right-panel position-fixed" style="border-radius: 0 0 0 0; !important">
 
   <div class="demo-panel-trigger bg-success" style="width: 130px;background-color: #12B0A0 !important;">
 

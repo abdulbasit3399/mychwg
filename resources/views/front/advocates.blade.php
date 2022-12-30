@@ -35,8 +35,9 @@
             @include('front.components.navbar')
 
             <!--PAGE BANNER-->
+            {{--  <img src="{{ asset($setting['advocates_banner_image'] ?? '')  }}" alt="" width="100%" height="100%">  --}}
 
-            <div class="banner-box2" style="height: 493px !important;">
+            <div class="banner-box2" style="background-image: url({{ $setting['advocates_banner_image'] ?? '' }}); height: 493px !important;">
 
                 <div class="container">
 
@@ -82,7 +83,7 @@
 
                     </div>
 
-                    <div class="col-md-6">
+                    {{--  <div class="col-md-6">
 
                         <div class="right-box">
 
@@ -94,7 +95,7 @@
 
                         </div>
 
-                    </div>
+                    </div>  --}}
 
                 </div>
 

@@ -9,7 +9,7 @@ body{font-family:"Lato",sans-serif;background-color:#FFF;}
     --secondary-blue: #1AA7C3;
     --secondary-pink: #EE6D7A;
     --secondary-gray: #B2B2B2;
-    
+
 }
 #shadow-layer{position:fixed;min-height:100%;width:100%;top:0;left:0;background:rgba(67,87,121,0.6);cursor:pointer;z-index:999;display:none}
 #loader-1{background-image:url(../../images/ajax-loader.gif);width:100px;height:100px;position:fixed;top:50%;left:50%;margin-left:-50px;margin-top:-50px;display:none;z-index:99999}
@@ -464,7 +464,7 @@ header .header-content-menu .sticky-nav .nav-list-main{ margin: 0 0 0 auto !impo
 .img-part .image-title span{}
 .img-part .image-description{ margin: 0 auto; max-width: 310px; font-size: 15px;padding: 0;}
 .v-tag {
-	background: url(../img/img6a.webp) no-repeat center #58C763;
+	background: url(../img/img6a.png) no-repeat center;
 	position: absolute;
 	width: 32px;
 	height: 32px;
