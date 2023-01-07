@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\HomeopathProfile;
+use App\Models\UserSocialGroup;
+
 use DB;
 use Session;
 use Auth;
@@ -25,7 +28,7 @@ class HomeopathController extends Controller
         $homeopaths = User::with('HomeopathProfile')
                       ->whereRole('homeopath')
                       ->whereStatus('active');
-        
+
 
         if(isset($req->latitude) && isset($req->longitude))
         {
@@ -89,6 +92,7 @@ class HomeopathController extends Controller
                         ->whereUserName($user_name)
                         ->whereStatus('active')
                         ->first();
+        $gr = UserSocialGroup::where('user_id', $homeopath->id)->get();
 
         return view('front.homeopath.profile_homeopath', get_defined_vars());
     }

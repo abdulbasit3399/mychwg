@@ -126,7 +126,10 @@
             font-weight: 500;
             font-size: 13px;
         }
-        .footer-wrapper{position:fixed !important;}
+
+        @media screen and (min-device-width: 641px) and (max-device-width: 1281px) {
+            .footer-wrapper{position:fixed !important;}
+        }
 
     </style>
 @endsection
@@ -174,7 +177,7 @@
                 <p class="text-center text-danger mt-5">Your Subscribtion is not available now. Please pay invoice which is sent to your registered email.</p>
 
             </div>
-            
+
         </div>
 
     </div>

@@ -18,7 +18,7 @@
                  <p style="font-size: 12px; font-weight:bold;text-align: center;">Connections</p>
              </div>
              <div class="col-md-3 col-4 p-0 text-center">
-                 <p class="font-weight-bold mb-1" style="font-size:18px;">{{$homeopath->userSocialGroups()->count()}}</p>
+                 <p class="font-weight-bold mb-1" style="font-size:18px;">{{$gr->count()}}</p>
                  <p style="font-size: 12px; font-weight:bold">Groups</p>
              </div>
          </div>
