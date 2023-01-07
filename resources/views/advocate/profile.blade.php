@@ -87,10 +87,12 @@
             <div class="row">
               @if(\Auth::user()->user_subscription->status == 1)
               <div class="col-md-6">
+                <h5 style="color: #5bb46a;">Subscription</h5>
                 <h5>Next Payment Date</h5>
-                <p><b>{{date('F j, Y',strtotime(\Auth::user()->subscription_ends))}}</b></p>
+                
               </div>
               <div class="col-md-6">
+                <p><b>{{date('F j, Y',strtotime(\Auth::user()->subscription_ends))}}</b></p>
                 <a href="{{route('square.subscription.cancel')}}" onclick="return confirm('You want to cacnel this Subscription?')" class="btn btn-danger mb-4" style="float:right;">Cancel Subscription</a>
               </div>
               @else

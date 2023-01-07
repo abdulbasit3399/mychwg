@@ -136,8 +136,6 @@ class RegisteredUserController extends Controller
 
     public function userRegister(Request $req)
     {
-        dump('2');
-        dd($request->all());
         $req->validate([
             
             'name' => 'required',

@@ -106,12 +106,11 @@ class SubscriptionController extends Controller
 
   public function createSubscription($id)
   {
-
     $data = array(
      'customer_id' => auth()->user()->stripe_id,
      'plan_id' => $id,
      'location_id' => env('LOCATION_ID')
-   );
+    );
     $url = env('SQUARE_API_URL')."/v2/subscriptions";
     $client = new \GuzzleHttp\Client();
     $response = $client->post($url, [
@@ -120,12 +119,14 @@ class SubscriptionController extends Controller
     ]);
     $response = json_decode($response->getBody(), true);
 
+
     $client = new SquareClient([
       'accessToken' => env('SQUARE_ACCESS_TOKEN'),
       'environment' => Environment::SANDBOX,
     ]);
     $api_response = $client->getCatalogApi()->retrieveCatalogObject($id);
 
+    dd($response);
     if ($api_response->isSuccess()) {
       $result = $api_response->getResult()->getObject()->getSubscriptionPlanData()->getPhases();
     } else {
@@ -166,6 +167,8 @@ class SubscriptionController extends Controller
           $days = 30;
         elseif($rslt->getCadence() == 'ANNUAL')
           $days = 365;
+        elseif($rslt->getCadence() == 'WEEKLY')
+          $days = 7;
 
 
         $date = date('Y-m-d');
