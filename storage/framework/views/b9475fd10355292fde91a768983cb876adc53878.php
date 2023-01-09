@@ -126,10 +126,14 @@
             font-size: 13px;
         }
 
-        @media  screen and (min-device-width: 641px) and (max-device-width: 1281px) {
+
+        @media  screen and (min-device-width: 600px) and (max-device-width: 1200px) {
             .footer-wrapper{position:fixed !important;}
         }
 
+        @media  screen and (min-width: 1201px) {
+            .footer-wrapper{position:fixed !important;}
+        }
     </style>
 <?php $__env->stopSection(); ?>
 

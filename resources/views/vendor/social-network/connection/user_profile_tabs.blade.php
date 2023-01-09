@@ -4,7 +4,7 @@
         <nav class="">
           <div class="nav nav-tabs m-0" id="nav-tab" role="tablist">
                 <a class="nav-link active text-dark" id="nav-feed-tab" data-toggle="tab" href="#nav-feed" role="tab" aria-controls="nav-feed" aria-selected="true">
-                    <i class="fas fa-comment-alt "></i> Feed
+                    <i class="fas fa-comment-alt "></i> Posts
                 </a>
                 <a class="nav-link text-dark" id="nav-resource-tab" data-toggle="tab" href="#nav-resource" role="tab" aria-controls="nav-resource" aria-selected="false">
                     <i class="fas fa-book "></i> Resource

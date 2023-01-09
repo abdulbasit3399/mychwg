@@ -129,7 +129,7 @@ class HomeController extends Controller
         {
             unlink($userPhoto);
         }
-        
+
         return response()->json(['status' => 1, 'message'=> 'profile has been updated Successfully!']);
     }
 
