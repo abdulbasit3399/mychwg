@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('title', 'Homeopath Registration'); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -20,7 +22,7 @@
 
                         <h2 class="text-dark">Homeopath Registration</h2>
 
-                        <p class="text-dark">Provide your correct credentials to register at CHWG</p>
+                        <p>Provide your correct credentials to register at CHWG</p>
 
                         <p class="cmp-button-row non-mobile-only">
 

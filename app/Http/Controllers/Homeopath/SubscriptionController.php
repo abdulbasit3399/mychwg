@@ -106,6 +106,15 @@ class SubscriptionController extends Controller
 
   public function createSubscription($id)
   {
+    $role = Str::upper(Auth::user()->role);
+    $monthly_plan = env($role.'_MONTHLY_PLAN_SQUARE');
+    $yearly_plan = env($role.'_YEARLY_PLAN_SQUARE');
+
+    if($monthly_plan == $id)
+      $plan_interval = 'Monthly';
+    elseif($yearly_plan == $id)
+      $plan_interval = 'Yearly';
+
     $data = array(
      'customer_id' => auth()->user()->stripe_id,
      'plan_id' => $id,
@@ -126,7 +135,6 @@ class SubscriptionController extends Controller
     ]);
     $api_response = $client->getCatalogApi()->retrieveCatalogObject($id);
 
-    dd($response);
     if ($api_response->isSuccess()) {
       $result = $api_response->getResult()->getObject()->getSubscriptionPlanData()->getPhases();
     } else {
@@ -146,7 +154,7 @@ class SubscriptionController extends Controller
         $subscription->subscription_type = 'trial';
         $subscription->plan_id = $id;
         $subscription->trial_ends_at = date('Y-m-d', strtotime($date. ' '.$days.' days'));
-        $subscription->plan_interval = 'Daily';
+        $subscription->plan_interval = $plan_interval;
         $subscription->amount = 0;
         $subscription->save();
 
