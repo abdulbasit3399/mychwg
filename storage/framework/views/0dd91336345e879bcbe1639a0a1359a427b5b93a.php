@@ -1286,7 +1286,7 @@ unset($__errorArgs, $__bag); ?>
 
                         <label class="font-weight-bold">Tags(Max. 3) (Comma separated)</label>
 
-                        <input type="text" name="tags" required class="form-control">
+                        <input type="text" name="tags" id="form-tags-1" required class="form-control">
 
                 </div>
 

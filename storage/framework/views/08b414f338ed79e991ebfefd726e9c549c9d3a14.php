@@ -36,9 +36,24 @@
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/owl.carousel.min.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('front/icomoon/style.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/switch/style.css')); ?>">
+
+     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/css/inputTags.css')); ?>">
+    
     
     <!-- END: Page CSS-->
     <style>
+        .tagsinput .tag {
+            position: relative;
+           
+            background: #19bc9c;
+            display: block;
+            max-width: 100%;
+            word-wrap: break-word;
+            color: #fff;
+            padding: 5px 30px 5px 5px;
+            border-radius: 2px;
+            margin: 0 5px 5px 0;
+        }
         .btn
         {
             border-radius: 0 !important;
@@ -453,7 +468,7 @@ $text=$setting[$text_name.'-toast']??'';
     <script src="<?php echo e(asset('admin/vendors/js/extensions/toastr.min.js')); ?>"></script>
     <script src="<?php echo e(asset('admin/js/map_autocomplete.js')); ?>"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-
+<script src="<?php echo e(asset('admin/js/tag_input.js')); ?>"></script>
 <script type="text/javascript">
     $(document).ready(function(){
 

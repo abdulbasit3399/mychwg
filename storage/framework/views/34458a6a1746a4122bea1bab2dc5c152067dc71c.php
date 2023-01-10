@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('title', 'Find A Homeopath'); ?>
 
 <?php $__env->startSection('css'); ?>
@@ -272,10 +271,10 @@
     var $el = $('.map__grid');
   // var isPositionFixed = ($el.css('position') == 'fixed');
   if ($(this).scrollTop() > 310 ){
-    $el.css({'position': 'fixed', 'top': '0px;', 'right': '0px','margin-right':'-8px'});
+    // $el.css({'position': 'fixed', 'top': '0px;', 'right': '0px','margin-right':'-8px'});
   }
   if ($(this).scrollTop() < 310){
-    $el.css({'position': 'static', 'top': '0px'});
+    // $el.css({'position': 'static', 'top': '0px'});
   }
 });
 

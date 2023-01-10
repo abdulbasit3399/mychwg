@@ -30,6 +30,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/css/core/colors/palette-gradient.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/css/custom.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/js/slick/slick.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/css/inputTags.css')); ?>">
     <!-- END: Page CSS-->
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
@@ -39,6 +40,20 @@
     #progress { position:relative; width:400px; border: 1px solid #ddd; padding: 1px; border-radius: 3px; }
     #bar { background-color: #B4F5B4; width:0%; height:10px; border-radius: 3px; padding-bottom:10px; }
     #percent { position:absolute;top:3px; left:48%; }
+
+    .tagsinput .tag {
+        position: relative;
+
+        background: #19bc9c;
+        display: block;
+        max-width: 100%;
+        word-wrap: break-word;
+        color: #fff;
+        padding: 5px 30px 5px 5px;
+        border-radius: 2px;
+        margin: 0 5px 5px 0;
+    }
+
     .add_event_icon{
           padding: 5px !important;
           border-radius: 100px;
@@ -273,6 +288,54 @@ $text=$setting[$text_name.'-toast']??'';
     <script src="<?php echo e(asset('admin/js/slick/slick.min.js')); ?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="<?php echo e(asset('admin/js/tag_input.js')); ?>"></script>
+
+    <script type="text/javascript">
+        $(function() {
+    $('#form-tags-1').tagsInput();
+
+    $('#form-tags-2').tagsInput({
+        'onAddTag': function(input, value) {
+            console.log('tag added', input, value);
+        },
+        'onRemoveTag': function(input, value) {
+            console.log('tag removed', input, value);
+        },
+        'onChange': function(input, value) {
+            console.log('change triggered', input, value);
+        }
+    });
+
+    $('#form-tags-3').tagsInput({
+        'unique': true,
+        'minChars': 2,
+        'maxChars': 10,
+        'limit': 5,
+        'validationPattern': new RegExp('^[a-zA-Z]+$')
+    });
+
+    $('#form-tags-4').tagsInput({
+        'autocomplete': {
+            source: [
+                'apple',
+                'banana',
+                'orange',
+                'pizza'
+            ]
+        }
+    });
+
+    $('#form-tags-5').tagsInput({
+        'delimiter': ';'
+    });
+
+    $('#form-tags-6').tagsInput({
+        'delimiter': [',', ';']
+    });
+});
+
+
+    </script>
     <script>
 
         function hideSponserModel()
@@ -281,7 +344,7 @@ $text=$setting[$text_name.'-toast']??'';
         }
 
         $url_array=[];
-        
+
         function goBack() {
 
 
@@ -289,7 +352,7 @@ $text=$setting[$text_name.'-toast']??'';
             // console.log($url_array.length)
 
             window.history.pushState('', 'newtitle',$url_array[0]);
-            
+
             if($url_array.length==0 && (window.location.href == "<?php echo e(route('social.index')); ?>?info=1" || window.location.href == "<?php echo e(route('social.index')); ?>")){
                 window.location.href="<?php echo e(route('homeopath.dashboard')); ?>";
             }else if ($url_array.length>1) {
@@ -1498,7 +1561,7 @@ $text=$setting[$text_name.'-toast']??'';
             });
         });
 
-        
+
 
          <?php
 

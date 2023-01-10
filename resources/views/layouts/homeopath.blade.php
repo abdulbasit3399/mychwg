@@ -36,9 +36,24 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('front/icomoon/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/switch/style.css') }}">
+
+     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/inputTags.css') }}">
+    
     {{-- <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="crossorigin="anonymous"></script> --}}
     <!-- END: Page CSS-->
     <style>
+        .tagsinput .tag {
+            position: relative;
+           
+            background: #19bc9c;
+            display: block;
+            max-width: 100%;
+            word-wrap: break-word;
+            color: #fff;
+            padding: 5px 30px 5px 5px;
+            border-radius: 2px;
+            margin: 0 5px 5px 0;
+        }
         .btn
         {
             border-radius: 0 !important;
@@ -452,7 +467,7 @@ $text=$setting[$text_name.'-toast']??'';
     <script src="{{ asset('admin/vendors/js/extensions/toastr.min.js') }}"></script>
     <script src="{{ asset('admin/js/map_autocomplete.js') }}"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-
+<script src="{{ asset('admin/js/tag_input.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function(){
 
