@@ -9,7 +9,7 @@
 <section>
     <div class="row">
         <div class="col-sm-12">
-            
+
             <div class="card">
                 <div class="card">
 
@@ -39,10 +39,10 @@
                                             <td class="font-weight-bold">{{$item->location??''}}</td>
                                             <td>{{$item->service_commission??''}}</td>
                                             <td>{{$item->service_tax??''}}</td>
-                                        
+
                                             <td>{{ $item->service_discount??''}}</td>
                                             <td class="td"><a href="#" class="btn btn-warning btn-sm edit-tax-btn" data-service-comission="{{$item->service_commission??''}}" data-service-tax="{{$item->service_tax??''}}" data-service-discount="{{ $item->service_discount??''}}" data-location="{{$item->location??''}}"><i class="fa fa-edit"></i></a></td>
-                                            
+
                                         </tr>
                                     @endforeach
                                     @endif
@@ -53,9 +53,9 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
-        
+
     </div>
 </section>
 
@@ -76,7 +76,7 @@
         </button>
       </div>
       <div class="modal-body">
-            
+
             <form method="post" action="{{route('admin.finance.location.tax')}}">
                 @csrf
                     <div class="form-group">
@@ -105,7 +105,7 @@
                     <button type="submit" class="btn btn-primary pull-right">Save changes</button>
             </form>
       </div>
-     
+
     </div>
   </div>
 </div>
@@ -120,10 +120,10 @@
         </button>
       </div>
       <div class="modal-body">
-            
+
              <form method="post" action="{{ route('admin.setting.update') }}" enctype="multipart/form-data">
                 @csrf
-                 <h3>Default Setting</h3> 
+                 <h3>Default Setting</h3>
                                 <div class="row">
 
                                     <div class="col-md-12">
@@ -145,16 +145,16 @@
                                             <input type="number" min="0" value="{{$setting['services_discount'] ?? ''}}" name="services_discount" class="form-control">
                                         </div>
                                     </div>
-                                    
+
 
                                 </div>
                                 <div class="btn-group">
                                     <button type="submit" class="btn btn-primary pull-right float-right">Save</button>
-                                   
+
                                 </div>
             </form>
       </div>
-     
+
     </div>
   </div>
 </div>
@@ -162,8 +162,9 @@
 @endsection
 
 @section('js')
+
 <script type="text/javascript">
-    
+
     $(document).on('click','.edit-tax-btn',function(){
 
         var service_commission=$(this).data('service-comission');
@@ -171,13 +172,13 @@
         var service_discount=$(this).data('service-discount');
         var location=$(this).data('location');
 
-        
-        $('#location').val(location).change();
-        $('#service_commission').val(service_commission)
-        $('#service_tax').val(service_tax)
-        $('#service_discount').val(service_discount)
 
-        $('#serviceTexModal').modal('show')
+        $('#location').val(location).change();
+        $('#service_commission').val(service_commission);
+        $('#service_tax').val(service_tax);
+        $('#service_discount').val(service_discount);
+
+        $('#serviceTexModal').modal('show');
 
 
     });

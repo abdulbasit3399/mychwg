@@ -74,7 +74,7 @@ class TeamController extends Controller
 
     public function edit($id)
     {
-        //
+        // return view('admin.teams.edit_teams');
     }
 
     public function update(Request $request, $id)
