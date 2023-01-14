@@ -479,4 +479,23 @@
         $('#modalAddCategory').addClass("fade show in");
     });
 </script>
+<script type="text/javascript">
+    $(document).on('click','.cl',function(){
+        $('#modalAddBrand').hide();
+        $('#modalAddBrand').addClass("fade show in");
+    });
+</script>
+<script type="text/javascript">
+    $(document).on('click','.cl',function(){
+        $('#modalAddVariant').hide();
+        $('#modalAddVariant').addClass("fade show in");
+    });
+</script>
+<script type="text/javascript">
+    $(document).on('click','.cl',function(){
+        $('#modalAddColor').hide();
+        $('#modalAddColor').addClass("fade show in");
+    });
+</script>
+
 @endsection
