@@ -346,7 +346,7 @@
 
                                <td>
 
-                                  <img src="{{ asset('front/assets/icons/milestone.png') }}" style="width: 75px;">
+                                  <img src="{{ asset('uploads/badges/bookings_25.png') }}" style="width: 75px;">
 
                                </td>
 
@@ -386,7 +386,7 @@
 
                                <td>
 
-                                <img src="{{ asset('front/assets/icons/years.png') }}" style="width: 75px;">
+                                <img src="{{ asset('uploads/badges/year_1.png') }}" style="width: 75px;">
 
                                </td>
 
