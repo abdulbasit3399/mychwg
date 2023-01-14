@@ -19,7 +19,7 @@
                     <div class="row w-100">
                         <div class="col-md-6 pl-2"><h4>Categories</h4></div>
                         <div class="col-md-6 pr-0 text-right">
-                            <button class="btn btn-primary btn-add-category btn-sm" data-action="{{ route('admin.homeopath.category.create') }}">+ New Category</button>
+                            <button class="btn btn-primary btn-add-category btn-sm" data-toggle="modal" data-target="#modalAddCategory" data-action="{{ route('admin.homeopath.category.create') }}">+ New Category</button>
                         </div>
                     </div>
                 </div>
@@ -44,6 +44,8 @@
                                                     data-action="{{ route('admin.homeopath.category.update') }}"
                                                     data-id="{{ $item->id }}"
                                                     data-title="{{ $item->title }}"
+                                                    data-toggle="modal" 
+                                                    data-target="#modalAddCategory"
                                                     class="btn btn-sm btn-info btn-update-category"
                                                     title="Edit">
                                                     <i class="fa fa-edit"></i>
@@ -74,7 +76,7 @@
                                 <div class="row w-100">
                                     <div class="col-md-6 pl-2"><h4>Libraries</h4></div>
                                     <div class="col-md-6 pr-0 text-right">
-                                        <button class="btn btn-primary btn-add-library btn-sm" data-action="{{ route('admin.homeopath.library.create') }}">+ New Library Resource</button>
+                                        <button class="btn btn-primary btn-add-library btn-sm" data-toggle="modal" data-target="#modalAddLlibrary" data-action="{{ route('admin.homeopath.library.create') }}">+ New Library Resource</button>
                                     </div>
                                 </div>
                             </div>
@@ -103,6 +105,8 @@
                                                                         data-title="{{ $item->title }}"
                                                                         data-cat-id="{{ $item->homeopath_category_id }}"
                                                                         class="btn btn-sm btn-info btn-update-library"
+                                                                        data-toggle="modal" 
+                                                                        data-target="#modalAddLlibrary"
                                                                         title="Edit">
                                                                         <i class="fa fa-edit"></i>
                                                                     </button>
@@ -227,8 +231,8 @@
         $modal.find('form').attr('action', $(this).data('action'));
         $('#category_title').val('');
         $('#category_id').val('');
-        $('#modalAddCategory').addClass("fade show in");
-        $('#modalAddCategory').show();
+        // $('#modalAddCategory').addClass("fade show in");
+        // $('#modalAddCategory').show();
     })
 
     $(document).on('click', '.btn-update-category', function(){
@@ -236,8 +240,8 @@
         $modal.find('form').attr('action', $(this).data('action'));
         $('#category_title').val($(this).data('title'));
         $('#category_id').val($(this).data('id'));
-        $('#modalAddCategory').addClass("fade show in");
-        $('#modalAddCategory').show();
+        // $('#modalAddCategory').addClass("fade show in");
+        // $('#modalAddCategory').show();
     })
 
 
@@ -247,8 +251,8 @@
         $('#library_title').val('');
         $('#lib_id').val('');
         $('.note-editable').html('');
-        $('#modalAddLlibrary').addClass("fade show in");
-        $('#modalAddLlibrary').show();
+        // $('#modalAddLlibrary').addClass("fade show in");
+        // $('#modalAddLlibrary').show();
     })
 
     $(document).on('click', '.btn-update-library', function(){
@@ -259,8 +263,8 @@
         $('#lib_id').val($(this).data('id'));
         $('#lib_cat_id').val($(this).data('cat-id'));
 
-        $('#modalAddLlibrary').addClass("fade show in");
-        $('#modalAddLlibrary').show();
+        // $('#modalAddLlibrary').addClass("fade show in");
+        // $('#modalAddLlibrary').show();
     })
 
 

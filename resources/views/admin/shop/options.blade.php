@@ -13,7 +13,7 @@
                     <div class="row w-100">
                         <div class="col-md-6 pl-2"><h4>Categories</h4></div>
                         <div class="col-md-6 pr-0 text-right">
-                            <button class="btn btn-primary btn-add-category btn-sm" data-action="{{ route('admin.shop.category.create') }}">+ New Category</button>
+                            <button class="btn btn-primary btn-add-category btn-sm" data-toggle="modal" data-target="#modalAddCategory" data-action="{{ route('admin.shop.category.create') }}">+ New Category</button>
                         </div>
                     </div>
                 </div>
@@ -41,6 +41,8 @@
                                                     data-id="{{ $item->id }}"
                                                     data-title="{{ $item->title }}"
                                                     class="btn btn-sm btn-info btn-update-category"
+                                                    data-toggle="modal" 
+                                                    data-target="#modalAddCategory"
                                                     title="Edit">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
@@ -69,7 +71,7 @@
                     <div class="row w-100">
                         <div class="col-md-6 pl-2"><h4>Product Brands</h4></div>
                         <div class="col-md-6 pr-0 text-right">
-                            <button class="btn btn-primary btn-add-brand btn-sm" data-action="{{ route('admin.shop.brand.create') }}">+ New Brand</button>
+                            <button class="btn btn-primary btn-add-brand btn-sm" data-toggle="modal" data-target="#modalAddBrand" data-action="{{ route('admin.shop.brand.create') }}">+ New Brand</button>
                         </div>
                     </div>
                 </div>
@@ -97,6 +99,8 @@
                                                     data-id="{{ $item->id }}"
                                                     data-title="{{ $item->title }}"
                                                     class="btn btn-sm btn-info btn-update-brand"
+                                                    data-toggle="modal" 
+                                                    data-target="#modalAddBrand"
                                                     title="Edit">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
@@ -126,7 +130,7 @@
                     <div class="row w-100">
                         <div class="col-md-6 pl-2"><h4>Product Variants</h4></div>
                         <div class="col-md-6 pr-0 text-right">
-                            <button class="btn btn-primary btn-add-variant btn-sm" data-action="{{ route('admin.shop.variant.create') }}">+ New Variant</button>
+                            <button class="btn btn-primary btn-add-variant btn-sm" data-toggle="modal" data-target="#modalAddVariant" data-action="{{ route('admin.shop.variant.create') }}">+ New Variant</button>
                         </div>
                     </div>
                 </div>
@@ -152,6 +156,8 @@
                                                     data-id="{{ $item->id }}"
                                                     data-title="{{ $item->title }}"
                                                     class="btn btn-sm btn-info btn-update-variant"
+                                                    data-toggle="modal" 
+                                                    data-target="#modalAddVariant"
                                                     title="Edit">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
@@ -179,8 +185,8 @@
                 <div class="p-1">
                     <div class="row w-100">
                         <div class="col-md-6 pl-2"><h4>Product Colors</h4></div>
-                        <div class="col-md-6 pr-0 text-right">
-                            <button class="btn btn-primary btn-add-color btn-sm" data-action="{{ route('admin.shop.color.create') }}">+ New color</button>
+                        <div class="col-md-6 pr-0 text-right"> 
+                            <button class="btn btn-primary btn-add-color btn-sm" data-toggle="modal" data-target="#modalAddColor" data-action="{{ route('admin.shop.color.create') }}">+ New color</button>
                         </div>
                     </div>
                 </div>
@@ -209,7 +215,7 @@
                                                     data-title="{{ $item->title }}"
                                                     data-code="{{ $item->color_code }}"
                                                     class="btn btn-sm btn-info btn-update-color"
-                                                    title="Edit">
+                                                    title="Edit" data-toggle="modal" data-target="#modalAddColor">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
                                                 <a
@@ -390,8 +396,8 @@
         $('#category_title').val('');
         $('#category_id').val('');
 
-        $('#modalAddCategory').addClass("fade show in");
-        $('#modalAddCategory').show();
+        // $('#modalAddCategory').addClass("fade show in");
+        // $('#modalAddCategory').show();
     })
 
     $(document).on('click', '.btn-update-category', function(){
@@ -414,8 +420,8 @@
         $('#brand_title').val('');
         $('#brand_id').val('');
 
-        $('#modalAddBrand').addClass("fade show in");
-        $('#modalAddBrand').show();
+        // $('#modalAddBrand').addClass("fade show in");
+        // $('#modalAddBrand').show();
     })
 
     $(document).on('click', '.btn-update-brand', function(){
@@ -424,8 +430,8 @@
         $('#brand_title').val($(this).data('title'));
         $('#brand_id').val($(this).data('id'));
 
-        $('#modalAddBrand').addClass("fade show in");
-        $('#modalAddBrand').show();
+        // $('#modalAddBrand').addClass("fade show in");
+        // $('#modalAddBrand').show();
     })
 
 
@@ -436,8 +442,8 @@
         $('#variant_title').val('');
         $('#variant_id').val('');
 
-        $('#modalAddVariant').addClass("fade show in");
-        $('#modalAddVariant').show();
+        // $('#modalAddVariant').addClass("fade show in");
+        // $('#modalAddVariant').show();
     })
 
     $(document).on('click', '.btn-update-variant', function(){
@@ -446,8 +452,8 @@
         $('#variant_title').val($(this).data('title'));
         $('#variant_id').val($(this).data('id'));
 
-        $('#modalAddVariant').addClass("fade show in");
-        $('#modalAddVariant').show();
+        // $('#modalAddVariant').addClass("fade show in");
+        // $('#modalAddVariant').show();
     })
 
     $(document).on('click', '.btn-add-color', function(){
@@ -456,8 +462,8 @@
         $('#color_title').val('');
         $('#vcolor_id').val('');
 
-        $('#modalAddColor').addClass("fade show in");
-        $('#modalAddColor').show();
+        // $('#modalAddColor').addClass("fade show in");
+        // $('#modalAddColor').show();
     })
 
     $(document).on('click', '.btn-update-color', function(){

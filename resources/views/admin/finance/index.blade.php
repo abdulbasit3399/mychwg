@@ -16,7 +16,7 @@
                     <div class="card-content">
                         <div class="card-body card-dashboard">
                             <div class="text-right mb-4">
-                                <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#serviceTexModal">Create/Update Taxes</button>
+                                <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#serviceTexModal1">Create/Update Taxes</button>
                                 <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#defaultServiceTexModal">Default Taxes</button>
                             </div>
                             <div class="table-responsive">
@@ -41,7 +41,7 @@
                                             <td>{{$item->service_tax??''}}</td>
 
                                             <td>{{ $item->service_discount??''}}</td>
-                                            <td class="td"><a href="#" class="btn btn-warning btn-sm edit-tax-btn" data-service-comission="{{$item->service_commission??''}}" data-service-tax="{{$item->service_tax??''}}" data-service-discount="{{ $item->service_discount??''}}" data-location="{{$item->location??''}}"><i class="fa fa-edit"></i></a></td>
+                                            <td class="td"><a href="#" data-toggle="modal" data-target="#serviceTexModal1" class="btn btn-warning btn-sm edit-tax-btn" data-service-comission="{{$item->service_commission??''}}" data-service-tax="{{$item->service_tax??''}}" data-service-discount="{{ $item->service_discount??''}}" data-location="{{$item->location??''}}"><i class="fa fa-edit"></i></a></td>
 
                                         </tr>
                                     @endforeach
@@ -62,53 +62,6 @@
 
 
 
-
-
-
-<!-- Modal -->
-<div class="modal fade show" id="serviceTexModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title text-center" id="exampleModalLabel">Add Or Update Taxes</h5>
-        <button type="button" id="cl" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-            <form method="post" action="{{route('admin.finance.location.tax')}}">
-                @csrf
-                    <div class="form-group">
-                        <label>Select Location</label>
-                        <select class="form-control select2" name="location" id="location" required="">
-                                <option>Select one</option>
-
-                            @foreach(getAllLocations() as $item)
-                                <option value="{{$item->location}}">{{$item->location??''}}</option>
-
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Services Commission (Percentage)</label>
-                        <input type="number" min="0" id="service_commission" name="service_commission" class="form-control" required="">
-                    </div>
-                    <div class="form-group">
-                        <label>Service Tax (Percentage)</label>
-                        <input type="number" min="0" id="service_tax" name="service_tax" class="form-control" required="">
-                    </div>
-                    <div class="form-group">
-                        <label>Senior Discount (Percentage)</label>
-                        <input type="number" min="0" id="service_discount" name="service_discount" class="form-control" required="">
-                    </div>
-                    <button type="submit" class="btn btn-primary pull-right">Save changes</button>
-            </form>
-      </div>
-
-    </div>
-  </div>
-</div>
 <!--set default  Modal -->
 <div class="modal fade" id="defaultServiceTexModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog" role="document">
@@ -159,6 +112,53 @@
   </div>
 </div>
 
+
+
+
+<!-- Modal -->
+<div class="modal fade show" id="serviceTexModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalLabel">Add Or Update Taxes</h5>
+        <button type="button" id="cl" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+            <form method="post" action="{{route('admin.finance.location.tax')}}">
+                @csrf
+                    <div class="form-group">
+                        <label>Select Location</label>
+                        <select class="form-control select2" name="location" id="location" required="">
+                                <option>Select one</option>
+
+                            @foreach(getAllLocations() as $item)
+                                <option value="{{$item->location}}">{{$item->location??''}}</option>
+
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Services Commission (Percentage)</label>
+                        <input type="number" min="0" id="service_commission" name="service_commission" class="form-control" required="">
+                    </div>
+                    <div class="form-group">
+                        <label>Service Tax (Percentage)</label>
+                        <input type="number" min="0" id="service_tax" name="service_tax" class="form-control" required="">
+                    </div>
+                    <div class="form-group">
+                        <label>Senior Discount (Percentage)</label>
+                        <input type="number" min="0" id="service_discount" name="service_discount" class="form-control" required="">
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right">Save changes</button>
+            </form>
+      </div>
+
+    </div>
+  </div>
+</div>
 @endsection
 
 @section('js')
@@ -177,8 +177,8 @@
         $('#service_tax').val(service_tax);
         $('#service_discount').val(service_discount);
 
-        $('#serviceTexModal').addClass("fade show in");
-        $('#serviceTexModal').show();
+        // $('#serviceTexModal').addClass("fade show in");
+        // $('#serviceTexModal').show();
 
     });
 </script>
