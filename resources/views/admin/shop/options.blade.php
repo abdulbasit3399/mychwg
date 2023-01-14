@@ -36,18 +36,18 @@
                                             <th>{{ $item->title }}</th>
                                             <td>{{ $item->slug ?? 'N/A' }}</td>
                                             <td class="text-right">
-                                                <button 
+                                                <button
                                                     data-action="{{ route('admin.shop.category.update') }}"
                                                     data-id="{{ $item->id }}"
                                                     data-title="{{ $item->title }}"
-                                                    class="btn btn-sm btn-info btn-update-category" 
+                                                    class="btn btn-sm btn-info btn-update-category"
                                                     title="Edit">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
-                                                <a 
-                                                    href="{{ route('admin.shop.option.remove', ['model' => 'ShopCategory', 'id' => $item->id, 'column' => 'shop_category_id']) }}" 
-                                                    class="btn btn-sm btn-danger" 
-                                                    title="Trash" 
+                                                <a
+                                                    href="{{ route('admin.shop.option.remove', ['model' => 'ShopCategory', 'id' => $item->id, 'column' => 'shop_category_id']) }}"
+                                                    class="btn btn-sm btn-danger"
+                                                    title="Trash"
                                                     onclick="return confirm('Do you confirm to remove this? Yes! Press OK...')">
                                                     <i class="fa fa-trash"></i>
                                                 </a>
@@ -57,7 +57,7 @@
                             </table>
                         </div>
                     </div>
-                </div> 
+                </div>
             </div>
     </div>
 
@@ -92,18 +92,18 @@
                                             <th>{{ $item->title }}</th>
                                             <td>{{ $item->slug ?? 'N/A' }}</td>
                                             <td class="text-right">
-                                                <button 
+                                                <button
                                                     data-action="{{ route('admin.shop.brand.update') }}"
                                                     data-id="{{ $item->id }}"
                                                     data-title="{{ $item->title }}"
-                                                    class="btn btn-sm btn-info btn-update-brand" 
+                                                    class="btn btn-sm btn-info btn-update-brand"
                                                     title="Edit">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
-                                                <a 
-                                                    href="{{ route('admin.shop.option.remove', ['model' => 'ShopBrand', 'id' => $item->id, 'column' => 'shop_brand_id']) }}" 
-                                                    class="btn btn-sm btn-danger" 
-                                                    title="Trash" 
+                                                <a
+                                                    href="{{ route('admin.shop.option.remove', ['model' => 'ShopBrand', 'id' => $item->id, 'column' => 'shop_brand_id']) }}"
+                                                    class="btn btn-sm btn-danger"
+                                                    title="Trash"
                                                     onclick="return confirm('Do you confirm to remove this? Yes! Press OK...')">
                                                     <i class="fa fa-trash"></i>
                                                 </a>
@@ -113,7 +113,7 @@
                             </table>
                         </div>
                     </div>
-                </div> 
+                </div>
             </div>
     </div>
 
@@ -147,18 +147,18 @@
                                             <th>{{ $loop->iteration }}</th>
                                             <th>{{ $item->title }}</th>
                                             <td class="text-right">
-                                                <button 
+                                                <button
                                                     data-action="{{ route('admin.shop.variant.update') }}"
                                                     data-id="{{ $item->id }}"
                                                     data-title="{{ $item->title }}"
-                                                    class="btn btn-sm btn-info btn-update-variant" 
+                                                    class="btn btn-sm btn-info btn-update-variant"
                                                     title="Edit">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
-                                                <a 
-                                                    href="{{ route('admin.shop.option.remove', ['model' => 'ShopVariant', 'id' => $item->id, 'column' => 'shop_variant_id']) }}" 
-                                                    class="btn btn-sm btn-danger" 
-                                                    title="Trash" 
+                                                <a
+                                                    href="{{ route('admin.shop.option.remove', ['model' => 'ShopVariant', 'id' => $item->id, 'column' => 'shop_variant_id']) }}"
+                                                    class="btn btn-sm btn-danger"
+                                                    title="Trash"
                                                     onclick="return confirm('Do you confirm to remove this? Yes! Press OK...')">
                                                     <i class="fa fa-trash"></i>
                                                 </a>
@@ -168,7 +168,7 @@
                             </table>
                         </div>
                     </div>
-                </div> 
+                </div>
             </div>
     </div>
 
@@ -203,19 +203,19 @@
                                             <th>{{ $item->title }}</th>
                                             <td><div class="color_code" style="background-color: {{ $item->color_code }};"></div></td>
                                             <td class="text-right">
-                                                <button 
+                                                <button
                                                     data-action="{{ route('admin.shop.color.update') }}"
                                                     data-id="{{ $item->id }}"
                                                     data-title="{{ $item->title }}"
                                                     data-code="{{ $item->color_code }}"
-                                                    class="btn btn-sm btn-info btn-update-color" 
+                                                    class="btn btn-sm btn-info btn-update-color"
                                                     title="Edit">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
-                                                <a 
-                                                    href="{{ route('admin.shop.option.remove', ['model' => 'ShopColor', 'id' => $item->id, 'column' => 'shop_color_id']) }}" 
-                                                    class="btn btn-sm btn-danger" 
-                                                    title="Trash" 
+                                                <a
+                                                    href="{{ route('admin.shop.option.remove', ['model' => 'ShopColor', 'id' => $item->id, 'column' => 'shop_color_id']) }}"
+                                                    class="btn btn-sm btn-danger"
+                                                    title="Trash"
                                                     onclick="return confirm('Do you confirm to remove this? Yes! Press OK...')">
                                                     <i class="fa fa-trash"></i>
                                                 </a>
@@ -225,7 +225,7 @@
                             </table>
                         </div>
                     </div>
-                </div> 
+                </div>
             </div>
     </div>
 
@@ -255,12 +255,12 @@
 <!-- Button trigger modal -->
 
 <!-- Modal for ADD/UPDATE category -->
-<div class="modal fade" id="modalAddCategory" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade show" id="modalAddCategory" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Category</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close cl" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -288,7 +288,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Brand</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close cl" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -316,7 +316,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Variant</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close cl" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -344,7 +344,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Color</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close cl" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -360,7 +360,7 @@
                     <div class="input-group mb-2 mr-sm-2">
                         <input type="color" class="w-100 rounded-0" id="color_code" name="color_code" required="">
                     </div>
-                    
+
                     <div class="text-right">
                         <button class="btn btn-dark" type="submit">Save</button>
                     </div>
@@ -389,7 +389,9 @@
         $modal.find('form').attr('action', $(this).data('action'));
         $('#category_title').val('');
         $('#category_id').val('');
-        $modal.modal('show');
+
+        $('#modalAddCategory').addClass("fade show in");
+        $('#modalAddCategory').show();
     })
 
     $(document).on('click', '.btn-update-category', function(){
@@ -397,7 +399,9 @@
         $modal.find('form').attr('action', $(this).data('action'));
         $('#category_title').val($(this).data('title'));
         $('#category_id').val($(this).data('id'));
-        $modal.modal('show');
+
+        $('#modalAddCategory').addClass("fade show in");
+        $('#modalAddCategory').show();
     })
 
 
@@ -410,7 +414,8 @@
         $('#brand_title').val('');
         $('#brand_id').val('');
 
-        $modal.modal('show');
+        $('#modalAddBrand').addClass("fade show in");
+        $('#modalAddBrand').show();
     })
 
     $(document).on('click', '.btn-update-brand', function(){
@@ -419,7 +424,8 @@
         $('#brand_title').val($(this).data('title'));
         $('#brand_id').val($(this).data('id'));
 
-        $modal.modal('show');
+        $('#modalAddBrand').addClass("fade show in");
+        $('#modalAddBrand').show();
     })
 
 
@@ -430,7 +436,8 @@
         $('#variant_title').val('');
         $('#variant_id').val('');
 
-        $modal.modal('show');
+        $('#modalAddVariant').addClass("fade show in");
+        $('#modalAddVariant').show();
     })
 
     $(document).on('click', '.btn-update-variant', function(){
@@ -439,10 +446,9 @@
         $('#variant_title').val($(this).data('title'));
         $('#variant_id').val($(this).data('id'));
 
-        $modal.modal('show');
+        $('#modalAddVariant').addClass("fade show in");
+        $('#modalAddVariant').show();
     })
-
-
 
     $(document).on('click', '.btn-add-color', function(){
         $modal = $('#modalAddColor');
@@ -450,7 +456,8 @@
         $('#color_title').val('');
         $('#vcolor_id').val('');
 
-        $modal.modal('show');
+        $('#modalAddColor').addClass("fade show in");
+        $('#modalAddColor').show();
     })
 
     $(document).on('click', '.btn-update-color', function(){
@@ -460,12 +467,16 @@
         $('#color_id').val($(this).data('id'));
         $('#color_code').val($(this).data('code'));
 
-        $modal.modal('show');
+        $('#modalAddColor').addClass("fade show in");
+        $('#modalAddColor').show();
     })
 
+</script>
 
-
-
-    
+<script type="text/javascript">
+    $(document).on('click','.cl',function(){
+        $('#modalAddCategory').hide();
+        $('#modalAddCategory').addClass("fade show in");
+    });
 </script>
 @endsection

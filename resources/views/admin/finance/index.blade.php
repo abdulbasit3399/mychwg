@@ -66,12 +66,12 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="serviceTexModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+<div class="modal fade show" id="serviceTexModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title text-center" id="exampleModalLabel">Add Or Update Taxes</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" id="cl" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -172,17 +172,23 @@
         var service_discount=$(this).data('service-discount');
         var location=$(this).data('location');
 
-
         $('#location').val(location).change();
         $('#service_commission').val(service_commission);
         $('#service_tax').val(service_tax);
         $('#service_discount').val(service_discount);
 
-        $('#serviceTexModal').modal('show');
-
+        $('#serviceTexModal').addClass("fade show in");
+        $('#serviceTexModal').show();
 
     });
-
 </script>
+
+<script type="text/javascript">
+    $(document).on('click','#cl',function(){
+        $('#serviceTexModal').hide();
+        $('#serviceTexModal').addClass("fade show in");
+    });
+</script>
+
 @endsection
 

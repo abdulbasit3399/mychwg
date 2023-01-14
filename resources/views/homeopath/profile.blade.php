@@ -110,12 +110,23 @@ input[type=number] {
           <div class="tab-pane" id="billing" aria-labelledby="account-tab" role="tabpanel">
             <div class="row">
               @if(\Auth::user()->user_subscription->status == 1)
-              <div class="col-md-6">
-                <h5>Next Payment Date</h5>
-                <p><b>{{date('F j, Y',strtotime(\Auth::user()->subscription_ends))}}</b></p>
+              <div class="col-md-12">
+                <h5>Subscription Details:</h5>
+                {{--  <p><b>{{date('F j, Y',strtotime(\Auth::user()->subscription_ends))}}</b></p>  --}}
               </div>
-              <div class="col-md-6">
-                <a href="{{route('square.subscription.cancel')}}" onclick="return confirm('You want to cacnel this Subscription?')" class="btn btn-danger mb-4" style="float:right;">Cancel Subscription</a>
+              <div class="col-md-9" style="color:rgb(32, 227, 2)"><b>Subscription</b></div>
+              <div class="col-md-3 text-dark"><b>Materia Faction - Advocate</b></div>
+
+              <div class="col-md-9" style="color:rgb(32, 227, 2)"><b>Type</b></div>
+              <div class="col-md-3 text-dark"><b>Monthly</b></div>
+
+              <div class="col-md-9" style="color:rgb(32, 227, 2)"><b>Payment Method(s)</b></div>
+              <div class="col-md-3 text-dark"><b>Visa **********7054</b></div>
+
+
+              <div class="col-md-9"></div>
+              <div class="col-md-3 mt-2">
+                <a href="{{route('square.subscription.cancel')}}" onclick="return confirm('You want to cacnel this Subscription?')" class="btn btn-dark mb-4">Cancel Subscription</a>
               </div>
               @else
               <div class="col-md-6">
@@ -125,14 +136,21 @@ input[type=number] {
               </div>
               @endif
               <div class="col-md-12">
+                <h5 class="text-dark"><b>Payment History:</b></h5>
+              </div>
+              <div class="col-md-12">
                 <div class="table-responsive">
                   <table class="table table-hover">
                     <thead>
                       <tr>
-                        <td>#</td>
-                        <td>Date</td>
-                        <td>Invoice ID</td>
-                        <td>Payment</td>
+                        {{--  <td class="text-dark"><b>#</b></td>  --}}
+                        <td class="text-dark"><b>Date (DD/MM/YYYY)</b></td>
+                        <td class="text-dark"><b>Subscription</b></td>
+
+                        {{--  <td class="text-dark"><b>Invoice ID</b></td>  --}}
+                        <td class="text-dark"><b>Payment</b></td>
+                        <td class="text-dark"><b>Payment Method(s)</b></td>
+                        <td></td>
                       </tr>
                     </thead>
                     <tbody>
@@ -141,12 +159,24 @@ input[type=number] {
                       foreach($payments as $pay):
                         $count++;
                       @endphp
+                      @for ($i = 1; $i < 5; $i++)
+
+
                       <tr>
-                        <td>{{$count}}</td>
-                        <td>{{date('Y-m-d',strtotime($pay->created_at))}}</td>
-                        <td>{{$pay->invoice_id}}</td>
-                        <td>{{'$'.$pay->payment}}</td>
+                        {{--  <td>{{$count}}</td>  --}}
+                        <td class="text-dark">{{date('Y-m-d',strtotime($pay->created_at))}}</td>
+                        <td class="text-dark">Materia Faction - Advocate</td>
+                        {{--  <td>{{$pay->invoice_id}}</td>  --}}
+                        <td class="text-dark">
+                          $4.99 USD
+                          {{--  {{'$'.$pay->payment}}  --}}
+                        </td>
+                        <td class="text-dark">Visa **********7054</td>
+                        <td class="text-dark" style="text-decoration: underline;">Refund</td>
+
+
                       </tr>
+                      @endfor
                       @endforeach
                     </tbody>
                   </table>
