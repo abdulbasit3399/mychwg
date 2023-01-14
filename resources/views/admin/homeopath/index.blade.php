@@ -12,7 +12,7 @@
 @section('content')
 <div class="row">
 
-    
+
         <div class="col-sm-5 mb-4">
             <div class="card">
                 <div class="p-1">
@@ -40,18 +40,18 @@
                                             <th>{{ $loop->iteration }}</th>
                                             <th class="text-success">{{ $item->title }}</th>
                                             <td class="text-right">
-                                                <button 
+                                                <button
                                                     data-action="{{ route('admin.homeopath.category.update') }}"
                                                     data-id="{{ $item->id }}"
                                                     data-title="{{ $item->title }}"
-                                                    class="btn btn-sm btn-info btn-update-category" 
+                                                    class="btn btn-sm btn-info btn-update-category"
                                                     title="Edit">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
-                                                <a 
-                                                    href="{{ route('admin.homeopath.category.remove', $item->id) }}" 
-                                                    class="btn btn-sm btn-danger" 
-                                                    title="Trash" 
+                                                <a
+                                                    href="{{ route('admin.homeopath.category.remove', $item->id) }}"
+                                                    class="btn btn-sm btn-danger"
+                                                    title="Trash"
                                                     onclick="return confirm('Do you confirm to remove this? Yes! Press OK...')">
                                                     <i class="fa fa-trash"></i>
                                                 </a>
@@ -61,7 +61,7 @@
                             </table>
                         </div>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
 
@@ -96,20 +96,20 @@
                                                             <tr>
                                                                 <th class="text-warning">{{ $item->title }}</th>
                                                                 <td class="text-right">
-                                                                    <button 
+                                                                    <button
                                                                         data-id="{{ $item->id }}"
                                                                         data-action="{{ route('admin.homeopath.library.update') }}"
                                                                         data-description="{{ $item->description }}"
                                                                         data-title="{{ $item->title }}"
                                                                         data-cat-id="{{ $item->homeopath_category_id }}"
-                                                                        class="btn btn-sm btn-info btn-update-library" 
+                                                                        class="btn btn-sm btn-info btn-update-library"
                                                                         title="Edit">
                                                                         <i class="fa fa-edit"></i>
                                                                     </button>
-                                                                    <a 
-                                                                        href="{{ route('admin.homeopath.library.remove', $item->id) }}" 
-                                                                        class="btn btn-sm btn-danger" 
-                                                                        title="Trash" 
+                                                                    <a
+                                                                        href="{{ route('admin.homeopath.library.remove', $item->id) }}"
+                                                                        class="btn btn-sm btn-danger"
+                                                                        title="Trash"
                                                                         onclick="return confirm('Do you confirm to remove this? Yes! Press OK...')">
                                                                         <i class="fa fa-trash"></i>
                                                                     </a>
@@ -132,7 +132,7 @@
 
         </div>
 
-    
+
 
 </div>
 
@@ -148,7 +148,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Category</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close cl" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -175,7 +175,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Library</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close cl" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -199,9 +199,9 @@
                     </div>
 
                         <label>Resource Detail</label>
-                    
+
                         <textarea id="summernote" name="description" class="form-control"></textarea>
-                    
+
 
                         <div class="text-right">
                             <button type="submit" class="btn btn-dark">Save</button>
@@ -227,7 +227,8 @@
         $modal.find('form').attr('action', $(this).data('action'));
         $('#category_title').val('');
         $('#category_id').val('');
-        $modal.modal('show');
+        $('#modalAddCategory').addClass("fade show in");
+        $('#modalAddCategory').show();
     })
 
     $(document).on('click', '.btn-update-category', function(){
@@ -235,7 +236,8 @@
         $modal.find('form').attr('action', $(this).data('action'));
         $('#category_title').val($(this).data('title'));
         $('#category_id').val($(this).data('id'));
-        $modal.modal('show');
+        $('#modalAddCategory').addClass("fade show in");
+        $('#modalAddCategory').show();
     })
 
 
@@ -245,7 +247,8 @@
         $('#library_title').val('');
         $('#lib_id').val('');
         $('.note-editable').html('');
-        $modal.modal('show');
+        $('#modalAddLlibrary').addClass("fade show in");
+        $('#modalAddLlibrary').show();
     })
 
     $(document).on('click', '.btn-update-library', function(){
@@ -256,11 +259,12 @@
         $('#lib_id').val($(this).data('id'));
         $('#lib_cat_id').val($(this).data('cat-id'));
 
-        $modal.modal('show');
+        $('#modalAddLlibrary').addClass("fade show in");
+        $('#modalAddLlibrary').show();
     })
 
 
-    
+
 </script>
 
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
@@ -270,7 +274,20 @@
         tabsize: 2,
         height: 350
       });
-    </script>
+</script>
+
+<script type="text/javascript">
+    $(document).on('click','.cl',function(){
+        $('#modalAddCategory').hide();
+        $('#modalAddCategory').addClass("fade show in");
+    });
+</script>
+<script type="text/javascript">
+    $(document).on('click','.cl',function(){
+        $('#modalAddLlibrary').hide();
+        $('#modalAddLlibrary').addClass("fade show in");
+    });
+</script>
 
 
 
