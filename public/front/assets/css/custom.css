@@ -1077,13 +1077,13 @@ padding: 0;
 .modal.fade .modal-dialog.modal-dialog-zoom {-webkit-transform: translate(0,0)scale(.5);transform: translate(0,0)scale(.5);}
 .modal.show .modal-dialog.modal-dialog-zoom {-webkit-transform: translate(0,0)scale(1);transform: translate(0,0)scale(1);}
 
-.profile-services p
+/*.profile-services p
 {
     position: absolute;
     bottom: 8px;
     left: 50%;
     transform: translate(-50%, -50%);
-}
+}*/
 
 
 /*
@@ -1135,15 +1135,15 @@ https://github.com/marcaube/bootstrap-magnify
 
 .profile-services p, .profile-resources .title
 {
-    position: absolute;
+/*    position: absolute;*/
     font-size:initial;
-    bottom: 1px;
-    left: 50%;
+/*    bottom: 1px;*/
+/*    left: 50%;*/
     padding: 0;
     margin: 0;
-    color: #fff;
+    color: #585353;
     font-weight: 600;
-    transform: translate(-50%, -50%);
+/*    transform: translate(-50%, -50%);*/
 }
 .btn-book,
 .btn-book:hover
@@ -2511,6 +2511,13 @@ div.item1 img
 .book_btn,
 .book_btn:hover
 {
+    color: inherit;
+    -ms-transform: translateY(-50%);
+    text-decoration: none;
+    bottom: -11px;
+    position: absolute;
+    margin: -8px -50px;
+    
     background-color: #58C763;
     color: #fff !important;
     font-weight: 340;

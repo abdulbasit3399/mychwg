@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\Homeopath;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Timetable;
-use Auth;
-use App\Models\User;
-use App\Models\DaySlot;
-use App\Models\HomeopathHoliday;
-use Carbon\Carbon;
 use Hash;
 use Crypt;
+use Auth;
+use Carbon\Carbon;
+use App\Models\User;
+use App\Models\DaySlot;
+use App\Models\Timetable;
+use Illuminate\Http\Request;
+use App\Models\ServiceBooking;
+use App\Models\HomeopathHoliday;
+use App\Http\Controllers\Controller;
 
 class AppointmentScheduleController extends Controller
 {
@@ -245,10 +246,14 @@ class AppointmentScheduleController extends Controller
         {
             return back()->withError('Whoops! Start date cannot be smaller than ending date!');
         }
+        $prev_service = ServiceBooking::where([['homeopath_id',Auth::id()],['date','>=',date('Y-m-d',strtotime($req->holiday_from))],['date','<=',date('Y-m-d',strtotime($req->holiday_to))]])->count();
+
+        if($prev_service > 0)
+            return back()->withError('You already have Appointment in these Day Slot.');
 
         Auth::user()->homeopathHoliday()->updateOrCreate([
-            'holiday_from'   => $req->holiday_from,
-            'holiday_to'     => $req->holiday_to
+            'holiday_from'   => date('Y-m-d',strtotime($req->holiday_from)),
+            'holiday_to'   => date('Y-m-d',strtotime($req->holiday_to))
         ]);
 
         return back()->withMessage('Holiday schedule has been updated.');

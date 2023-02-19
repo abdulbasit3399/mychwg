@@ -1,5 +1,7 @@
 <div class="sidebar-profile-homeo">
-    <img src="{{ asset($homeopath->HomeopathProfile->service_profile_img ?? '') }}" class="rect-profile-img" onerror="this.style.display=''">
+
+    <img src="{{ asset($homeopath->HomeopathProfile->service_profile_img ?? 'uploads/users/default.png') }}" class="rect-profile-img" onerror="this.style.display=''">
+
     <h5 class="mt-3 font-weight-bold">{{ $homeopath->name??'' }}</h5>
     <small class="text-primary">{{ $homeopath->HomeopathProfile->designation??'' }}</small>
 

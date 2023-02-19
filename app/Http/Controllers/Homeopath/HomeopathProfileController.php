@@ -51,7 +51,7 @@ class HomeopathProfileController extends Controller
 
 
         $services = Auth::user()->HomeopathServices->pluck('id');
-        $income = ServiceBooking::whereIn('homeopath_service_id', $services)->sum('price');
+        $income = ServiceBooking::whereIn('homeopath_service_id', $services)->where('status','completed')->sum('price');
         $total_appointments = ServiceBooking::whereIn('homeopath_service_id',  $services)->count();
         $active_appointments = ServiceBooking::whereIn('homeopath_service_id', $services)->where('status', 'active')->get();
         $today_appointments = ServiceBooking::whereIn('homeopath_service_id', $services)->where('date', now()->format('Y-m-d'))->where('status', 'active')->count();

@@ -123,7 +123,6 @@ class BookingController extends Controller
 
     public function checkSlotAvailablity(Request $req)
     {
-        
 
         $bookings = ServiceBooking::where('homeopath_id',$req->homeopath_id)->where('date', $req->date)->pluck('time_slot');
         $service = HomeopathService::findOrFail($req->service_id);

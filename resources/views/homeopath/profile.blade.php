@@ -114,14 +114,17 @@ input[type=number] {
                 <h5>Subscription Details:</h5>
                 {{--  <p><b>{{date('F j, Y',strtotime(\Auth::user()->subscription_ends))}}</b></p>  --}}
               </div>
-              <div class="col-md-9" style="color:rgb(32, 227, 2)"><b>Subscription</b></div>
-              <div class="col-md-3 text-dark"><b>Materia Faction - Advocate</b></div>
+              <div class="col-md-9" style="color:rgb(56 138 244)"><b>Subscription</b></div>
+              <div class="col-md-3 text-dark"><b>{{\Auth::user()->user_subscription->plan_name}}</b></div>
 
-              <div class="col-md-9" style="color:rgb(32, 227, 2)"><b>Type</b></div>
-              <div class="col-md-3 text-dark"><b>Monthly</b></div>
+              <div class="col-md-9" style="color:rgb(56 138 244)"><b>Type</b></div>
+              <div class="col-md-3 text-dark"><b>{{\Auth::user()->user_subscription->plan_interval}}</b></div>
+              
+              <div class="col-md-9" style="color:rgb(56 138 244)"><b>Next Payment Date</b></div>
+              <div class="col-md-3 text-dark"><b>{{date('F j, Y',strtotime(\Auth::user()->subscription_ends))}}</b></div>
 
-              <div class="col-md-9" style="color:rgb(32, 227, 2)"><b>Payment Method(s)</b></div>
-              <div class="col-md-3 text-dark"><b>Visa **********7054</b></div>
+              {{-- <div class="col-md-9" style="color:rgb(56 138 244)"><b>Payment Method(s)</b></div> --}}
+              {{-- <div class="col-md-3 text-dark"><b>Visa **********7054</b></div> --}}
 
 
               <div class="col-md-9"></div>

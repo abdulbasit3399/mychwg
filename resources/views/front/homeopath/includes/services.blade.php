@@ -3,7 +3,8 @@
 
 <div class="row text-center mt-4">
 
-    @foreach($homeopath->HomeopathServices->where('type', 'featured') as $service)
+    {{-- @foreach($homeopath->HomeopathServices->where('type', 'featured') as $service) --}}
+    @foreach($homeopath->HomeopathServices as $service)
         @if($loop->iteration<5)
           <div class="col-sm-4 mb-4">
               <div class="position-relative mb-3">

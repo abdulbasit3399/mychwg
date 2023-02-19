@@ -3,7 +3,8 @@
 
 <div class="row text-center mt-4">
 
-    <?php $__currentLoopData = $homeopath->HomeopathServices->where('type', 'featured'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    
+    <?php $__currentLoopData = $homeopath->HomeopathServices; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <?php if($loop->iteration<5): ?>
           <div class="col-sm-4 mb-4">
               <div class="position-relative mb-3">
