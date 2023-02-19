@@ -246,7 +246,8 @@ class AppointmentScheduleController extends Controller
         {
             return back()->withError('Whoops! Start date cannot be smaller than ending date!');
         }
-        $prev_service = ServiceBooking::where([['homeopath_id',Auth::id()],['date','>=',date('Y-m-d',strtotime($req->holiday_from))],['date','<=',date('Y-m-d',strtotime($req->holiday_to))]])->count();
+        $prev_service = ServiceBooking::where([['homeopath_id',Auth::id()],['date','>=',date('Y-m-d',strtotime($req->holiday_from))],['date','<=',date('Y-m-d',strtotime($req->holiday_to))],['status','active']])
+        ->orWhere([['homeopath_id',Auth::id()],['date','>=',date('Y-m-d',strtotime($req->holiday_from))],['date','<=',date('Y-m-d',strtotime($req->holiday_to))],['status','pending']])->count();
 
         if($prev_service > 0)
             return back()->withError('You already have Appointment in these Day Slot.');

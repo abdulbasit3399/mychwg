@@ -142,9 +142,6 @@
                                 <span class="fa fa-phone form-control-feedback"></span>
 
                             </div>
-
-
-
                             <div class="form-group">
 
                                 <select class="form-control input__country" id="commoditySel" name="country" required>
@@ -160,6 +157,9 @@
                                 </select>
 
                             </div>
+
+
+                            
 
 
 

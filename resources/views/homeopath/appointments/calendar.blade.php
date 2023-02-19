@@ -17,9 +17,9 @@
                 /*background-color: #fff !important;*/
                 /*color: #ffff !important;*/
         }
-        .fc-toolbar-title{
+        /*.fc-toolbar-title{
             color: white;
-        }
+        }*/
         .fc-day-today
         {
             /*background-color: #323740 !important;*/

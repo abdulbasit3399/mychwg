@@ -42,16 +42,16 @@
                                         </div>
                                         <hr class="colorgraph">
                                         <div class="row">
-                                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
                                                 <div class="form-group has-feedback">
-                                                    <input type="text" placeholder="Display Name" class="form-control" name="name">
+                                                    <input type="text" placeholder="First Name*" class="form-control" name="name">
                                                     <span class="fa fa-user form-control-feedback"></span>
                                                     <span class="invalid-feedback d-block"></span>
                                                 </div>
                                             </div>
-                                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
                                                 <div class="form-group has-feedback">
-                                                    <input type="text" placeholder="User Name" class="form-control" value="" id="username" name="user_name">
+                                                    <input type="text" placeholder="Last Name*" class="form-control" value="" id="username" name="last_name">
                                                     <span class="fa fa-user form-control-feedback"></span>
                                                     <span class="invalid-feedback d-block"></span>
                                                 </div>
@@ -63,47 +63,47 @@
                                             <span class="invalid-feedback d-block"></span>
                                         </div>
                                         <div class="row">
-                                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
                                                 <div class="form-group has-feedback">
                                                     <input type="password" placeholder="Password" class="form-control" id="password" name="password">
                                                     <span class="fa fa-lock form-control-feedback"></span>
                                                     <span class="invalid-feedback d-block"></span>
                                                 </div>
                                             </div>
-                                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                            {{-- <div class="col-xs-12 col-sm-12 col-md-12">
                                                 <div class="form-group has-feedback">
                                                     <input type="password" placeholder="Retype Password" class="form-control" id="confirm_password" name="confirm_password">
                                                     <span class="fa fa-lock form-control-feedback"></span>
                                                     <span class="invalid-feedback d-block"></span>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </div>
-                                        <div class="form-group has-feedback">
+                                        {{-- <div class="form-group has-feedback">
                                             <input type="text" placeholder="Store Name" class="form-control" id="store_name" name="store_name" value="">
                                             <span class="fa fa-home form-control-feedback"></span>
                                                     <span class="invalid-feedback d-block"></span>
-                                        </div>
+                                        </div> --}}
                                         <div class="form-group has-feedback">
-                                            <input type="number" placeholder="Phone Number" class="form-control" id="phone" name="phone" value="" min="0">
+                                            <input type="number" placeholder="Phone" class="form-control" id="phone" name="phone" value="" min="0">
                                             <span class="invalid-feedback d-block"></span>
                                         </div>
-                                        <div class="form-group has-feedback">
+                                        {{-- <div class="form-group has-feedback">
                                             <textarea id="address_line_1" placeholder="Address Line 1" class="form-control" name="address_line_1"></textarea>
                                                     <span class="invalid-feedback d-block"></span>
                                         </div>
                                         <div class="form-group has-feedback">
                                             <textarea id="address_line_2" placeholder="Address Line 2" class="form-control" name="address_line_2"></textarea>
                                             <span class="invalid-feedback d-block"></span>
-                                        </div>
+                                        </div> --}}
                                         <div class="row">
-                                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                            {{-- <div class="col-xs-12 col-sm-12 col-md-12">
                                                 <div class="form-group has-feedback">
                                                     <input type="text" placeholder="City" class="form-control" value="" id="city" name="city">
                                                     <span class="fa fa-text-width form-control-feedback"></span>
                                                     <span class="invalid-feedback d-block"></span>
                                                 </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                            </div> --}}
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
                                                 <div class="form-group has-feedback">
                                                     <input type="text" placeholder="State" class="form-control" value="" id="state" name="state">
                                                     <span class="fa fa-text-width form-control-feedback"></span>
@@ -111,7 +111,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
                                                 <div class="form-group">
 
                                                     <select class="form-control input__country" required="" name="country">
@@ -128,7 +128,7 @@
 
                                                 </div>
                                             </div>
-                                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
                                                 <div class="form-group has-feedback">
                                                     <input type="text" placeholder="Zip / Postal Code" class="form-control zip_code" value="" id="zip_code" name="zip_code">
                                                     <span class="invalid-feedback d-block"></span>
@@ -145,12 +145,44 @@
                                             </div>
                                         </div>
                                         <hr class="colorgraph">
-                                        <div class="row">
-                                            <div class="col-xs-12 col-md-6">
+                                        {{-- <div class="row">
+                                            <div class="col-xs-12 col-md-12">
                                                 <button class="btn btn-secondary btn-block btn-md register-adv-btn" type="button">Advocate Registration</button>
                                             </div>
                                             <div class="col-xs-12 col-md-6"><a href="{{ route('login') }}" class="btn btn-secondary btn-block btn-md vendor-reg-log-in-text">Login</a></div>
+                                        </div> --}}
+                                        <div class="form-group">
+
+                                            <div class="row justify-content-center">
+
+                                                <div class="col-sm-6 text-center">
+
+                                                    <button type="button" class="form-control btn btn-secondary">Register my account</button>
+
+                                                </div>
+
+                                            </div>
+
                                         </div>
+
+                                        <div class="form-group">
+
+                                            <div class="row">
+
+                                                <div class="col-lg-12">
+
+                                                    <div class="text-center">
+
+                                                        <a href="{{ route('login') }}" tabindex="5" class="register-new-user">I already have an account</a>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        
                                     </form>
                                 </div>
                             </div>
