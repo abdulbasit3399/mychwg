@@ -353,7 +353,7 @@
      $(document).ready(function() {
        google.load("maps", "3.exp", {
          callback: initMaps,
-         other_params: 'key=AIzaSyCSGmioE5YdinM_BR5MDEyB3E7qamhiDNw&libraries=places,drawing'
+         other_params: 'key=AIzaSyCVwpL3ta3ApX5weM8ETTHklnSG0WeC3b0&libraries=places,drawing'
        });
      })
 

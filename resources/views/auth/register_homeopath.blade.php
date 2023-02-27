@@ -146,13 +146,12 @@
 
                                 <select class="form-control input__country" id="commoditySel" name="country" required>
 
-                                    <option value="">Select Country</option>
-
-                                  @foreach(getCountries() as $country)
+                                    <option value="Canada">Canada</option>
+                                  {{-- @foreach(getCountries() as $country)
 
                                       <option value="{{ $country->name }}">{{ $country->name }}</option>
 
-                                  @endforeach
+                                  @endforeach --}}
 
                                 </select>
 
@@ -161,15 +160,33 @@
 
                             
 
-
-
                             <div class="form-group has-feedback">
+                                <select name="province" class="form-control">
+                                    <option value="">Select Province</option>
+                                    <option value="Alberta">Alberta</option>
+                                    <option value="British Columbia">British Columbia</option>
+                                    <option value="Manitoba">Manitoba</option>
+                                    <option value="New Brunswick">New Brunswick</option>
+                                    <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                                    <option value="Nova Scotia">Nova Scotia</option>
+                                    <option value="Ontario">Ontario</option>
+                                    <option value="Prince Edward Island">Prince Edward Island</option>
+                                    <option value="Quebec">Quebec</option>
+                                    <option value="Saskatchewan">Saskatchewan</option>
+                                    <option value="Northwest Territories">Northwest Territories</option>
+                                    <option value="Nunavut">Nunavut</option>
+                                    <option value="Yukon">Yukon</option>
+                                </select>
+
+                            </div>
+
+                            {{-- <div class="form-group has-feedback">
 
                                 <input name="state" class="form-control" id="commodityLab" placeholder="State*" type="text" required="">
 
                                 <span class="fa fa-globe form-control-feedback"></span>
 
-                            </div>
+                            </div> --}}
 
 
 
@@ -244,15 +261,15 @@
 @section('js')
 
 <script>
-    $(function() {
-        $('#commoditySel').change(function() {
-          if ($('#commoditySel').val() == 'Canada') {
-            $('#commodityLab').attr("placeholder", "Province*");
-          } else {
-            $('#commodityLab').attr("placeholder", "State*");
-          }
-        });
-      });
+    // $(function() {
+    //     $('#commoditySel').change(function() {
+    //       if ($('#commoditySel').val() == 'Canada') {
+    //         $('#commodityLab').attr("placeholder", "Province*");
+    //       } else {
+    //         $('#commodityLab').attr("placeholder", "State*");
+    //       }
+    //     });
+    //   });
 </script>
 
 @endsection
