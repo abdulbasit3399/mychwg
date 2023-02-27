@@ -71,7 +71,13 @@
                                                     <span class="invalid-feedback d-block"></span>
                                                 </div>
                                             </div>
-                                            
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <div class="form-group has-feedback">
+                                                    <input type="password" placeholder="Retype Password" class="form-control" id="confirm_password" name="confirm_password">
+                                                    <span class="fa fa-lock form-control-feedback"></span>
+                                                    <span class="invalid-feedback d-block"></span>
+                                                </div>
+                                            </div>
                                         </div>
                                         
                                         <div class="form-group has-feedback">
@@ -81,14 +87,10 @@
                                         
                                         <div class="row">
                                             
-                                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <div class="form-group has-feedback">
-                                                    <input type="text" placeholder="State" class="form-control" value="" id="state" name="state">
-                                                    <span class="fa fa-text-width form-control-feedback"></span>
-                                                </div>
-                                            </div>
+                                            
                                         </div>
                                         <div class="row">
+
                                             <div class="col-xs-12 col-sm-12 col-md-12">
                                                 <div class="form-group">
 
@@ -104,6 +106,12 @@
 
                                                     </select>
 
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <div class="form-group has-feedback">
+                                                    <input type="text" placeholder="State" class="form-control" value="" id="state" name="state">
+                                                    <span class="fa fa-text-width form-control-feedback"></span>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-12">

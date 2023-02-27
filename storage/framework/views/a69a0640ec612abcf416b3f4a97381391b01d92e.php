@@ -148,6 +148,14 @@
 
                             <div class="form-group has-feedback">
 
+                                <input name="confirm_password" id="confirm_password" tabindex="2" class="form-control" placeholder="Retype Password*" type="password" required="">
+
+                                <span class="fa fa-lock form-control-feedback"></span>
+
+                            </div>
+
+                            <div class="form-group has-feedback">
+
                                 <input class="form-control" name="phone" type="number" min="0" placeholder="Phone">
 
                                 <span class="fa fa-phone form-control-feedback"></span>

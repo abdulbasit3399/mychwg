@@ -42,9 +42,9 @@ class RegisteredUserController extends Controller
             'last_name' => 'required|string|max:255',
             // 'user_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'min:8',
-            // 'password' => 'min:8|required_with:confirm_password|same:confirm_password',
-            // 'confirm_password' => 'min:8',
+            // 'password' => 'min:8',
+            'password' => 'min:8|required_with:confirm_password|same:confirm_password',
+            'confirm_password' => 'min:8',
             // 'store_name' => 'required',
             // 'phone' => 'required',
             // 'address_line_1' => 'required',
@@ -142,7 +142,9 @@ class RegisteredUserController extends Controller
             'name' => 'required',
             // 'phone' => 'required',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|min:8'
+            // 'password' => 'required|min:8',
+            'password' => 'min:8|required_with:confirm_password|same:confirm_password',
+            'confirm_password' => 'min:8',
         ]);
 
         if(isset($req->last_name))
