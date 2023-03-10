@@ -45,14 +45,9 @@ class PaymentController extends Controller
     $req['service_id'] = Crypt::encryptString($req->service_id);
 
     Session::put('booking_form', $req->all());
-
-
     $service = HomeopathService::findOrFail(Crypt::decryptString($req->service_id));
-
-
     if($req->payment_method == 'pay-later')
     {
-
 
      $homeopath=HomeopathProfile::where('user_id',$service->user_id)->first();
 
@@ -89,13 +84,6 @@ class PaymentController extends Controller
 
     return view('front.services.book_receipt', get_defined_vars());
   }
-
-
-
-
-
-
-
   if($req->payment_method == 'paypal')
   {
 
@@ -113,16 +101,31 @@ class PaymentController extends Controller
 
     return $this->makePaypalCheckout($data);
   }
-
   else
   {
-
-    $response = $this->makeStripeCheckout([
-      'price'     => serviceAmount($service->price,$service->homeopath->HomeopathProfile->location),
-      'intent_id' => Session::get('intent_id')
+    $client = new \Square\SquareClient([
+        'accessToken' => $service->homeopath->square_access_token,
+        'environment' => \Square\Environment::SANDBOX, // Change this to \Square\Environment::PRODUCTION for testing
     ]);
 
-    if(isset($response->status) && $response->status == 'succeeded')
+    $amount_money = new \Square\Models\Money();
+    $amount_money->setAmount($service->price*100);
+    $amount_money->setCurrency(env('CURRENCY'));
+
+    $body = new \Square\Models\CreatePaymentRequest(
+        $req->square_tok,
+        time(),
+        $amount_money
+    );
+
+    $api_response = $client->getPaymentsApi()->createPayment($body);
+    if ($api_response->isSuccess()) {
+        $result = $api_response->getResult();
+    } else {
+        $result = $api_response->getErrors();
+    }
+
+    if($api_response->isSuccess())
     {
       $data=getAllTimeSlots($req->time_slot,$service->duration??30);
       $data=json_encode($data);
@@ -139,9 +142,9 @@ class PaymentController extends Controller
         'allergies'               => $req->allergies ?? NULL,
         'concern'                 => $req->concern ?? NULL,
         'price'                   => $service->price,
-        'transaction_id'          => $response->id,
-        'payment_method'          => 'stripe',
-        'meeting_handel_via'          => $req->meeting_handled_via??''
+        'transaction_id'          => $result->getPayment()->getId(),
+        'payment_method'          => 'square',
+        'meeting_handel_via'      => $req->meeting_handled_via??''
 
       ]);
       $payment_status = true;
@@ -161,7 +164,7 @@ class PaymentController extends Controller
     }
     else
     {
-      $error = $response->getMessage();
+      $error = 'Payment failed.';
       return view('errors.payments_error', get_defined_vars());
     }
 

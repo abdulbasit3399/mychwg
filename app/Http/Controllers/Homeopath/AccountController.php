@@ -129,10 +129,26 @@ class AccountController extends Controller
        }
 
 
-        return redirect()->route('homeopath.link.account')->withMessage('Congrats! Your stripe account has been linked.');;
+        return redirect()->route('homeopath.link.account')->withMessage('Congrats! Your stripe account has been linked.');
     }
 
+    public function squareConnect(Request $request)
+    {
+        $this->validate($request,[
+            'app_id' => 'required',
+            'access_token' => 'required',
+            'location_id' => 'required'
+        ]);
 
+        $user = User::whereId(Auth::id())->first();
+        $user->is_boarded   = true;
+        $user->square_app_id = $request->app_id; 
+        $user->square_access_token = $request->access_token; 
+        $user->square_location_id = $request->location_id; 
+        $user->save();
+
+        return redirect()->route('homeopath.link.account')->withMessage('Congrats! Your square account has been linked.');
+    }
 
 
 

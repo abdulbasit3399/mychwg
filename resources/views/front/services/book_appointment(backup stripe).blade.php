@@ -94,12 +94,13 @@
     $('#payment_method').val($(this).data('method'));
     })
     </script>
+    <script src="https://js.stripe.com/v3/"></script>
 
 
 
 
 
- 
+
 
 
 

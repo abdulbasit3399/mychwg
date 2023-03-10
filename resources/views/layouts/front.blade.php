@@ -86,6 +86,18 @@
 
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
+        {{-- <script type="text/javascript" src="{{ asset('front/assets') }}/jquery/jquery-1.10.2.js"></script> --}}
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <link rel="stylesheet" href="/reference/sdks/web/static/styles/code-preview.css" preload>
+        <script type="text/javascript" src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+
+        {{-- <script type="text/javascript" src="https://js.squareup.com/v2/paymentform"></script> --}}
+        <script type="text/javascript" src="https://js.squareupsandbox.com/v2/paymentform"></script>
+
+
+
+        
         <style type="text/css">
 
 
@@ -498,7 +510,7 @@ $text=$setting['feedback-toast']??'';
 
 
 
-        <script type="text/javascript" src="{{ asset('front/assets') }}/jquery/jquery-1.10.2.js"></script>
+        
 
         <script type="text/javascript" src="{{ asset('front/assets') }}/jquery/jquery-ui-1.11.4.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.60/inputmask/jquery.inputmask.js"></script>

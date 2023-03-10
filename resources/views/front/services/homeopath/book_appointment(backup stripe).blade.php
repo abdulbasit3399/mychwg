@@ -346,8 +346,389 @@
 
     </script>
 
+    <script src="https://js.stripe.com/v3/"></script>
 
-    
+
+
+
+
+
+
+
+
+    <script>
+
+    const stripe = Stripe('{{ env('STRIPE_KEY') }}', { locale: 'en' });
+
+      const elements = stripe.elements(); // Create an instance of Elements.
+
+            var style = {
+
+                base: {
+
+                    color: '#32325d',
+
+                    fontFamily: '"proxima-nova", "Helvetica Neue", Helvetica, sans-serif',
+
+                    fontSmoothing: 'antialiased',
+
+                    fontSize: '16px',
+
+                    '::placeholder': {
+
+                    color: '#aab7c4'
+
+                    }
+
+                },
+
+                invalid: {
+
+                    color: '#fa755a',
+
+                    iconColor: '#fa755a'
+
+                }
+
+            };
+
+
+
+            const card = elements.create('card', {style: style, hidePostCode:true});
+
+      const cardButton = document.getElementById('card-button');
+
+        const clientSecret = cardButton.dataset.secret;
+
+            card.mount('#card-element');
+
+            // Handle real-time validation errors from the card Element.
+
+            card.on('change', function(event) {
+
+                var displayError = document.getElementById('card-errors');
+
+                if (event.error) {
+
+                    displayError.textContent = event.error.message;
+
+                } else {
+
+                    displayError.textContent = '';
+
+                }
+
+            });
+
+
+
+            // Handle form submission.
+
+            var form = document.getElementById('payment-form');
+
+            form.addEventListener('submit', function(event) {
+
+                event.preventDefault();
+
+
+
+                // Disable The submit button on click
+
+                document.getElementById('card-button').disabled = true;
+
+
+
+        stripe.createPaymentMethod({
+
+          type: 'card',
+
+          card: card,
+
+          billing_details: {
+
+            // Include any additional collected billing details.
+
+            name: 'John Doe',
+
+          },
+
+          }).then(stripePaymentMethodHandler);
+
+            });
+
+
+
+
+
+  function stripePaymentMethodHandler(result) {
+
+  if (result.error) {
+
+    // Show error in payment form
+
+    // toastr.error('Whoops! looks like issue in your card');
+
+    document.getElementById('card-button').disabled = false;
+
+  } else {
+
+   // console.log(result.paymentMethod.id);
+
+    // Otherwise send paymentMethod.id to your server (see Step 4)
+
+
+
+    fetch('{{ route('intent') }}', {
+
+      method: 'POST',
+
+     headers: {
+
+        "Content-Type": "application/json",
+
+        "Accept": "application/json",
+
+        "X-Requested-With": "XMLHttpRequest",
+
+        "X-CSRF-Token": $('input[name="_token"]').val()
+
+      },
+
+    credentials: "same-origin",
+
+      body: JSON.stringify({
+
+        payment_method_id: result.paymentMethod.id,
+
+        amount: {{ $service->price }},
+
+        location:'{{$service->homeopath->HomeopathProfile->location}}',
+
+
+
+      })
+
+    }).then(function(result) {
+
+      // Handle server response (see Step 4)
+
+      result.json().then(function(json) {
+
+
+
+    var  payment_intent_id = null;
+
+        handleServerResponse(json, payment_intent_id);
+
+      })
+
+    });
+
+  }
+
+}
+
+
+
+
+
+
+
+  function handleServerResponse(response , payment_intent_id) {
+
+  if (response.error) {
+
+    $('#modalStripe').modal('hide');
+
+    if(response.error =='hotel price is update')
+
+    {
+
+      Swal.fire(
+
+          'Hotel Booking',
+
+          'Hotel Price has been updated',
+
+          'warning'
+
+        )
+
+      setTimeout(function(){
+
+      location.reload();
+
+    }, 6000);
+
+
+
+    }
+
+    // Show error from server on payment form
+
+  } else if (response.requires_source_action) {
+
+    // Use Stripe.js to handle required card action
+
+
+
+    stripe.handleCardAction(
+
+      response.payment_intent_client_secret
+
+    ).then(handleStripeJsResult);
+
+  } else {
+
+
+
+    stripe.createToken(card).then(function(respo) {
+
+                if (respo.error) {
+
+                    // Inform the user if there was an error.
+
+                    var errorElement = document.getElementById('card-errors');
+
+                    errorElement.textContent = respo.error.message;
+
+                    // Enable The submit button
+
+                    document.getElementById('card-button').disabled = false;
+
+                } else {
+
+                    // Send the token to your server.
+
+                    stripeTokenHandler(payment_intent_id,respo.token.id);
+
+                }
+
+            });
+
+  }
+
+}
+
+
+
+function handleStripeJsResult(result) {
+
+  if (result.error) {
+
+
+
+
+
+
+
+
+
+
+
+  } else {
+
+    // The card action has been handled
+
+    // The PaymentIntent can be confirmed again on the server
+
+     var payment_intent_id=result.paymentIntent.id;
+
+    fetch('{{ route('intent') }}', {
+
+      method: 'POST',
+
+     headers: {
+
+        "Content-Type": "application/json",
+
+        "Accept": "application/json",
+
+        "X-Requested-With": "XMLHttpRequest",
+
+        "X-CSRF-Token": $('input[name="_token"]').val()
+
+      },
+
+    credentials: "same-origin",
+
+      body: JSON.stringify({
+
+        payment_intent_id: result.paymentIntent.id,
+
+
+
+
+
+      })
+
+    }).then(function(result) {
+
+      // Handle server response (see Step 4)
+
+      result.json().then(function(json) {
+
+     console.log(json);
+
+     if(json.success==true)
+
+     {
+
+
+
+       handleServerResponse(json,payment_intent_id);
+
+     }
+
+
+
+      })
+
+    });
+
+  }
+
+}
+
+
+
+
+
+
+
+            // Submit the form with the token ID.
+
+            function stripeTokenHandler(paymentIntent,token) {
+
+                // Insert the token ID into the form so it gets submitted to the server
+
+                var form = document.getElementById('payment-form');
+
+                var hiddenInput = document.createElement('input');
+
+                hiddenInput.setAttribute('type', 'hidden');
+
+            hiddenInput.setAttribute('value', paymentIntent);
+
+                form.appendChild(hiddenInput);
+
+
+
+        var hideInput = document.createElement('input');
+
+            hideInput.setAttribute('type', 'hidden');
+
+            hideInput.setAttribute('value', token);
+
+            form.appendChild(hideInput);
+
+        // Submit the form
+
+                form.submit();
+
+            }
+
+</script>
 
 
 

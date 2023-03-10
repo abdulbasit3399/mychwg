@@ -69,32 +69,21 @@
             <div class="tab-content" id="pills-tabContent">
               <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                 <div class="col-lg-12 col-sm-12">
-                  @if($homeopath->square_location_id && $homeopath->square_app_id && $homeopath->square_access_token)
                   <h6>Provide your card information:</h6>
                   <div class="row card-body  card-payment">
                     <div class="m-auto">
-                      {{-- <form id="payment-form">
-                         <div id="card-container"></div>
-                         <button id="card-button" type="button">Pay $1.00</button>
-                      </form>
-                      <div id="payment-status-container"></div> --}}
-
-                      
-                      <div id="payment-form1">
-                        <div id="payment-status-container"></div>
-                        <div id="card-container"></div>
-                        <button id="card-button" type="button" class="btn btn-primary">Pay</button>
-                        <input type="hidden" name="square_tok" id="square_tok">
+                      <div class="credit-cards pb-3" style="text-align: center; width: 100%">
+                        <img class="p-3"style="width: 40%;" src="https://lh4.googleusercontent.com/CSUg6331rRxvvdxMJXTPTHpiXZljpp4P_X64UZowSTCFds3s53P1Q0eMLQx-8hOHpjLtxg0dEge3bnaXJe79eAvbi5OWUEhurzUDqRo8T7VoiEhhkNUvGj4cK-87u-kmwih5e1ne"><br>
+                        <img height="40" src="https://shoplineimg.com/assets/footer/card_visa.png"/>
+                        <img height="40" src="https://shoplineimg.com/assets/footer/card_master.png"/>
+                        <img height="40" src="https://shoplineimg.com/assets/footer/card_amex.png"/>
                       </div>
-                      
-
-
-                      {{-- <div class="group">
+                      <div class="group">
                         <label><span>Name on card</span></label>
                         <input id="name" class="field required-entry" name="name" placeholder="John Doe" autocomplete="off" />
                         <label>Card Information</label>
                         <div id="card-element" class="field"></div>
-                      </div> --}}
+                      </div>
                       <div id="card-errors" class="error text-danger"></div>
                       <div class="text-center">
                         <small class="note-alert">Click the "Checkout" button below to confirm your payments and book an appointment</small>
@@ -102,9 +91,6 @@
 
                     </div>
                   </div>
-                  @else
-                  <h6>Homeopath not accepting Card right now</h6>
-                  @endif
                 </div>
               </div>
               <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">

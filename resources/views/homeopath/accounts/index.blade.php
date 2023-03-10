@@ -35,6 +35,43 @@
             <h6>If you need more information about the connect attachement. Contact to administrator authority of the CHWG platform.</h6>
         </div>
     @else
+    <div class="col-lg-12">
+            <div class="card" style="min-height: 458px;">
+                <div class="card-body">
+
+                        <div class="text-center m-auto">
+                            <img class="paypal-logo" src="{{ asset('front/square.png') }}">
+                            <h1 class="my-1">Square Connect</h1>
+                            <h5 class="font-weight-normal">Square was established to give every business owner an easier way to take credit cards. Whether you’re a small business or enterprise, square make accepting card payments as fast, painless, and secure as possible, with no extra fees, no long-term contracts, and no tricks. Just payment processing you can depend on so that you never miss a sale.</h5>
+                            <form method="post" action="{{route('homeopath.square.connect')}}">
+                                @csrf
+                                <div class="form-group1">
+                                    <input type="text" class="form-control my-1" name="app_id" value="{{\Auth::user()->square_app_id}}" placeholder="Application ID" required>
+                                </div>
+                                <div class="form-group1">
+                                    <input type="text" class="form-control my-1" name="access_token" value="{{\Auth::user()->square_access_token}}" placeholder="Access Token" required>
+                                </div>
+                                <div class="form-group1">
+                                    <input type="text" class="form-control my-1" name="location_id" value="{{\Auth::user()->square_location_id}}" placeholder="Location ID" required>
+                                    <small style="clear: both;" class="text-left d-block">You are agree to the <a href="https://squareup.com/us/en/legal/general/ua" target="_blank">terms & conditions</a> after clicking on the "Connect my square account" button.</small>
+                                </div>
+                                <div class="form-group1">
+                                    <button type="submit" class="btn btn-fluid btn-primary my-2" style="float: right;">Connect my Square account</button>
+                                </div>
+                            </form>
+                            <div style="clear:both;text-align: left;"> 
+                                <h4>Get application credentials</h4>
+                                <h5>1. Open the <a href="https://developer.squareup.com/apps" target="_blank">Developer Dashboard</a> and click the plus symbol under "Applications" to create a new application.</h5>
+                                <h5>2. Open the application and choose the <b>Credentials</b> page.</h5>
+                                <h5>3. Switch from Sandbox to Production Mode.</h5>
+                                <h5>4. Copy the <b>Application ID</b> and <b>Access Token</b>.</h5>
+                                <h5>5. Choose the Locations page and copy the <b>Location ID</b>.</h5>
+                                <h5>6. Paste the Applications ID, Location ID, and Access token above.</h5>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
@@ -55,20 +92,7 @@
         </div>
 
 
-        {{-- <div class="col-lg-6">
-            <div class="card" style="min-height: 458px;">
-                <div class="card-body">
-
-                        <div class="text-center m-auto">
-                            <img class="paypal-logo" src="{{ asset('front/stripe.png') }}">
-                            <h1 class="my-1">Stripe Connect</h1>
-                            <h5 class="font-weight-normal">Stripe Connect is the fastest and easiest way to integrate payments into your software platform or marketplace. Our set of programmable APIs and tools allows you to build and scale end-to-end payment experiences from instant onboarding to global payouts—all while having Stripe handle payments KYC. <br>For more information <a href="https://stripe.com/connect" target="_blank">See Terms of Use</a> or visit <a href="https://stripe.com/" target="_blank">Stripe Inc.</a></h5>
-                        <a href="{{ route('homeopath.stripe.connect') }}" class="btn btn-fluid btn-primary my-2">Connect my Stripe account</a>
-                        <small class="text-left d-block">You are agree to the <a href="https://stripe.com/legal" target="_blank">terms & conditions</a> after clicking on the "Connect my paypal account" button.</small>
-                        </div>
-                </div>
-            </div>
-        </div> --}}
+        
 
     @endif
 
