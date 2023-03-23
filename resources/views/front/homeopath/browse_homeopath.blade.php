@@ -11,7 +11,11 @@
 @endsection
 
 @section('content')
-
+<style type="text/css">
+  .gm-style-iw{
+    max-width: 300px !important;
+  }
+</style>
 <header>
   <div class="wrapper">
     <div id="header_content" style="background-image: url('{{ asset('front/assets/templates-assets/header/img/hbg.jpg') }}');background-size: cover;">
@@ -327,11 +331,73 @@
     });
 
     var html_infowindow = `<div class="row card-shop marker-pop" data-href="{{ route('profile.homeopath', $item->user_name) }}">
-    <div class="col-sm-12 p-0 m-auto text-center">
-    <img src="{{ asset($item->avatar) }}">
-    <h3>{{ $item->name }}</h3>
-    </div>
-    </div>`;
+      <div class="col-sm-4 p-0 ">
+        <img src="{{ asset($item->avatar) }}" style="float:right;" class="mr-2">
+        
+      </div>
+      <div class="col-sm-8 p-0">
+        <h5>{{ $item->name }}</h5>
+        <p><b>{{$item->HomeopathProfile->designation}}</b></p>
+      </div>
+      <div class="col-sm-12">
+        <p class="mt-3" style="color:#978f8f"><b>{{ $item->HomeopathProfile->location ?? '' }}</b></p>
+      </div>
+      <div class="v-box1 col-sm-12 p-0" style="height: 97px !important;">
+        @if(homaopathBadgeStatus($item->HomeopathProfile->id,"Badge")=='true')
+        <div class="item">
+          <img src="{{ asset(badge($item->badge)['path']) }}"  class="profile-bowl1 h-100 1"
+          data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="{{ badge($item->badge)['title'] }}" style="border-radius: 0px;">
+        </div>
+        @endif
+
+        @if(homaopathBadgeStatus($item->HomeopathProfile->id,"Booking Milestone")=='true' && count(getHomeopathBookings($item->id)) >= 0)
+        @php
+          $modulas = 0;
+          if((count(getHomeopathBookings($item->id)) % 5) == 0)
+            $modulas = count(getHomeopathBookings($item->id));
+          else
+            $modulas = count(getHomeopathBookings($item->id)) - (count(getHomeopathBookings($item->id)) % 5);
+
+        @endphp
+
+        <div class="item2 ">
+          <div class="text-center">
+           <img src="{{ asset('uploads/badges/bookings_25.png') }}"class="profile-bowl" style="width:76px !important;height:45px" ><br/>
+           <span style="font-size:8px;font-weight: 700;color: black;">
+            {{$modulas}} BOOKINGS
+          </span>
+         </div>
+        </div>
+        @endif
+        @if(homaopathBadgeStatus($item->HomeopathProfile->id,"Years")=='true')
+
+         <div class="item3">
+          <div>
+
+            @if($item->HomeopathProfile->created_at->diffInMonths() >= 12)
+            <img src="{{ asset('uploads/badges/year_1.png') }}"  class="profile-bowl"
+            data-container="body" data-trigger="hover" style="width:76px !important" data-toggle="popover" data-placement="top" >
+            @elseif($item->HomeopathProfile->created_at->diffInMonths() > 0)
+            <span class="txt9" style="font-size:12px" >
+              {{ $item->HomeopathProfile->created_at->diffForHumans() }} </span>
+              @else
+              <img src="{{ asset('uploads/badges/grand_opening.png') }}"  class="profile-bowl"
+              data-container="body" data-trigger="hover" style="width:76px !important" data-toggle="popover" data-placement="top">
+              @endif
+            </div>
+
+          </div>
+        @endif
+        
+      </div>
+
+      <div class="col-sm-6 p-0 text-center">
+        <p style="font-size: large;color: #007bff;font-weight: 500;"><i class="fas fa-user-circle mr-1"></i>Enter Clinic</p>
+      </div>
+      <div class="col-sm-6 p-0 text-center">
+        <p style="font-size: large;color: #007bff;font-weight: 500;"><i class="fas fa-calendar-check mr-1"></i>Book Now</p>
+      </div>
+        `;
 
     bindInfoWindow(marker, map, infoWindow, html_infowindow);
     markers.push(marker);
