@@ -28,6 +28,9 @@ html body {
       * Blank page
       */
 }
+.header-navbar.floating-nav{
+  width: calc( 100vw - (100vw - 100%) - calc(2.2rem * 2) - 290px);
+}
 html body .content {
   padding : 0;
   position : relative;
@@ -36,7 +39,7 @@ html body .content {
   -webkit-backface-visibility : hidden;
           backface-visibility : hidden;
   min-height : calc(100% - 4rem);
-  margin-left : 260px;
+  margin-left : 290px;
 }
 html body .content.app-content {
   overflow : hidden;
@@ -223,8 +226,8 @@ html .pace .pace-progress {
   }
   .sidebar-right.sidebar-sticky {
     float : right !important;
-    margin-left : -260px;
-    width : 260px !important;
+    margin-left : -290px;
+    width : 290px !important;
     margin-top : 6rem;
   }
 }
@@ -272,7 +275,7 @@ html .pace .pace-progress {
 ==========================================================================================*/
 .sidebar {
   position : relative;
-  width : 100%;
+  width : 110%;
 }
 @media (min-width: 992px) {
   .sidebar {
