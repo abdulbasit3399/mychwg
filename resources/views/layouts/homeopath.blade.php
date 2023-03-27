@@ -36,339 +36,13 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('front/icomoon/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/switch/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/sidebar.css') }}">
 
      <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/inputTags.css') }}">
     
     {{-- <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="crossorigin="anonymous"></script> --}}
     <!-- END: Page CSS-->
-    <style>
-        .tagsinput .tag {
-            position: relative;
-           
-            background: #19bc9c;
-            display: block;
-            max-width: 100%;
-            word-wrap: break-word;
-            color: #fff;
-            padding: 5px 30px 5px 5px;
-            border-radius: 2px;
-            margin: 0 5px 5px 0;
-        }
-        .btn
-        {
-            border-radius: 0 !important;
-        }
-        .main-menu
-        {
-            width: 260px;
-        }
-        .main-menu.menu-light ,
-        .main-menu.menu-light .navigation
-        {
-            background-color: #388AF4;
-        }
-        .main-menu.menu-light * ,
-        .main-menu.menu-light li a ,
-        .main-menu.menu-light .navigation *
-        {
-            color: #fff !important;
-        }
-        .main-menu.menu-light .navigation > li
-        {
-            padding: 0px;
-        }
-
-        .main-menu.menu-light li a
-        {
-            border-bottom: 1px solid #fff;
-        }
-
-        .main-menu i
-        {
-            font-size: 24px !important;
-        }
-
-        .main-menu ul.navigation-main > li:first-child {
-            margin-top: 0rem;
-        }
-
-
-            .main-menu.menu-light .navigation > li.open > a, .main-menu.menu-light .navigation > li.sidebar-group-active > a
-            {
-                color: transparent;
-                background: transparent;
-                border-radius: 0px;
-                margin-bottom: 7px;
-            }
-            .main-menu.menu-light .navigation > li > ul
-            {
-                background-color: transparent;
-            }
-
-            .main-menu .fa-chevron-down
-            {
-                font-size: 15px !important;
-                line-height: 30px;
-                opacity: 0.8;
-            }
-            .vertical-overlay-menu .main-menu .navigation li.has-sub > a:not(.mm-next):after
-            {
-                display: none;
-            }
-            .custom-toast {
-                background-color: #ffffff;
-                color: #000;
-                border: none;
-                box-shadow: 0 0.25rem 0.75rem rgb(34 41 47 / 15%);
-            }
-
-    </style>
-    <style>
-
-
-.card0 {
-    background-color: #F5F5F5;
-    border-radius: 8px;
-    z-index: 0
-}
-
-.card00 {
-    z-index: 0
-}
-
-.card1 {
-    margin-left: 80px;
-    z-index: 0;
-    border-right: 1px solid #F5F5F5
-}
-
-.card2 {
-    display: none
-}
-
-.card2.show {
-    display: block
-}
-
-.social {
-    border-radius: 50%;
-    background-color: #FFCDD2;
-    color: #388af4;
-    height: 47px;
-    width: 47px;
-    padding-top: 16px;
-    cursor: pointer
-}
-
-
-
-input:focus,
-select:focus {
-    -moz-box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-    border: 1px solid #388af4 !important;
-    outline-width: 0 !important
-}
-
-.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: #388af4
-}
-
-.form-group {
-    position: relative;
-    margin-bottom: 1.5rem;
-    width: 77%
-}
-
-.form-control-placeholder {
-    position: absolute;
-    top: 0px;
-    padding: 12px 2px 0 2px;
-    transition: all 300ms;
-    opacity: 0.5
-}
-
-.form-control:focus+.form-control-placeholder,
-.form-control:valid+.form-control-placeholder {
-    font-size: 95%;
-    top: 10px;
-    transform: translate3d(0, -100%, 0);
-    opacity: 1;
-    background-color: #fff
-}
-
-.next-button {
-    width: 18%;
-    height: 50px;
-    background-color: #388af4;
-    color: #fff;
-    border-radius: 6px;
-    padding: 15px;
-    cursor: pointer
-}
-
-.next-button:hover {
-    background-color: #388af4;
-    color: #fff
-}
-
-.get-bonus {
-    margin-left: 154px
-}
-
-.pic {
-    width: 230px;
-    height: 110px
-}
-
-#progressbar {
-    position: absolute;
-    left: 0px;
-    overflow: hidden;
-    color: #388af4;
-}
-
-#progressbar li {
-    list-style-type: none;
-    font-size: 8px;
-    font-weight: 400;
-    margin-bottom: 36px
-}
-
-#progressbar li:nth-child(3) {
-    margin-bottom: 0px
-}
-
-#progressbar .step0:before {
-    content: "";
-    color: #fff
-}
-
-#progressbar li:before {
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    display: block;
-    font-size: 20px;
-    background: #fff;
-    border: 2px solid #388af4;
-    border-radius: 50%;
-    margin: auto
-}
-
-/*#progressbar li:last-child:before {*/
-/*    width: 40px;*/
-/*    height: 40px*/
-/*}*/
-
-#progressbar li:after {
-    content: '';
-    width: 3px;
-    height: 66px;
-    background: #BDBDBD;
-    position: absolute;
-    left: 54px;
-    top: 15px;
-    z-index: -1
-}
-
-#progressbar li:last-child:after {
-    top: 147px;
-    height: 132px
-}
-
-#progressbar li:nth-child(3):after {
-    top: 81px
-}
-
-#progressbar li:nth-child(2):after {
-    top: 0px
-}
-
-#progressbar li:first-child:after {
-    position: absolute;
-    top: -81px
-}
-
-#progressbar li.active:after {
-    background: #388af4
-}
-
-#progressbar li.active:before {
-    background: #388af4;
-    font-family: FontAwesome;
-    content: "\f00c"
-}
-
-.tick {
-    width: 100px;
-    height: 100px
-}
-
-.prev {
-    display: block;
-    position: absolute;
-    left: 40px;
-    top: 20px;
-    cursor: pointer
-}
-
-.prev:hover {
-    color: #D50000 !important
-}
-
-@media screen and (max-width: 912px) {
-    .card00 {
-        padding-top: 30px
-    }
-
-    .card1 {
-        border: none;
-        margin-left: 50px
-    }
-
-    .card2 {
-        border-bottom: 1px solid #F5F5F5;
-        margin-bottom: 25px
-    }
-
-    .social {
-        height: 30px;
-        width: 30px;
-        font-size: 15px;
-        padding-top: 8px;
-        margin-top: 7px
-    }
-
-    .get-bonus {
-        margin-top: 40px !important;
-        margin-left: 75px
-    }
-
-    #progressbar {
-        left: -25px
-    }
-}
-.supporting_document_for_approval
-{
-    background-color: #2c3d58;
-
-    color: white;
-    font-weight: bold;
-    font-size: 14px;
-}
-.supporting_document_for_approval2
-{
-    background-color: #2c3d58;
-
-    color: white;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-
-</style>
+    
     @yield('css')
 
 </head>
@@ -467,6 +141,7 @@ $text=$setting[$text_name.'-toast']??'';
     <script src="{{ asset('admin/vendors/js/extensions/toastr.min.js') }}"></script>
     <script src="{{ asset('admin/js/map_autocomplete.js') }}"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="{{ asset('admin/js/tag_input.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -524,7 +199,15 @@ $text=$setting[$text_name.'-toast']??'';
 
         })
 
+    $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+    });
 
+    $('.sidebarCollapse,.navbar-collapse1').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+    });
     $(document).ready(function(){
         var deleteID = document.querySelectorAll(".alert-confirm");
         deleteID.forEach(function(e) {
@@ -833,10 +516,10 @@ $(document).on('click','.supporting_document_for_approval2',function(){
     var html=`<div class="form-group input-group">
 
 
-                                                            <input type="file" name="certifications[]" class="form-control" placeholder="Certification" ><i class="fa fa-trash remove-designation-btn" style="font-size: 25px;padding-left: 15px;padding-top: 5px;color: red;"></i>
-                                                            <div class="help-block"></div>
+            <input type="file" name="certifications[]" class="form-control" placeholder="Certification" ><i class="fa fa-trash remove-designation-btn" style="font-size: 25px;padding-left: 15px;padding-top: 5px;color: red;"></i>
+            <div class="help-block"></div>
 
-                                                    </div>`;
+    </div>`;
 
     $('.append_certification_div').append(html)
 });
