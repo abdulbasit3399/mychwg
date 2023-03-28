@@ -26,53 +26,66 @@
                 </div>
 
                 <ul class="list-group">
-                    <li class="list-group-item show">
-                        <a href="#">
+                    <li class="list-group-item @routeis('homeopath.dashboard') show @endrouteis">
+                        <a href="{{ route('homeopath.dashboard') }}">
                             <i class="fa fa-home" aria-hidden="true"></i>
                             Home</a>
                         </li>
-                    <li class="list-group-item">
-                        <a href="#">
-                        <i class="fa fa-check-square-o" aria-hidden="true"></i>
-                            Appointments</a>
-                            <p>2</p>
-                            </li>
-                    <li class="list-group-item">
-                        <a href="#">
-                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                Calender</a>
-                            </li>
-                    <li class="list-group-item">
-                        <a href="#">
-                        <i class="fa fa-users" aria-hidden="true"></i>
-                                Customers</a>
-                            <p>2</p>
-                            </li>
-                    <li class="list-group-item">
-                        <a href="#">
-                        <i class="fa fa-file-o" aria-hidden="true"></i>
-                                Resources</a>
-                            </li>
-                    <li class="list-group-item">
-                        <a href="#">
-                        <i class="fa fa-file-text" aria-hidden="true"></i>
-                                Finance</a>
-                            </li>
-                    <li class="list-group-item">
-                        <a href="#">
-                        <i class="fa fa-th-large" aria-hidden="true"></i>
-                                Services</a>
-                            </li>
-                    <li class="list-group-item">
-                        <a href="#">
-                        <i class="fa fa-cog" aria-hidden="true"></i>
+                    <li class="list-group-item @routeis('homeopath.services.index') show @endrouteis">
+                        <a href="{{ route('homeopath.services.index') }}">
+                        <i class="fa fa-server"></i>
+                            Services</a>
+                            {{-- <p>2</p> --}}
+                    </li>
+                    <li class="list-group-item @routeis('homeopath.settings.index') show @endrouteis">
+                        <a href="{{ route('homeopath.settings.index') }}">
+                        <i class="fa fa-gear"></i>
                                 Settings</a>
-                            </li>
-                    <li class="list-group-item">
-                        <a href="#">
-                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                my Schedule</a>
-                            </li>
+                    </li>
+                    <li class="list-group-item @routeis('homeopath.link.account') show @endrouteis">
+                        <a href="{{ route('homeopath.link.account') }}">
+                        <i class="fa fa-money"></i>
+                            Link Account
+                        </a>
+                            {{-- <p>2</p> --}}
+                    </li>
+                    <li class="list-group-item @routeis('homeopath.resources.index') show @endrouteis">
+                        <a href="{{ route('homeopath.resources.index') }}">
+                        <i class="fa fa-book"></i>
+                                Resources</a>
+                    </li>
+                    <li class="list-group-item @routeis('homeopath.finance.index') show @endrouteis">
+                        <a href="{{ route('homeopath.finance.index') }}">
+                        <i class="fa fa-usd"></i>
+                                Finance</a>
+                    </li>
+                    <li class="list-group-item @routeis('homeopath.documents.index') show @endrouteis">
+                        <a href="{{ route('homeopath.documents.index') }}">
+                        <i class="fa fa-folder"></i>
+                                Documents</a>
+                    </li>
+                    <li class="list-group-item @routeis('homeopath.customers.index') active @endrouteis">
+                        <a href="{{ route('homeopath.customers.index') }}">
+                        <i class="fa fa-users"></i>
+                                Customers</a>
+                    </li>
+
+                    <li class="list-group-item @routeis('homeopath.appointments.index') active @endrouteis">
+                        <a href="{{ route('homeopath.appointments.index') }}">
+                        <i class="fa fa-calendar-check"></i>
+                                Appointments</a>
+                    </li>
+
+                    <li class="list-group-item @routeis('homeopath.appointments.calendar') show @endrouteis">
+                        <a href="{{ route('homeopath.appointments.calendar') }}">
+                        <i class="fa fa-folder"></i>
+                                Calendar</a>
+                    </li>
+                    <li class="list-group-item @routeis('homeopath.appointments.schedule') show @endrouteis">
+                        <a href="{{ route('homeopath.appointments.schedule') }}">
+                        <i class="fa fa-calendar-alt"></i>
+                                My Schedule</a>
+                    </li>
                 </ul>
             </div>
         </div>
