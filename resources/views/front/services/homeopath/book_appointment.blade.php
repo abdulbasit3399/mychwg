@@ -293,7 +293,6 @@
     $(document).on('click', '#card-button', function(){
 
 
-
     var value = $('.required-entry:visible').filter(function () {
 
     return this.value === '';

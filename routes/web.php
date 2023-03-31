@@ -781,8 +781,9 @@ Route::post('admin/login', 'Admin\AdminLoginController@AdminAttemptLogin')->name
 
 
     Route::get('donations', 'DonationController@donations')->name('donations');
-
-
+    Route::get('discount-code', 'DiscountController@index')->name('discount-code');
+    Route::post('discount-store', 'DiscountController@store')->name('discount-code-store');
+    Route::post('discount-toggle', 'DiscountController@discount_toggle')->name('discount-toggle');
 
 
     Route::name('member.')->prefix('member')->namespace('Member')->group(function () {

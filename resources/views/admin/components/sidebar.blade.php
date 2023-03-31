@@ -51,7 +51,9 @@
             @can('browse_donations')
                 <li class="nav-item @routeis('admin.donations') active @endrouteis"><a href="{{ route('admin.donations') }}"><i class="feather icon-dollar-sign"></i>Donations</a></li>
             @endcan
-
+            @can('discount_code')
+                <li class="nav-item @routeis('admin.discount-code') active @endrouteis"><a href="{{ route('admin.discount-code') }}"><i class="feather icon-dollar-sign"></i>Discount Code</a></li>
+            @endcan
 
 
             @can('browse_shop')
