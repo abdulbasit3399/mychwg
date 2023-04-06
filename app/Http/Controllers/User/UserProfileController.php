@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\User;
 
+use Hash;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Rules\PasswordExistRule;
-use Hash;
 use App\Models\User;
 use App\Models\Profile;
 use App\Models\AdsSetting;
@@ -111,7 +111,37 @@ class UserProfileController extends Controller
 
         return back()->with('message', 'Password has been updated.');
     }
+    public function upgrade_advocate($id)
+    {
+        $user = User::find(Auth::id());
+        $data = array(
+           'given_name' => $user->name,
+           'email_address' => $user->email
+        );
 
+        $url = env('SQUARE_API_URL')."/v2/customers";
+        $client = new \GuzzleHttp\Client();
+        $response = $client->post($url, [
+            'headers' => ['Content-Type' => 'application/json', 'Accept' => 'application/json','Authorization' => 'Bearer '.env('SQUARE_ACCESS_TOKEN')],
+            'body'    => json_encode($data)
+        ]);
+
+        $customer_result = json_decode($response->getBody(), true);
+        $customer_id = $customer_result['customer']['id'];
+
+        $user->stripe_id = $customer_id;
+        $user->role = 'advocate';
+        $user->save();
+
+        Profile::create([
+            'user_id'    => $user->id,
+            'state'      => $user->state,
+            'country'    => $user->country,
+            'zip_code'   => $user->zip_code,
+        ]);
+
+        return redirect()->route('create.subscription',$id);
+    }
 
 
 

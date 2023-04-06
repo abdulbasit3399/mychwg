@@ -32,7 +32,7 @@ class CheckoutController extends Controller
                     'payer_email'       => Auth::user()->email,
                     'currency'          => 'USD',
                     'quantity'          => 1,
-                    'description'       => 'Buy Products at IHWG',
+                    'description'       => 'Buy Products at CHWG',
                     'success_url'       => route('shop.payment.success'),
                     'cancel_url'        => route('shop.payment.success')
                 ];

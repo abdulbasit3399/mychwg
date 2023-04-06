@@ -24,13 +24,19 @@ input[type=number] {
 
 @section('content')
 
+
 <!-- users edit start -->
 <section class="users-edit">
+
     <div class="card">
+
         <div class="card-content">
             <div class="card-body">
                 <h3>Profile Information</h3>
+
                 <hr>
+                
+                <a href="#" data-toggle="modal" data-target="#modalAddService" class="btn btn-success" style="float:right;">Upgrade to Advocate</a>
 
                 @if($errors->any())
                     <div class="alert alert-danger">
@@ -181,5 +187,64 @@ input[type=number] {
 
 </section>
 <!-- users edit ends -->
+
+<div class="modal fade" id="modalAddService" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">Order Package & Plans</h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                <span aria-hidden="true">&times;</span>
+
+                </button>
+
+            </div>
+
+            <div class="modal-body" style="max-height: 500px; overflow: auto;">
+
+                <div class="col-lg-12">
+                    <div class="card border-0 jumbotron p-1 payment_card" style="background-color: white;">
+                        <div class="card-body">
+                            
+
+                            <div class="clearfix">
+                                <div class="float-left1 mb-1">
+                                    <p class="text-info">(Yearly Subscription) $200</p>
+                                    <p>This package will automatically renew the following year on the date of purchase.</p>
+                                    <a class="btn btn-sm btn-info text-white py-1" style="font-size: small;float: right;" href="{{route('user.upgrade-advocate',env('ADVOCATE_YEARLY_PLAN_SQUARE'))}}">Subscribe</a>
+                                </div>
+
+
+                            </div>
+                            <hr>
+                            <div class="clearfix">
+                                <div class="float-left1 mb-1">
+                                    <p class="text-info">(Monthly Subscription) $20</p>
+                                    <p>This package will automatically renew the following month on the date of purchase.</p>
+                                    <a class="btn btn-sm btn-info text-white py-1" style="font-size: small;float: right;" href="{{route('user.upgrade-advocate',env('ADVOCATE_MONTHLY_PLAN_SQUARE'))}}">Subscribe</a>
+                                </div>
+
+                            </div>
+
+                            
+                        </div>
+
+                    </div>
+                    <small><strong>NOTE: </strong>All prices are in Canadian Dollar (CAD)</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 @endsection

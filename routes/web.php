@@ -393,6 +393,7 @@ Route::name('user.')->prefix('user')->namespace('User')->middleware(['status', '
     Route::get('/dashboard', 'UserProfileController@dashboard')->name('dashboard');
 
     Route::get('profile', 'UserProfileController@profile')->name('profile');
+    Route::get('upgrade-advocate/{id}', 'UserProfileController@upgrade_advocate')->name('upgrade-advocate');
     Route::post('crop', 'UserProfileController@crop')->name('crop');
 
     Route::post('update-profile', 'UserProfileController@updateProfile')->name('update.profile');

@@ -61,16 +61,16 @@
 </section>
 
     <script type="text/javascript">
-    $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-    })
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
     </script>
     <script>
-    $(document).on('click', '#card-button', function(){
+        $(document).on('click', '#card-button', function(){
     
-    var value = $('.required-entry:visible').filter(function () {
-    return this.value === '';
-    });
+        var value = $('.required-entry:visible').filter(function () {
+            return this.value === '';
+        });
     if (value.length == 0)
     {
     if($('#payment_method').val() == 'paypal' || $('#payment_method').val() == 'pay-later')

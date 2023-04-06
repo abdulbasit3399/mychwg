@@ -6,7 +6,7 @@
           <strong class="float-right pr-4" style="color: {{ $service->ServiceTheme->color ?? '#000' }};">3 of 4</strong>
           <div class="col-lg-11 offset-lg-1 pt-1" style="color: {{ $service->ServiceTheme->color ?? '#000' }};">
             <h2 class="pt-4">Payment</h2>
-            <p>Please provide the following payment information.<br>information. You can always pay later if you wish.</p>
+            <p>Please provide the following payment information.<br>You can always pay later if you wish.</p>
             <p class="pt-3">Thank you!</p>
           </div>
 
