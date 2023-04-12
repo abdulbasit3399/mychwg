@@ -28,7 +28,7 @@
 
               <label for="slot__{{ $loop->iteration }}_{{ $i }}">
 
-                <span>{{ convertToTime($i) }}</span>
+                <span>{{ addCustomTime(convertToTime($i),$timeDifference) }}</span>
 
               </label>
 

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Auth;
 use Crypt;
 use Session;
+use DateTime;
+use DateTimeZone;
 use App\Models\HomeopathService;
 use App\Models\ServiceBooking;
 use App\Models\Timetable;
@@ -67,6 +69,36 @@ class BookingController extends Controller
 
     public function getServiceSlot(Request $req)
     {
+
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $ip_address = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip_address = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } else {
+            $ip_address = $_SERVER['REMOTE_ADDR'];
+        }
+
+        $api_url = "http://ip-api.com/json/{$ip_address}?fields=status,message,timezone";
+        $response = file_get_contents($api_url);
+        $data = json_decode($response, true);
+
+        if ($data['status'] === 'success') {
+            $userTimezone = $data['timezone'];
+        } else {
+            // Use a default timezone if the API request fails
+            $userTimezone = 'America/New_York';
+        }
+        $etTimezone = new DateTimeZone('America/New_York');
+        $userTimezone = new DateTimeZone($userTimezone);
+
+        $etDateTime = new DateTime('now', $etTimezone);
+        $userDateTime = new DateTime('now', $userTimezone);
+
+        $timeOffset = $userTimezone->getOffset($userDateTime) - $etTimezone->getOffset($etDateTime);
+
+        // Time difference in minutes
+        $timeDifference = $timeOffset / 60;
+
 
         if ($req->homeopath_id) {
             

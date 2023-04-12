@@ -701,6 +701,18 @@ use App\Models\HomeopathBadgesSetting;
 
 
     }
+    function addCustomTime($time, $customTime)
+    {
+        $timeObject = new DateTime($time);
+        $absCustomTime = abs($customTime);
+        $customTimeObject = new DateInterval("PT{$absCustomTime}M");
+        if ($customTime < 0) {
+            $customTimeObject->invert = 1;
+        }
+
+        $timeObject->add($customTimeObject);
+        return $timeObject->format('H:i');
+    }
 
 
 ?>
