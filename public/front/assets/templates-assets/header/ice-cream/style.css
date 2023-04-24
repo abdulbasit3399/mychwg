@@ -261,8 +261,13 @@ header .mini-cart-content .cart-bottom .btn{margin-top:10px}
 header .mini-cart-content .dropdown-menu ul .item .info .title{font-size:12px}
 header .mini-cart-content .dropdown-menu ul .item{width:100%}
 }
-.hero__copy h1{ font-size: 44px;font-weight: 700; opacity: 0.9;}
-.hero__copy p{ font-size: 18px; margin-top: 20px; font-weight: 500; opacity: 0.8; max-width: 480px;}
+.hero__copy h1{ 
+	font-size: 44px;
+	font-weight: 700;
+	opacity: 0.9;
+	color: #01110F;
+}
+.hero__copy p{ font-size: 18px; margin-top: 20px; font-weight: 500; opacity: 0.8; max-width: 480px;color: #01110F;}
 .container-sticky .navbar-toggler{
     padding-left: 15px !important;
     padding-right: 15px !important;

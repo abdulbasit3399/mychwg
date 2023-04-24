@@ -14,6 +14,7 @@
         "laravel/cashier": "^13.4",
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
+        "laravelhelper/laravel-iide-helper": "^1.0",
         "macsidigital/laravel-zoom": "^5.0",
         "paypal/rest-api-sdk-php": "^1.14",
         "sarfraznawaz2005/visitlog": "^1.3",

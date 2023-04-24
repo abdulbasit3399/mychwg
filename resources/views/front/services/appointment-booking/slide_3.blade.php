@@ -83,6 +83,7 @@
                       <div id="payment-form1">
                         <div id="payment-status-container"></div>
                         <div id="card-container"></div>
+                        <button id="card-button-back" type="button" style="border-color: #C7B38F;" class="btn btn-checkout text-dark btn-primary mx-2">Back</button>
                         <button id="card-button" type="button" class="btn btn-primary">Pay</button>
                         <input type="hidden" name="square_tok" id="square_tok">
                       </div>
@@ -185,6 +186,7 @@
           </div>
           <div class="col-lg-12 text-right">
             <input type="hidden" name="payment_method" id="payment_method" value="stripe">
+            <button id="card-button-back" type="button" style="border-color: #C7B38F;" class="btn btn-checkout text-dark btn-primary mx-2">Back</button>
             <button type="submit" class="btn btn-checkout text-dark" id="card-button" >Checkout</button>
           </div>
         </div>

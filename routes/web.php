@@ -437,6 +437,7 @@ Route::name('homeopath.')->prefix('homeopath')->namespace('Homeopath')->middlewa
         Route::post('/set/account', 'AccountController@setAccount')->name('set.account');
         Route::get('/stripe/connect', 'AccountController@stripeConnect')->name('stripe.connect');
         Route::get('/stripe/boarded', 'AccountController@stripeBoarded')->name('stripe.boarded');
+        Route::post('/square/connect', 'AccountController@squareConnect')->name('square.connect');
 
 
 

@@ -17,8 +17,8 @@
     <div id="custom_single_page">
         <div class="container">
             <br>
-            <p style="text-align:center;"><strong>{{$setting['site_full_name'] ?? ''}}</strong></p>
-            <h5  style="text-align:center;">{{$setting['about_main_heading'] ?? ''}}</h5>
+            <p style="text-align:center;"><strong class="gotham-bold">{{$setting['site_full_name'] ?? ''}}</strong></p>
+            <h5  style="text-align:center;" class="lora-regular">{{$setting['about_main_heading'] ?? ''}}</h5>
             <div class="row card-site rounded mt-5">
                 <div class="col-sm-6 m-auto">
                     <div class="text-center">
@@ -29,8 +29,9 @@
                         </svg>
                 </div>
                 <div class="txt16">
-                    <h2 class="txt30">{{$setting['about_section_1st_heading'] ?? ''}}</h2>
-                    {{$setting['about_section_1st_desctiption'] ?? ''}}
+                    <h2 class="txt30 gotham-bold">{{$setting['about_section_1st_heading'] ?? ''}}</h2>
+                    <p class="gotham-black">{{$setting['about_section_1st_desctiption'] ?? ''}}</p>
+                    
                 </div>
             </div>
             <div class="col-sm-6 p-0">
@@ -58,8 +59,8 @@
                     </svg>
                 </div>
                 <div class="txt16">
-                    <h2 class="txt30">{{$setting['about_section_2nd_heading'] ?? ''}}</h2>
-                    {{$setting['about_section_2nd_desctiption'] ?? ''}}
+                    <h2 class="txt30 gotham-bold">{{$setting['about_section_2nd_heading'] ?? ''}}</h2>
+                    <p class="gotham-black">{{$setting['about_section_2nd_desctiption'] ?? ''}}</p>
                 </div>
             </div>
         </div>
@@ -74,8 +75,8 @@
                     </svg>
                 </div>
                 <div class="txt16">
-                    <h2 class="txt30">{{$setting['about_section_3rd_heading'] ?? ''}}</h2>
-                    {{$setting['about_section_3rd_desctiption'] ?? ''}}
+                    <h2 class="txt30 gotham-bold">{{$setting['about_section_3rd_heading'] ?? ''}}</h2>
+                    <p class="gotham-black">{{$setting['about_section_3rd_desctiption'] ?? ''}}</p>
                 </div>
             </div>
             <div class="col-sm-6 p-0">
@@ -97,8 +98,8 @@
         </svg>
     </div>
     <div class="txt16">
-        <h2 class="txt30">{{$setting['about_section_4th_heading'] ?? ''}}</h2>
-        {{$setting['about_section_4th_desctiption'] ?? ''}}
+        <h2 class="txt30 gotham-bold">{{$setting['about_section_4th_heading'] ?? ''}}</h2>
+        <p class="gotham-black">{{$setting['about_section_4th_desctiption'] ?? ''}}</p>
     </div>
 </div>
 </div>

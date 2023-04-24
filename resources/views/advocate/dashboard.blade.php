@@ -14,7 +14,7 @@
 
     {
 
-        background-color: #2174FF;
+        background-color: #2273FF;
 
         color: #fff;
 
@@ -162,26 +162,7 @@
 
 
 
-    
-
-   
-
-
-
-
-
-
-
-
-
 @include('components.ads_banner')
-
-
-
-
-
-
-
 
 
     </div>
@@ -370,7 +351,7 @@
 
                                     <div class="media">
 
-                                        <i class="fas fa-video zoom-icon"></i>
+                                        <i class="fas fa-video zoom-icon" ></i>
 
                                       <div class="media-body">
 
@@ -450,7 +431,7 @@
 
                                             <i class="far fa-smile text-success fa-5x"></i>
 
-                                            <h2 class="text-success mt-1 font-weight-bold">Your account is linked with Zoom at CHWG.</h2>
+                                            <h2 class="text-success mt-1 font-weight-bold" style="color: #5BB46A;">Your account is linked with Zoom at CHWG.</h2>
 
                                             <h5>You can generate meetings for events and start your session(s) with members.</h5>
 

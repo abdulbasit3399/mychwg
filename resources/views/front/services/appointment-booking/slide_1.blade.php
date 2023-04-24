@@ -1,5 +1,6 @@
     <div class="container container-book-appointment mb-4" style="border:5px solid #58C763;">
-      <div class="appointment-banner pt-3 pb-1 row" style="background-image:url('{{ asset($service->ServiceTheme->cover) }}')">
+      <div class="appointment-banner pt-3 pb-1 row" style="background-color: #7EF6EC;">
+      {{-- <div class="appointment-banner pt-3 pb-1 row" style="background-image:url('{{ asset($service->ServiceTheme->cover) }}')"> --}}
 
         <div class="col-lg-11 col-md-11 col-sm-11 col-11 offset-lg-1 pt-1" style="color: {{ $service->ServiceTheme->color }};">
           <h2>Book an <br>Appointment</h2>

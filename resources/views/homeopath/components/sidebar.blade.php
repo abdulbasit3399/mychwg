@@ -7,7 +7,7 @@
             <div class=" leftside">
                 <i class="fa fa-home" aria-hidden="true"></i>
                 <i class="fa fa-home" aria-hidden="true"></i>
-                <a href="{{ route('social.index') }}"><img src="{{asset('uploads/img/mflogo_short.png')}}" style="width: 34px;"> </a>
+                <a href="{{ route('social.index') }}" style="padding: 11px 0px;"><img src="{{asset('uploads/img/mflogo_short.png')}}" style="width: 24px;"> </a>
             </div>
             <div class="rightside">
                 <i class="fa fa-times sidebarCollapse" aria-hidden="true"></i>

@@ -162,6 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        laravelhelper\LaravelIideHelper\LaravelIideHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Sarfraznawaz2005\VisitLog\VisitLogServiceProvider::class,
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,

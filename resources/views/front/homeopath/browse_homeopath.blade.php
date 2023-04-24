@@ -176,13 +176,13 @@
                 </div>
                 <hr class="my-2">
                 <div class="btn-group w-100 homeo-profile-buttons">
-                  <a class="btn btn-connect btn-primary m-0 btn-block" data-id="{{ Crypt::encrypt($item->id) }}">
+                  {{-- <a class="btn btn-connect btn-primary m-0 btn-block" data-id="{{ Crypt::encrypt($item->id) }}">
                     @if(checkUserFollowing(Auth::id(), $item->id) > 0)
                     Unfollow
                     @else
                     Follow
                     @endif
-                  </a>
+                  </a> --}}
                   <a href="{{ route('profile.homeopath', $item->user_name) }}" class="btn btn-success m-0 btn-block">Enter Clinic</a>
                 </div>
               </div>

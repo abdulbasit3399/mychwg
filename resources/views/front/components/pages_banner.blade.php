@@ -11,8 +11,8 @@
             <div class="banner-box">
                 <div class="banner-top text-center">
                     <div class="inner2 text-white">
-                        <h2 class="txt60 text-dark">{{ $heading ?? '' }}</h2>
-                        <p class="text-dark">{{ $description ?? '' }}</p>
+                        <h2 class="txt60 text-dark quarto-semibold">{{ $heading ?? '' }}</h2>
+                        <p class="text-dark gotham-black">{{ $description ?? '' }}</p>
                         <p class="cmp-button-row non-mobile-only">
                             <div class="right-box">
                                 <div class="screenshot"></div>

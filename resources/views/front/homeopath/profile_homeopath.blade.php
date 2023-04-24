@@ -527,29 +527,32 @@
 
         })
         $(document).on('click', '.modal-body .btn-detail-next', function() {
-
             $('.modal-body #nav-home').addClass('d-none');
-
-
             $('.modal-body #nav-detail').addClass('active show');
             $('.modal-body #nav-detail').removeClass('d-none');
             // $('.modal-body #nav-detail .btn-payment-next').addClass('active show');
-
-
         })
-        $(document).on('click', '.modal-body .continue_btn', function() {
-
+        $(document).on('click', '.modal-body .continue_back_btn', function() {
+            $('.modal-body #nav-home').removeClass('d-none');
+            $('.modal-body #nav-home').addClass('active show');
             $('.modal-body #nav-detail').removeClass('active show');
             $('.modal-body #nav-detail').addClass('d-none');
 
+        })
 
+        $(document).on('click', '.modal-body .continue_btn', function() {
+            $('.modal-body #nav-detail').removeClass('active show');
+            $('.modal-body #nav-detail').addClass('d-none');
             $('.modal-body #nav-payment').addClass('active show');
             $('.modal-body #nav-payment').removeClass('d-none');
-
-            // $('.modal-body #nav-detail .btn-payment-next').addClass('active show');
-
-
         })
+        $(document).on('click', '#card-button-back', function() {
+            $('.modal-body #nav-detail').addClass('active show');
+            $('.modal-body #nav-detail').removeClass('d-none');
+            $('.modal-body #nav-payment').removeClass('active show');
+            $('.modal-body #nav-payment').addClass('d-none');
+        })
+
         // function checkboxMetting(thiss) {
 
         //     if (thiss=='Offline')
@@ -575,7 +578,12 @@
 
 
 <script>
-
+$(document).ready(function() {
+       google.load("maps", "3.exp", {
+         callback: initMaps,
+         other_params: 'key=AIzaSyCVwpL3ta3ApX5weM8ETTHklnSG0WeC3b0&libraries=places,drawing'
+       });
+     })
 var map;
 
 function initMaps() {

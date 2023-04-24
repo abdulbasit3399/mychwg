@@ -136,33 +136,14 @@
 
     <body>
 
-
+@include('layouts.fonts')
 
 @php
 
-
-
 $last = url()->current();
-
 $split = explode("/", $last);
-
-
-
 $text_name=$split[count($split)-1];
-
-
-
 $text=$setting['feedback-toast']??'';
-
-
-
-
-
-
-
-
-
-
 
 @endphp
 

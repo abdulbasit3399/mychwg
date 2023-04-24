@@ -15,8 +15,8 @@
     <div id="custom_single_page">
         <div class="py-4"  style="background-color:#F2F2F2 ;">
             <div class="container text-center">
-                <h2 class="">MISSION STATEMENT</h2>
-                <p style="margin:0 auto; max-width:849px">
+                <h2 class="light">MISSION STATEMENT</h2>
+                <p class="gotham-black" style="margin:0 auto; max-width:849px">
                     {{$setting['mission_statemtnt_heading'] ?? ''}}
                 </p>
             </div>
@@ -33,10 +33,10 @@
                         </svg>
                     </div>
                     <div class="col-md-12 col-sm-12 col-xs-12 image-title">
-                        <span style="font-family:poppins-semibold,poppins,sans-serif;font-weight:bold;font-size:30px;text-align: center;">{{$setting['mission_stat_1st_heading'] ?? ''}}</span>
+                        <span style="font-weight:bold;font-size:30px;text-align: center;" class="gotham-bold">{{$setting['mission_stat_1st_heading'] ?? ''}}</span>
                     </div>
                     <div class="col-md-12 col-sm-12 col-xs-12 image-description">
-                        <p>{{$setting['mission_stat_1st_description'] ?? ''}}</p>
+                        <p class="gotham-black">{{$setting['mission_stat_1st_description'] ?? ''}}</p>
                     </div>
                 </div>
             </div>
@@ -50,10 +50,10 @@
                     </svg>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12 image-title">
-                    <span style="font-family:poppins-semibold,poppins,sans-serif;font-weight:bold;font-size:30px;">{{$setting['mission_stat_2nd_heading'] ?? ''}}</span>
+                    <span class="gotham-bold" style="font-weight:bold;font-size:30px;">{{$setting['mission_stat_2nd_heading'] ?? ''}}</span>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12 image-description">
-                    <p>{{$setting['mission_stat_2nd_description'] ?? ''}}</p>
+                    <p class="gotham-black">{{$setting['mission_stat_2nd_description'] ?? ''}}</p>
                 </div>
             </div>
         </div>
@@ -79,10 +79,10 @@
 </svg>
 </div>
 <div class="col-md-12 col-sm-12 col-xs-12 image-title">
-<span style="font-family:poppins-semibold,poppins,sans-serif;font-weight:bold;font-size:30px;">{{$setting['mission_stat_3rd_heading'] ?? ''}}</span>
+<span class="gotham-bold" style="font-weight:bold;font-size:30px;">{{$setting['mission_stat_3rd_heading'] ?? ''}}</span>
 </div>
 <div class="col-md-12 col-sm-12 col-xs-12 image-description">
-<p>{{$setting['mission_stat_3rd_description'] ?? ''}}</p>
+<p class="gotham-black">{{$setting['mission_stat_3rd_description'] ?? ''}}</p>
 </div>
 </div>
 </div>
@@ -110,10 +110,10 @@
 </svg>
 </div>
 <div class="col-md-12 col-sm-12 col-xs-12 image-title">
-<span style="font-family:poppins-semibold,poppins,sans-serif;font-weight:bold;font-size:30px;">{{$setting['mission_stat_4th_heading'] ?? ''}}</span>
+<span style="font-weight:bold;font-size:30px;" class="gotham-bold">{{$setting['mission_stat_4th_heading'] ?? ''}}</span>
 </div>
 <div class="col-md-12 col-sm-12 col-xs-12 image-description">
-<p>{{$setting['mission_stat_4th_description'] ?? ''}}</p>
+<p class="gotham-black">{{$setting['mission_stat_4th_description'] ?? ''}}</p>
 </div>
 </div>
 </div>
@@ -129,10 +129,10 @@
 </svg>
 </div>
 <div class="col-md-12 col-sm-12 col-xs-12 image-title">
-<span style="font-family:poppins-semibold,poppins,sans-serif;font-weight:bold;font-size:30px;">{{$setting['mission_stat_5th_heading'] ?? ''}}</span>
+<span class="gotham-bold" style="font-weight:bold;font-size:30px;">{{$setting['mission_stat_5th_heading'] ?? ''}}</span>
 </div>
 <div class="col-md-12 col-sm-12 col-xs-12 image-description">
-<p>{{$setting['mission_stat_5th_description'] ?? ''}}</p>
+<p class="gotham-black">{{$setting['mission_stat_5th_description'] ?? ''}}</p>
 </div>
 </div>
 </div>
@@ -149,10 +149,10 @@
 </svg>
 </div>
 <div class="col-md-12 col-sm-12 col-xs-12 image-title">
-<span style="font-family:poppins-semibold,poppins,sans-serif;font-weight:bold;font-size:30px;">{{$setting['mission_stat_6th_heading'] ?? ''}}</span>
+<span class="gotham-bold" style="font-weight:bold;font-size:30px;">{{$setting['mission_stat_6th_heading'] ?? ''}}</span>
 </div>
 <div class="col-md-12 col-sm-12 col-xs-12 image-description">
-<p>{{$setting['mission_stat_6th_description'] ?? ''}}</p>
+<p class="gotham-black">{{$setting['mission_stat_6th_description'] ?? ''}}</p>
 </div>
 </div>
 </div>

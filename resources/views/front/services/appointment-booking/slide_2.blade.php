@@ -140,6 +140,7 @@
 
           <div class="col-lg-12 text-right mt-4 active show ">
             <div class="nav nav-tabs float-right">
+              <a class="nav-item nav-link btn btn-primary continue_back_btn mx-2" style="border-color: #c7b38f;" id="nav-payment-tab1" data-toggle="pill" href="#nav-payment" role="tab" aria-controls="nav-payment" aria-selected="false">Back</a>
               <a class="nav-item nav-link btn btn-primary continue_btn" id="nav-payment-tab" data-toggle="pill" href="#nav-payment" role="tab" aria-controls="nav-payment" aria-selected="false">Continue</a>
             </div>
           </div>
