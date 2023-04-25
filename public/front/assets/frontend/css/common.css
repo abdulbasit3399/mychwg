@@ -730,14 +730,14 @@ header .header-content-menu .sticky-nav .nav-list-main{ margin: 0 0 0 auto !impo
   .banner-box .screenshot {
     position: absolute;
     top: 0;
-    left: 32px;
+    left: 0px;
     width: 60vw;
     max-width: 950px;
     transform: translateY(-20%);
     border-radius: 6px;
   }
 }
-.banner-box .screenshot img{ width: 100%;}
+.banner-box .screenshot img{ width: 95%;}
 .banner2{ background-color:#E2E3E8; padding: 30px 0;margin-bottom: 6%;}
 .banner2 h2{ font-size: 32px;}
 .banner2 p{ font-size: 16px;}

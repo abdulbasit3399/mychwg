@@ -5,7 +5,9 @@
     <div class="container1 sidebar">
         <div class="row ml-0">
             <div class=" leftside">
-                <i class="fa fa-home" aria-hidden="true"></i>
+                <a href="{{ route('index') }}">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                </a>
                 <i class="fa fa-home" aria-hidden="true"></i>
                 <a href="{{ route('social.index') }}" style="padding: 11px 0px;"><img src="{{asset('uploads/img/mflogo_short.png')}}" style="width: 24px;"> </a>
             </div>

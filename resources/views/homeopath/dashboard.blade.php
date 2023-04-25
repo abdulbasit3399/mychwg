@@ -39,28 +39,28 @@
     .bg-animated
     {
       background-color: #11639A;
-/*      animation: changeBackgroundColor 3s infinite;*/
+      animation: changeBackgroundColor 3s infinite;
       color: #000 !important;
     }
 
     @keyframes changeBackgroundColor
     {
       0% {
-        background-color: #388AF4;
+        background-color: #1994e6;
       }
       25% {
-        background-color: #646FF1;
+        background-color: #1785cf;
       }
       50% {
-        background-color: #388AF4;
+        background-color: #1476b8;
       }
 
       75% {
-        background-color: #646FF1;
+        background-color: #1268a1;
       }
 
       100% {
-        background-color: #388AF4;
+        background-color: #11639A;
       }
     }
 

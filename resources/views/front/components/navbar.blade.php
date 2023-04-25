@@ -126,9 +126,11 @@
 
                 <div class="col-lg-3">
 
-                    <div class="logo text-left mt-3">
+                    <div class="logo text-left">
 
-                        <a href="{{ route('index') }}"><img src="{{ asset($setting['logo']) ?? ''}}" title="{{ env('APP_NAME') }}" alt="{{ env('APP_NAME') }}"></a>
+                        <a href="{{ route('index') }}">
+                            <img src="{{ asset($setting['logo']) ?? ''}}" title="{{ env('APP_NAME') }}" alt="{{ env('APP_NAME') }}" style="padding-top: 23px;padding-bottom: 15px;">
+                        </a>
 
                     </div>
 

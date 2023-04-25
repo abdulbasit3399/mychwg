@@ -1,12 +1,10 @@
-{{-- <a href="#" class="float-right btn-view-all" data-toggle="modal" data-target="#viewAllResources">View all ></a> --}}
+<a href="#" class="float-right btn-view-all" data-toggle="modal" data-target="#viewAllResources">View all ></a>
 <h4>Resource Materials</h4>
 
 <div class="row text-center mt-4">
 
      @foreach($homeopath->HomeopathResources->sortByDesc('id') as $item)
-        
-
-
+      @if($loop->iteration<3)
         <div class="col-md-6 text-center mb-3">
           <div class="card resource_card rounded-0 mb-1">
             <img src="{{ $item->image ?  asset($item->image) : asset('uploads/img/resource.png') }}">
@@ -28,13 +26,10 @@
                   data-pdf="@if(isset($item->attachment)) {{asset($item->attachment)}} @endif"  class="btn-read btn__open_resource d-none">Open Resource
                 </button>
                 
-                
             </div>
           </div>
         </div>
-
-
-
+      @endif
     @endforeach
 
 
@@ -75,9 +70,7 @@
               </div>
 
               <div class="col-sm-3 px-4 m-auto">
-                  <img id="resource_image" src="" style="width:100%;object-fit: cover;box-shadow: 15px 0px 0px -9px rgba(115,115,115,1);
--webkit-box-shadow: 15px 0px 0px -9px rgba(115,115,115,1);
--moz-box-shadow: 15px 0px 0px -9px rgba(115,115,115,1);">
+                  <img id="resource_image" src="" style="width:100%;object-fit: cover;box-shadow: 15px 0px 0px -9px rgba(115,115,115,1);-webkit-box-shadow: 15px 0px 0px -9px rgba(115,115,115,1);-moz-box-shadow: 15px 0px 0px -9px rgba(115,115,115,1);">
               </div>
 
             </div>
@@ -111,10 +104,13 @@
 
                                   @endif
                               </div>
-                              <button type="button" data-title="{{ $item->title }}" 
+                              @if(isset($item->attachment))
+                              <a href="{{asset($item->attachment)}}" target="_blank" class="btn rounded-0 px-3 py-2" style="bottom: 0;background-color: #E5BCB3;color: #fff;">Open Resource</a>
+                              @endif
+                              {{-- <button type="button" data-title="{{ $item->title }}" 
                               data-src="{{ $item->image ?  asset($item->image) : asset('uploads/img/resource.png') }}"
                               data-pdf="@if(isset($item->attachment)) {{asset($item->attachment)}} @endif" 
-                              data-description="{{ $item->description }}" class="btn-read">Read</button>
+                              data-description="{{ $item->description }}" class="btn-read">Open Resource</button> --}}
                           </div>
                       @endforeach
               </div>
